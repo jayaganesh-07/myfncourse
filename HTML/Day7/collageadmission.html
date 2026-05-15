@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Admission Form</title>
+</head>
+
+<body>
+   <center>
+     <section>
+        <div>
+            <form>
+                <h1>Collage Admission Form</h1>
+
+                <fieldset>
+                    <legend>Personal Details</legend>
+
+                    <label>Full Name:</label>
+                    <input type="text"required placeholder="Enter the Name"><br><br>
+
+                    <label>Email:</label>
+                    <input type="email" required placeholder="Enterthe Email"><br><br>
+
+                    <label>Phone Number:</label>
+                    <input type="tel" required minlength="10" maxlength="10" placeholder="10 Digit Number"><br><br>
+
+                    
+                    <label>Gender:</label>
+                    <input type="radio" name="Gender" value="male"> Male
+                    <input type="radio" name="Gender" value="female"> Female
+                   
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Course Details</legend>
+
+                    <label>Department:</label>
+
+                    <select>
+
+                        <optgroup label="Engineering">
+                            <option value="" selected disabled>Choose One</option>
+                            <option>CSE</option>
+                            <option>ECE</option>
+                            <option>EEE</option>
+                        </optgroup>
+
+                        <optgroup label="Arts">
+                            <option value="" selected disabled>Choose One</option>
+                            <option>BCA</option>
+                            <option>BBA</option>
+                            <option>B.Com</option>
+                        </optgroup>
+
+                    </select>
+
+                </fieldset>
+
+                <br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear Form">
+
+            </form>
+        </div>
+    </section>
+   </center>
+</body>
+
+</html>
