@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML5 Learning Webpage for Beginners">
+    <meta name="keywords" content="HTML5, HTML Tutorial, Web Development">
+    <meta name="author" content="Jaya Ganesh">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="HTML5 Learning Webpage">
+    <meta property="og:description" content="Learn all HTML5 topics with examples">
+    <meta property="og:type" content="website">
+
+    <title>HTML5 Learning Webpage</title>
+    <link rel="icon" href="../assets/html-image/html1.jpg" type="image/jpeg">
+
+
+</head>
+
+<body id="top">
+<center>
+    
+    <header>
+        <h1>HTML5 Learning Webpage</h1>
+        <p>Learn HTML5 Topics with Definitions, Uses, Tags, Attributes and Examples</p>
+    </header>
+    <hr>
+
+    <nav>
+        <a href="#webpage">Webpage</a>
+        <a href="#website">Website</a>
+        <a href="#html">HTML</a>
+        <a href="#tags">Tags</a>
+        <a href="#elements">Elements</a>
+        <a href="#semantic">Semantic</a>
+        <a href="#forms">Forms</a>
+        <a href="#table">Table</a>
+        <a href="#media">Media</a>
+        <a href="#meta">Meta</a>
+        <a href="#iframe">Iframe</a>
+    </nav>
+    <hr><img src="../assets/html-image/html5.png" width="600" height="200" alt="HTML5 Banner">
+    <section id="webpage">
+        <h2>1. Webpage</h2>
+
+        <h3>Definition</h3>
+        <p>A webpage is a single document displayed in a web browser.</p>
+
+        <h3>Uses</h3>
+        <ul>
+            <li>Display information</li>
+            <li>Create forms</li>
+            <li>Show media content</li>
+        </ul>
+
+        <h3>Example</h3>
+        <div class="box">
+            Home Page, Contact Page, About Page
+        </div>
+        <hr>
+    </section>
+
+    <section id="website">
+        <h2>2. Website</h2>
+
+        <h3>Definition</h3>
+        <p>A website is a collection of multiple webpages connected together.</p>
+
+        <h3>Types of Websites</h3>
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Definition</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>Static Website</td>
+                <td>Content remains same for all users</td>
+                <td>Portfolio Website</td>
+            </tr>
+
+            <tr>
+                <td>Dynamic Website</td>
+                <td>Content changes based on user or database</td>
+                <td>Instagram, Amazon</td>
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <section id="html">
+        <h2>3. HTML</h2>
+
+        <h3>Definition</h3>
+        <p>HTML stands for HyperText Markup Language. It is used to create webpages.</p>
+
+        <h3>Uses</h3>
+        <ul>
+            <li>Create webpage structure</li>
+            <li>Add text, images, videos</li>
+            <li>Create forms and tables</li>
+        </ul>
+
+        <h3>Basic Structure</h3>
+
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Hello World
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <hr>
+    </section>
+
+    <section id="doctype">
+        <h2>4. DOCTYPE HTML</h2>
+
+        <h3>Definition</h3>
+        <p>The <code>&lt;!DOCTYPE html&gt;</code> declaration tells the browser that the document uses HTML5.</p>
+
+        <h3>Uses</h3>
+        <ul>
+            <li>Enables HTML5 features</li>
+            <li>Helps browser render correctly</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <pre>
+&lt;!DOCTYPE html&gt;
+</pre>
+        <hr>
+    </section>
+
+    <section id="tags">
+        <h2>5. Tags</h2>
+
+        <h3>Definition</h3>
+        <p>Tags are keywords enclosed inside angle brackets.</p>
+
+        <h3>Types of Tags</h3>
+
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>Container Tag</td>
+                <td>&lt;p&gt;Hello&lt;/p&gt;</td>
+            </tr>
+
+            <tr>
+                <td>Empty Tag</td>
+                <td>&lt;br&gt;</td>
+            </tr>
+        </table>
+
+        <h3>Common Tags</h3>
+        <ul>
+            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></li>
+            <li><code>&lt;p&gt;</code></li>
+            <li><code>&lt;br&gt;</code></li>
+            <li><code>&lt;hr&gt;</code></li>
+            <li><code>&lt;img&gt;</code></li>
+        </ul>
+        <hr>
+    </section>
+
+    <section id="elements">
+        <h2>6. Elements</h2>
+
+        <h3>Definition</h3>
+        <p>An element includes opening tag, content and closing tag.</p>
+
+        <h3>Example</h3>
+
+        <pre>
+&lt;p&gt;This is paragraph&lt;/p&gt;
+</pre>
+
+        <h3>Difference Between Tags and Elements</h3>
+
+        <table>
+            <tr>
+                <th>Tags</th>
+                <th>Elements</th>
+            </tr>
+
+            <tr>
+                <td>Only opening and closing keywords</td>
+                <td>Complete structure with content</td>
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <section>
+        <h2>7. Block Level and Inline Elements</h2>
+
+        <h3>Block Level Elements</h3>
+        <p>Block elements take full width.</p>
+
+        <h3>Examples</h3>
+
+        <div class="block-example">
+            <div>&lt;div&gt;</div>
+            <div>&lt;p&gt;</div>
+            <div>&lt;section&gt;</div>
+        </div>
+
+        <h3>Inline Elements</h3>
+        <p>Inline elements take only needed width.</p>
+
+        <div class="inline-example">
+            <span>&lt;span&gt;</span>
+            <span>&lt;a&gt;</span>
+            <span>&lt;b&gt;</span>
+        </div>
+        <hr>
+    </section>
+
+    <section>
+        <h2>8. Formatting Tags</h2>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>&lt;b&gt;</td>
+                <td>Bold text</td>
+                <td><b>Bold</b></td>
+            </tr>
+
+            <tr>
+                <td>&lt;i&gt;</td>
+                <td>Italic text</td>
+                <td><i>Italic</i></td>
+            </tr>
+
+            <tr>
+                <td>&lt;u&gt;</td>
+                <td>Underline</td>
+                <td><u>Underline</u></td>
+            </tr>
+
+            <tr>
+                <td>&lt;mark&gt;</td>
+                <td>Highlight</td>
+                <td><mark>Marked</mark></td>
+            </tr>
+
+            <tr>
+                <td>&lt;sup&gt;</td>
+                <td>Superscript</td>
+                <td>x<sup>2</sup></td>
+            </tr>
+
+            <tr>
+                <td>&lt;sub&gt;</td>
+                <td>Subscript</td>
+                <td>H<sub>2</sub>O</td>
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <section>
+        <h2>9. Interactive Tags</h2>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;button&gt;</td>
+                <td>Create button</td>
+            </tr>
+
+            <tr>
+                <td>&lt;details&gt;</td>
+                <td>Expandable content</td>
+            </tr>
+
+            <tr>
+                <td>&lt;summary&gt;</td>
+                <td>Heading for details</td>
+            </tr>
+        </table>
+
+        <details>
+            <summary>Click Here</summary>
+            <p>This is hidden content.</p>
+        </details>
+        <hr>
+    </section>
+
+    <section id="semantic">
+        <h2>10. Semantic and Non Semantic Tags</h2>
+
+        <table>
+            <tr>
+                <th>Semantic Tags</th>
+                <th>Non Semantic Tags</th>
+            </tr>
+
+            <tr>
+                <td>&lt;header&gt;</td>
+                <td>&lt;div&gt;</td>
+            </tr>
+
+            <tr>
+                <td>&lt;footer&gt;</td>
+                <td>&lt;span&gt;</td>
+            </tr>
+
+            <tr>
+                <td>&lt;article&gt;</td>
+                <td>&lt;b&gt;</td>
+            </tr>
+        </table>
+
+        <h3>Uses of Semantic Tags</h3>
+        <ul>
+            <li>Better SEO</li>
+            <li>Easy readability</li>
+            <li>Improves accessibility</li>
+        </ul>
+        <hr>
+    </section>
+
+    <section>
+        <h2>11. Attributes</h2>
+
+        <h3>Definition</h3>
+        <p>Attributes provide extra information about HTML tags.</p>
+
+        <h3>Global Attributes</h3>
+        <p>Used in almost all tags.</p>
+
+        <table>
+            <tr>
+                <th>Attribute</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>id</td>
+                <td>Unique identification</td>
+            </tr>
+
+            <tr>
+                <td>class</td>
+                <td>Grouping elements</td>
+            </tr>
+
+            <tr>
+                <td>title</td>
+                <td>Tooltip text</td>
+            </tr>
+
+            <tr>
+                <td>style</td>
+                <td>Inline CSS</td>
+            </tr>
+        </table>
+
+        <h3>Local Attributes</h3>
+        <p>Used only in specific tags.</p>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Attribute</th>
+            </tr>
+
+            <tr>
+                <td>&lt;img&gt;</td>
+                <td>src, alt</td>
+            </tr>
+
+            <tr>
+                <td>&lt;a&gt;</td>
+                <td>href, target</td>
+            </tr>
+
+            <tr>
+                <td>&lt;input&gt;</td>
+                <td>type, placeholder</td>
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <section>
+        <h2>12. Data Collection</h2>
+
+        <h3>Definition</h3>
+        <p>Data collection means collecting information from users using forms.</p>
+
+        <h3>Tags Used</h3>
+        <ul>
+            <li><code>&lt;form&gt;</code></li>
+            <li><code>&lt;input&gt;</code></li>
+            <li><code>&lt;textarea&gt;</code></li>
+            <li><code>&lt;select&gt;</code></li>
+        </ul>
+        <hr>
+    </section>
+
+    <section>
+        <h2>13. Data Projection</h2>
+
+        <h3>Definition</h3>
+        <p>Displaying data to users using tables, lists, cards and media.</p>
+
+        <h3>Tags Used</h3>
+        <ul>
+            <li><code>&lt;table&gt;</code></li>
+            <li><code>&lt;ul&gt;</code></li>
+            <li><code>&lt;ol&gt;</code></li>
+            <li><code>&lt;img&gt;</code></li>
+        </ul>
+        <hr>
+    </section>
+
+    <section id="forms">
+        <h2>14. Form Elements</h2>
+
+        <h3>Definition</h3>
+        <p>Forms are used to collect user data.</p>
+
+        <h3>Important Tags</h3>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;form&gt;</td>
+                <td>Create form</td>
+            </tr>
+
+            <tr>
+                <td>&lt;input&gt;</td>
+                <td>User input</td>
+            </tr>
+
+            <tr>
+                <td>&lt;label&gt;</td>
+                <td>Input label</td>
+            </tr>
+
+            <tr>
+                <td>&lt;textarea&gt;</td>
+                <td>Multi-line input</td>
+            </tr>
+
+            <tr>
+                <td>&lt;select&gt;</td>
+                <td>Dropdown</td>
+            </tr>
+        </table>
+
+        <h3>Important Attributes</h3>
+
+        <ul>
+            <li>required</li>
+            <li>placeholder</li>
+            <li>disabled</li>
+            <li>readonly</li>
+            <li>checked</li>
+        </ul>
+
+        <h3>Example Form</h3>
+
+        <form>
+            <label>Name</label><br><br>
+            <input type="text" placeholder="Enter Name" required><br><br>
+
+            <label>Email</label><br><br>
+            <input type="email" placeholder="Enter Email"><br><br>
+
+            <label>Course</label><br><br>
+
+            <select required>
+                <option disabled selected>Choose Course</option>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>JavaScript</option>
+            </select><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <hr>
+    </section>
+
+    <section id="table">
+        <h2>15. Table</h2>
+
+        <h3>Definition</h3>
+        <p>Tables are used to organize data into rows and columns.</p>
+
+        <h3>Table Tags</h3>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;table&gt;</td>
+                <td>Create table</td>
+            </tr>
+
+            <tr>
+                <td>&lt;tr&gt;</td>
+                <td>Table row</td>
+            </tr>
+
+            <tr>
+                <td>&lt;th&gt;</td>
+                <td>Table heading</td>
+            </tr>
+
+            <tr>
+                <td>&lt;td&gt;</td>
+                <td>Table data</td>
+            </tr>
+
+            <tr>
+                <td>&lt;thead&gt;</td>
+                <td>Table head</td>
+            </tr>
+
+            <tr>
+                <td>&lt;tbody&gt;</td>
+                <td>Table body</td>
+            </tr>
+        </table>
+
+        <h3>Attributes Used</h3>
+        <ul>
+            <li>border</li>
+            <li>cellpadding</li>
+            <li>rowspan</li>
+            <li>colspan</li>
+        </ul>
+        <hr>
+    </section>
+
+    <section id="media">
+        <h2>16. Media Tags</h2>
+
+        <h3>Definition</h3>
+        <p>Media tags are used to add image, audio and video.</p>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;img&gt;</td>
+                <td>Display image</td>
+            </tr>
+
+            <tr>
+                <td>&lt;audio&gt;</td>
+                <td>Play audio</td>
+            </tr>
+
+            <tr>
+                <td>&lt;video&gt;</td>
+                <td>Play video</td>
+            </tr>
+
+            <tr>
+                <td>&lt;source&gt;</td>
+                <td>Multiple media sources</td>
+            </tr>
+        </table>
+
+        <h3>Image Example</h3>
+
+        <img src="../assets/html-image/html-2.jpg" width="600" alt="sample image">
+
+        <h3>Audio Example</h3>
+
+        <pre>
+&lt;audio controls&gt;
+    &lt;source src="song.mp3" type="audio/mp3"&gt;
+&lt;/audio&gt;
+</pre>
+
+        <h3>Video Example</h3>
+
+        <pre>
+&lt;video controls width="400"&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+</pre>
+        <hr>
+    </section>
+
+    <section id="meta">
+        <h2>17. Meta Tags</h2>
+
+        <h3>Definition</h3>
+        <p>Meta tags provide information about webpage to browser and search engines.</p>
+
+        <h3>Common Meta Tags</h3>
+
+        <table>
+            <tr>
+                <th>Meta Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>charset</td>
+                <td>Character encoding</td>
+            </tr>
+
+            <tr>
+                <td>viewport</td>
+                <td>Responsive design</td>
+            </tr>
+
+            <tr>
+                <td>description</td>
+                <td>SEO description</td>
+            </tr>
+
+            <tr>
+                <td>keywords</td>
+                <td>Search keywords</td>
+            </tr>
+        </table>
+
+        <h3>Example</h3>
+
+        <pre>
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</pre>
+        <hr>
+    </section>
+
+    <section id="iframe">
+        <h2>18. Iframe</h2>
+
+        <h3>Definition</h3>
+        <p>Iframe is used to embed another webpage or video inside webpage.</p>
+
+        <h3>Attributes Used</h3>
+        <ul>
+            <li>src</li>
+            <li>width</li>
+            <li>height</li>
+            <li>allowfullscreen</li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ip8o5hDFLhI?si=sP53NYPdzOFqBVx7"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <hr>
+    </section>
+
+    <section>
+        <h2>19. Lists in HTML</h2>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;ul&gt;</td>
+                <td>Unordered list</td>
+            </tr>
+
+            <tr>
+                <td>&lt;ol&gt;</td>
+                <td>Ordered list</td>
+            </tr>
+
+            <tr>
+                <td>&lt;li&gt;</td>
+                <td>List item</td>
+            </tr>
+        </table>
+
+        <h3>Example</h3>
+
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+        <hr>
+    </section>
+
+    <section>
+        <h2>20. Comments in HTML</h2>
+
+        <h3>Definition</h3>
+        <p>Comments are ignored by browser and used for explanation.</p>
+
+        <h3>Syntax</h3>
+
+        <pre>
+&lt;!-- This is comment --&gt;
+</pre>
+
+        <h3>Uses</h3>
+        <ul>
+            <li>Code readability</li>
+            <li>Documentation</li>
+        </ul>
+        <hr>
+    </section>
+
+    <section>
+        <h2>21. Links and Anchor Tag</h2>
+
+        <h3>Definition</h3>
+        <p>Anchor tag is used to navigate between webpages.</p>
+
+        <h3>Tag Used</h3>
+        <p><code>&lt;a&gt;</code></p>
+
+        <h3>Attributes</h3>
+        <ul>
+            <li>href</li>
+            <li>target</li>
+        </ul>
+
+        <h3>Example</h3>
+
+        <pre>
+&lt;a href="https://google.com" target="_blank"&gt;
+Google
+&lt;/a&gt;
+</pre>
+        <hr>
+    </section>
+
+
+
+    <section>
+        <h2>23. HTML5 New Semantic Tags</h2>
+
+        <table>
+            <tr>
+                <th>Tag</th>
+                <th>Use</th>
+            </tr>
+
+            <tr>
+                <td>&lt;header&gt;</td>
+                <td>Top section</td>
+            </tr>
+
+            <tr>
+                <td>&lt;nav&gt;</td>
+                <td>Navigation bar</td>
+            </tr>
+
+            <tr>
+                <td>&lt;main&gt;</td>
+                <td>Main content</td>
+            </tr>
+
+            <tr>
+                <td>&lt;section&gt;</td>
+                <td>Content section</td>
+            </tr>
+
+            <tr>
+                <td>&lt;article&gt;</td>
+                <td>Article content</td>
+            </tr>
+
+            <tr>
+                <td>&lt;aside&gt;</td>
+                <td>Sidebar</td>
+            </tr>
+
+            <tr>
+                <td>&lt;footer&gt;</td>
+                <td>Bottom section</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <hr>
+        <h2>HTML5 Complete Learning Page</h2>
+        <p>Created for Learning and Practice</p>
+
+        <a href="#top">Move To Top</a>
+    </footer>
+</center>
+
+</body>
+
+</html>
