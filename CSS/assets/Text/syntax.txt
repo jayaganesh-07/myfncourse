@@ -1,0 +1,114 @@
+syntax
+1.<h1 style="property1:value;property2:value;property1:value;">
+2.<h1 style="property1:value;property2:value;property1:value;">
+3.<h1 style="property1:value;property2:value;property1:value;">
+4.<h1 style="property1:value;property2:value;property1:value;">
+5.<h1 style="property1:value;property2:value;property1:value;">
+6.<h1 style="property1:value;property2:value;property1:value;">
+7.<h1 style="property1:value;property2:value;property1:value;">
+8.<h1 style="property1:value;property2:value;property1:value;">
+9.<h1 style="property1:value;property2:value;property1:value;">
+10.<h1 style="property1:value;property2:value;property1:value;">
+11.<h1 style="property1:value;property2:value;property1:value;">
+12.<h1 style="property1:value;property2:value;property1:value;">
+13.<h1 style="property1:value;property2:value;property1:value;">
+14.<h1 style="property1:value;property2:value;property1:value;">
+15.<h1 style="property1:value;property2:value;property1:value;">
+16.<h1 style="property1:value;property2:value;property1:value;">
+17.<h1 style="property1:value;property2:value;property1:value;">
+18.<h1 style="property1:value;property2:value;property1:value;">
+19.<h1 style="property1:value;property2:value;property1:value;">
+20.<h1 style="property1:value;property2:value;property1:value;">
+
+syntax
+
+1.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+2.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+3.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+4.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+5.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+6.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+7.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+8.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+9.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+10.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+11.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+12.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+13.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+14.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
+15.selector {
+
+Pro:value;
+Pro:value;
+Pro:value;
+}
