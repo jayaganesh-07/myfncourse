@@ -1,0 +1,50 @@
+*{
+    background-color: rgb(145, 146, 142);
+}
+.topic{
+    background-color: black;
+    color: brown;
+}
+#paragraph{
+    background-color: blueviolet;
+    color:rgb(29, 194, 54);
+}
+.energy{
+    background-color: chocolate;
+    color: whitesmoke;
+}
+#important{
+    background-color: black;
+    color: blue;
+}
+#robotics{
+    background-color: burlywood;
+    color: cornflowerblue;
+}
+.field{
+    background-color: yellow;
+    color: brown;
+}
+main,ul,li{
+    background-color: black;
+    color: aqua;
+}
+#smart{
+    background-color: yellowgreen;
+    color:brown ;
+}
+.systems{
+    background-color: cadetblue;
+    color: red;
+}
+#ocean{
+    background-color: cyan;
+    color: chartreuse;
+}
+.cover{
+    background-color: blue;
+    color: black;
+}
+h3 form label input select option button{
+    background-color: deeppink;
+}
