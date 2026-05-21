@@ -1,0 +1,29 @@
+.parent {
+    background-color: black;
+    color: whitesmoke;
+    height: 400px;
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.sub {
+    background-color: bisque;
+    color: brown;
+    height: 300px;
+    width: 250px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.child {
+    background-color: black;
+    color: tomato;
+    height: 200px;
+    width: 150px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}

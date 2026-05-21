@@ -1,0 +1,13 @@
+
+.box{
+    background-color: black;
+    color: aliceblue;
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    border: 10px;
+   
+
+}

@@ -1,0 +1,20 @@
+.child{
+    background-color: yellow;
+    color: violet;
+    height: 230px;
+    width: 200px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    border: 30px;
+}
+.parent-box{
+    background-color: brown;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+    border: 0cap;
+
+}
