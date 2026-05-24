@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: antiquewhite;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+.logo{
+    margin-left: 20px;
+
+}
+.menu{
+    margin-right: 30px;
+    display: flex;
+    gap: 20px;
+    
+
+}
+.menu a {
+    text-decoration: none;
+    color: black;
+}

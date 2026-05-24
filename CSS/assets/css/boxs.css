@@ -1,0 +1,53 @@
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.parent{
+    background-color: bisque;
+    height: 500;
+    width: 400;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    
+}
+
+.box1{
+    background-color: aquamarine;
+    color: black;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}
+.box2{
+    background-color: aquamarine;
+    color: black;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+
+}
+.box3{
+    background-color: aquamarine;
+    color: black;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+
+}
+.box4{
+    background-color: aquamarine;
+    color: black;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+
+}

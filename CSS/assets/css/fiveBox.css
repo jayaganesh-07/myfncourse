@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.parent{
+    background-color: black;
+    color: rgba(110, 9, 12, 0.269);
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+.child{
+    background-color: gold;
+    color: rgb(169, 237, 237);
+    padding: 90px;
+    margin: 20px;
+    height: 400px;
+   width: 300px;
+}
