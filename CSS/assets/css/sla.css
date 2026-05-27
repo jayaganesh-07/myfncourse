@@ -1,29 +1,88 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 html{
     scroll-behavior: smooth;
 }
 body{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-
+.parent1{
+background-color: rgba(128, 128, 128, 0.255);
+ 
+}
 .parent{
-    background-color: beige;
-    padding left: 30px;
-    display: flex;
-    justify-content: center;
-}
-.image{
+    background-color:white;
     padding: 20px;
-  
-}
-.para{
+    margin: 50px;
+   border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+.child{
+    padding: 20px;
+}
+.name{
+    padding: 20px;
+}
+.button1{
+    border: none;
+    background-color: orangered;
+    border-radius: 20px;
+    padding: 10px;
+}
+.button2{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+}
+.parent2{
+    padding: 20px;
+    background-color: rgba(24, 75, 126, 0.929);
+    color: white;
+
+}
+.select{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.select select{
+     background-color: rgb(8, 8, 56);
+     color: white;
+}
+.menu a{
+   
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+   position:relative;
+}
+.course{
+    padding: 30px;
+   margin: 50px;
+   background-color: white;
+   border-radius: 20px;
+   
+}
+.trainer{
+    padding: 20px;
+    margin: 50px;
+    background-color: white;
+    border-radius: 20px;
+    gap: 30px;
+}
+.logo{
+    padding: 20px;
+    display: flex;
+    gap: 60px;
+}
+.trainer a{
+    text-decoration: none;
+    
 }
