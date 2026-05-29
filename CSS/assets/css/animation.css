@@ -1,0 +1,63 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+.parent{
+    background-color: rgb(162, 89, 230);
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+
+}
+.parent_one{
+    padding: 20px;
+    background-color: white;
+    width: 600px;
+    text-align: center;
+    gap: 20px;
+    transition: 0.8s ease;
+    
+}
+img{
+    border-radius: 200px;
+}
+.detail{
+    padding: 20px;
+    display: flex;
+   justify-content: space-between;
+}
+button:hover{
+   
+    padding: 10px;
+    gap: 20px;
+    background-color: blue;
+    color: white;
+}
+button::after{
+    content: "*";
+    color: black;
+}
+button::before{
+    content: "#";
+    color:black;
+}
+img:hover{
+transform: scale(0.8);
+}
+button{
+    background-color: black;
+    color: white;
+}
