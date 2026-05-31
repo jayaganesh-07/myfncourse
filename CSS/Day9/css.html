@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../assets/css/css.css">
+</head>
+
+<body>
+
+    <div class="parent">
+        <div class="child_one">
+            <h3>what is css:</h3>
+            <p>CSS-stand for cascading style sheet to design your webpage layout and style.<br />
+                CSS is helping for making a webpage looking good and user friendly design.<br />
+                Basically layout is a design of your website Its decide which content in which place.
+                <br /> style coloring system,background ,typography,shape animation,and transform all in a single page.
+            </p>
+            <h3>type of css</h3>
+            <p>1.Inline CSS
+                *Inline is to design specific element using style attribute inside html file in thehtml tags or element.
+                <!-- ex:<h1 style="color:blue";>head</h1> -->
+                2.Internal CSS
+                *Internal are used inside style tags,which is placed inside head section of html document .
+                <!-- <head>
+  <style>
+    body { 
+background-color: linen; 
+}
+    p { 
+color: maroon; 
+}
+  </style>
+</head>*/ -->
+                3.External CSS
+                *Create a external file using .css extension file and the file contain selectors.
+                *and create a html file link two file like
+                <!-- <link rel="stylesheet" href="file name"> -->
+                ex:h1{
+                properties:value;
+                }
+            </p>
+            <h3>Selectors</h3>
+            <p>
+                1.(*)-Universal selectors<br />
+                2.(.)-class selectors<br />
+                3.(#)-id selectors<br />
+                4.(h1,h2,p)-Group selectors<br />
+                5.(div p)-Descendant selectors<br />
+                6.(div > p)-child selectors<br />
+            </p>
+            <h3>What is cascading?</h3>
+            <p>*Multiple style can aply to same element and browser decide which style should win.
+                *first priority is inline<br />
+                *Next is id selectors<br />
+                *Next is class selectors<br />
+                *Next is element selectors<br />
+                *Next is universal selectors<br />
+            </p>
+            <h3>What is specificity?</h3>
+            <p>*specificity is the priority calculation is used to browser to determine which should apply when multiple
+                style and rules.
+
+                *Inline : 1000point<br />
+                *id : 100point<br />
+                *class : 10point<br />
+                *attributes : 10point<br />
+                *element : 1point<br />
+                *universal : -1point<br />
+
+            </p>
+            <h3>typography</h3>
+            <p>It depend on your text
+                1.font size<br />
+                2.font family<br />
+                3.font color<br />
+                4.font weight<br />
+            </p>
+            <h3>Box model</h3>
+            <p>Box model is the core methods to handle the layout and design.they have 4 part is very important.
+                1.content<br />
+                2.padding<br />
+                3.border<br />
+                4.margin<br />
+                content Normal text.Padding-content around space is the padding. If you have a Space Around the tesat
+                booder gve content content reed some We need to use poddy padding Around is the boodes, and border is
+                Some loo King the Outline of padding.<br /> color to whe highlight the box</p>
+            <br /> Margin border around the space is called margin and margin give the4 side of the space .mainly used
+            in css.
+            <h3>Flex</h3>
+            <p>*Flexbox is the one dimensional layout it words row or column to make a responsive layout.
+                *And flex is helping to split the webpage and align the content row or column .
+                <br />*Flex is the most used layout system IN CSS.
+
+            </p>
+            <h3>Unit in css</h3>
+            <p>1.em(element based):Is used for Component-specific sizing (e.g., padding inside a button that scales with
+                its text size).
+
+                2.px is mainly used for Borders, shadows, exact spacing, or fixed-size images.
+
+                3.rem(root element):font size of root element or mainly typography and layout.
+
+                4.% :the size of parent element property .fluid layout dimension like width or height.
+            </p>
+            <h3>RGB, RGBA, and HEX color values in CSS</h3>
+
+            <p>1.RGB-uses decimal number(0-255)for red,green and blue
+
+                2.RGBA-adds an alpha channel for transparency (0.0 to 1.0)
+
+                3.HEX-use hexadecimal shorthand(0-9,A-F) to represent RGB values.
+            </p>
+
+
+            <h3>Basic setup for css file</h3>
+            <p>1.margin:0;<br />
+                2.padding:0;<br />
+                3.box-sizing:border box;<br />
+                *body{
+                fontfamily:;
+                overflow x:hidden;
+                }
+                *html{
+                scroll behavior
+                }
+                *ul{
+                list style:none;
+                }
+                *a{
+                text decoration:none;
+                }
+                *input{
+                outline: none;
+                }
+                *section{
+                min-height:100vh;
+                vh-view height
+                }
+            </p>
+            <h3>Background properties</h3>
+            <p>1.Background-image:url("image link");<br />
+                2.background-repeat:no repeat;<br />
+                3.background-size:auto;<br />
+                4.opacity: it reduce the color thinkness light color<br />
+                5.background-position:center;</p>
+
+            <h3>Grid</h3>
+            <p>*Grid is the two dimensional layout .and we can design row and column at semantic and we can create
+                acomplex responsive layout in using grid<br />
+                *Mainly we used grid for dashboard layout,wesite section,carddesign and gallerylayout.<br />
+                *grid propsare parent are grid container and child are item.<br />
+            </p>
+            <h3>Grid properties</h3>
+            <p>activate a grid using(display:grid;)<br />
+                *grid-template column:1fr 1fr 1fr 1fr;(equally separate the space from one column)<br />
+                *1fr(stand for fraction unit)<br />
+                *grid -template row:;<br />
+                *justify-content:center;<br />
+                *align-content:center;<br />
+                *placed-item:;<br />
+                repeat </p>
+            <h3>Pseudo class</h3>
+            <p>*pseudo class is a special keyword in css use to define the special standard html element.<br />
+                *It allow developerto apply style when certain user interaction.
+                <br />*pseudo classwidely used in modern frontend.symbol(:)<br />
+                *syntax:selector:state(pseudo-class)<br />
+                1.hover<br />
+                2.focus<br />
+                3.active<br />
+                4.first child<br />
+                5.last child<br />
+                6nth child(give child num)
+            </p>
+            <h3>Pseudo element</h3>
+            <p>Pseudo element are used to style a specfic part of an html element instant of the entire element.<br />
+                syntax:selector::(pseudo element){
+                }<br />
+                element:
+                1.::before<br />
+                2.::after<br />
+                3.::first-letter<br />
+                4.::first-line<br />
+                5.::selector</p>
+            <h3>Animation</h3>
+            <p>1.Transform:<br />
+                the transform of the property<br />
+                syntax:transform:value;<br />
+                1.scale(1.2)large<br />
+                2.scale(0.8)small<br />
+                3.rotate(100deg)<br />
+                4.translate(100px,50px)<br />
+                5.transition(create a smooth aniation during transition without style change instantly)<br />
+                syntax:transition:value;(0.5s ease,linear,ease-in,ease-out,ease -in-out)</p>
+            <h3>position</h3>
+            <p>position is one of most important property.using in frontend developer its control how a element isplaced
+                inside webpage.<br />
+                by default all html element follow normal document flow.<br />
+                Some element appearone below another from top to buttom.<br />
+                value:1.relative<br />
+                2.absolute<br />
+                3.fixed<br />
+                4.sticky.</p>
+            <h3>Media Query</h3>
+            <p>Media query is the concept in response web design .media query allow developer to apply different style
+                based on width screen height device type
+                <br />syntax:@media(condition)
+                selector{
+                prop:value;
+                }
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

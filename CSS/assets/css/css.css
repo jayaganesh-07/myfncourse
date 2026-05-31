@@ -1,0 +1,34 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+.parent{
+    background-color: rgb(121, 121, 121);
+    color: rgb(249, 247, 247);
+    padding: 20px;
+    margin: 20px;
+    transition: 0.8s ease;
+   
+}
+h3:hover{
+    background-color: rgb(8, 5, 5);
+    transform: scale(0.8);
+}
+h3{
+    padding: 20px;
+}
+p{
+    padding: 20px;
+}
+h3 p{
+    margin: 20px;
+}
