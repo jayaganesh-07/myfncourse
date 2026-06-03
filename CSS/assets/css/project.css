@@ -1,0 +1,151 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+section{
+    min-height: 100vh;
+}
+
+.parent{
+    background-color: #d7d0d0;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px  gray;
+    transition: 0.8s ease;
+
+
+    
+}
+.banner:hover{
+    transform: scale(1.1);
+}
+.banner{
+     transition: 0.8s ease;
+     
+}
+.logo{
+    margin-right: 40px;
+    height: 90px;
+    display: flex;
+  align-items: center;
+}
+.menu a{
+color: black;
+}
+.menu{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.input{
+    width: 400px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    background-color:white;
+    display: flex;
+    margin-right: 30px;
+    
+
+}
+.parentimage{
+   
+   padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+   
+
+    
+}
+image.{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   box-shadow: 0 4px 10px grey;
+   
+
+}
+.image:hover{
+    transform: scale(1.1);
+}
+.image{
+     transition: 0.8s ease;
+}
+.trust{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.parentbrand{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    object-fit: contain;
+     transition: 0.8s ease;
+
+}
+.parentbrand1{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    object-fit: contain;
+    padding: 30px;
+    gap: 50px;
+     transition: 0.8s ease;
+
+}
+
+.brand:hover{
+    transform: scale(1.1);
+}
+.brand{
+     transition: 0.8s ease;
+     
+}
+
+
+.footer{
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    padding-right: 150px;
+    padding-left: 150px;
+    margin-top: 50px;
+    background-color: #F5AFAF;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
