@@ -1,0 +1,170 @@
+<script>
+   // let heros = ["vijay","Ajith","Surya","SK","STR","DNA"]
+   // let arr = []
+   // let index = 0
+   // for(let i=heros.length-1;i>=0;i--){
+       // console.log(heros[i]);
+   //     arr[index]= heros[i]
+   //     index++
+     
+        
+
+
+  //  }
+   // console.log(arr);
+    
+  
+    //task-1
+    let tamilHeros=["vijay","Ajith","suriya","sk"]
+    for(let i=0;i<tamilHeros.length;i++){
+
+        console.log(tamilHeros[i]);
+        
+    }
+
+     //task-2
+     let movieCollection=[200,500,800,400,600]
+     let max=-1
+     for(let c=0;c<=movieCollection.length;c++){
+     if(movieCollection[c]>max)
+     max=movieCollection[c]
+     }
+     console.log(max);
+
+      //task-3
+      let minCollection=[2100,500,800,400,600]
+      let min=minCollection[0]
+      for (let i = 0; i <=minCollection.length; i++) {
+       if(minCollection[i]< min ){
+        min=minCollection[i] 
+       }
+      }
+      console.log(min);
+      
+      //task-4
+      let maxCollection=[2100,500,800,400,600]
+      let total=0
+      for (let i = 0; i <maxCollection.length; i++) {
+       total +=maxCollection[i]
+       }
+      
+      console.log(total);
+
+       //task-5
+       let averageCollection=[2100,500,800,400,600]
+      let average=0
+      for (let i = 0; i <averageCollection.length; i++) {
+       average +=averageCollection[i]
+       result =average /averageCollection.length 
+       }
+      
+      console.log(result);
+
+     // task-6
+     let heroName=["vijay","ajith","suriya","sk"]
+     for(let i=heroName.length-1;i>=0;i--){
+        console.log(heroName[i]);
+        
+     }
+
+     // task-7
+let fruits=["apple","mango","orange","banana"]
+for(let i=0;i<=fruits.length;i++){
+    if(fruits[i]==="mango"){
+        console.log("Found",fruits[i]);
+        
+    }
+}
+
+// task-8
+let arr=["Apple","Mango","Orange","Banana"]
+ let count=0
+for (let fruit of arr) {
+    count++ 
+}
+console.log(count);
+
+ // task-9
+ let names=["Vijay","Ajith","Sivakarthikeyan","SK"]
+ let largeName=names[0]
+ for(let hero of names){
+if(hero.length>largeName.length){
+    largeName=hero
+}
+ }
+ console.log(largeName);
+ 
+
+ //Questions
+
+ //task-1
+ let name="vijay"
+ let reverse=""
+ for(let i=name.length-1;i>=0;i--){
+    reverse +=name[i]
+ }
+ console.log(reverse);
+ 
+ //task-2
+ let movie="LEVEL"
+ let reverse1=""
+ for(let i=movie.length-1;i>=0;i--){
+    reverse1 +=movie[i]
+ }
+ if(reverse1===movie){
+    console.log("Palindrome");
+    
+ }else{
+    console.log("Not a palindrome");
+    
+ }
+
+ //task-3
+
+function fabo( num1) {
+    let oneNum=0
+    let secNum=1
+    let thirdNum=1
+    for(let i=0;i<=num1;i++){
+         console.log(oneNum);
+        oneNum=secNum
+        secNum=thirdNum
+        thirdNum=oneNum+secNum
+    }
+}
+fabo(10)
+
+//task-4
+function vowels(hero) {
+let count=0
+for(let i=0;i<hero.length;i++ ){
+    if(hero[i]==="a"||
+        hero[i]==="e"||
+        hero[i]==="i"||
+        hero[i]==="o"||
+        hero[i]==="u"
+    ){
+count++
+    }
+    
+}
+return count;
+    
+}
+console.log(vowels("vijay"));
+
+//task-5
+let hero="VIJAAY"
+let find="A"
+let count1=0
+for(let i=0;i<=hero.length;i++){
+  if(hero[i]===find){
+    count1++
+  }
+   
+    
+}
+console.log(count1);
+
+ 
+</script>

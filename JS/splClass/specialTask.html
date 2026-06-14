@@ -1,0 +1,209 @@
+<script>
+// task1
+
+{
+ let arr = [1, 2, 3, 5];
+
+let missing;
+
+for (let i = 1; i <= 5; i++) {
+    if (!arr.includes(i)) {
+        missing = i;
+    }
+}
+
+console.log(missing);
+}
+
+
+//task2
+
+{
+let str = "programming";
+
+for (let i = 0; i < str.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < str.length; j++) {
+        if (str[i] === str[j]) {
+            count++;
+        }
+    }
+
+    if (count === 1) {
+        console.log(str[i]);
+        break;
+    }
+}
+}
+
+
+//task3
+
+{
+let str = "javascript";
+
+for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+        if (str[i] === str[j]) {
+            console.log(str[i]);
+            i = str.length;
+            break;
+        }
+    }
+}
+
+
+}
+
+
+//task4
+{
+
+    let arr = [1, 0, 2, 0, 3, 4, 0];
+
+let result = [];
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+        result.push(arr[i]);
+    }
+}
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+        result.push(0);
+    }
+}
+
+console.log(result);
+
+}
+
+
+
+//task5
+{
+  let names = ["Vijay", "Ajith", "Vijay", "SK"];
+
+for (let i = 0; i < names.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < names.length; j++) {
+        if (names[i] === names[j]) {
+            count++;
+        }
+    }
+
+    console.log(names[i] + " = " + count);
+}   
+}
+
+//task6
+
+{
+    let arr = [1, 2, 2, 3, 2, 4, 1];
+
+let maxCount = 0;
+let mostFrequent;
+
+for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < arr.length; j++) {
+        if (arr[i] === arr[j]) {
+            count++;
+        }
+    }
+
+    if (count > maxCount) {
+        maxCount = count;
+        mostFrequent = arr[i];
+    }
+}
+
+console.log(mostFrequent);
+}
+//task7
+
+{
+let arr = [1, 2, 3, 4, 5, 6];
+
+let even = [];
+let odd = [];
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+        even.push(arr[i]);
+    } else {
+        odd.push(arr[i]);
+    }
+}
+
+console.log("Even:", even);
+console.log("Odd:", odd);
+
+}
+
+
+//task8
+
+
+
+{
+    let arr = ["Vijay", "Ajith", "Suriya", "SK"];
+
+let first = arr[0];
+
+for (let i = 0; i < arr.length - 1; i++) {
+    arr[i] = arr[i + 1];
+}
+
+arr[arr.length - 1] = first;
+
+console.log(arr);
+}
+
+
+
+//task9
+
+
+{
+let arr = ["Vijay", "Ajith", "Suriya", "SK"];
+
+let last = arr[arr.length - 1];
+
+for (let i = arr.length - 1; i > 0; i--) {
+    arr[i] = arr[i - 1];
+}
+
+arr[0] = last;
+
+console.log(arr);
+}
+
+
+//task10
+
+{
+    let names = ["Vijay", "Ajith", "Sivakarthikeyan", "Dhanush"];
+
+let longest = "";
+let secondLongest = "";
+
+for (let i = 0; i < names.length; i++) {
+    if (names[i].length > longest.length) {
+        secondLongest = longest;
+        longest = names[i];
+    } else if (names[i].length > secondLongest.length) {
+        secondLongest = names[i];
+    }
+}
+
+console.log(secondLongest);
+}
+
+</script>
+
+
