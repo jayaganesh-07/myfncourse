@@ -1,0 +1,106 @@
+<script>
+
+//task1
+
+let movies =["GOAT","Leo","Master"];
+
+movies.push("Ghilli");
+console.log(movies);
+
+movies.pop()
+console.log(movies)
+
+
+//task2
+
+let heros = ["Ajith","Suriya","Sk"]
+
+heros.unshift("vijay")
+console.log(heros);
+
+heros.shift()
+console.log(heros)
+
+
+//task3
+
+let fruits = ["Apple","Mango","Orange"]
+
+fruits.push("Banana","Grapes")
+console.log(fruits);
+
+
+
+fruits.pop()
+
+
+fruits.unshift("Pineapple")
+console.log(fruits);
+
+
+
+fruits.shift()
+
+console.log(fruits)
+
+//task4
+
+let studentProfile = {name : "sudhan",course : "MERN",city : "chennai"}
+
+console.log(studentProfile.name)
+console.log(studentProfile["course"])
+console.log(studentProfile.city)
+
+
+
+//task5
+
+
+const gadget = [{brand:"samsung",price:20000},{brand:"iphone",price:80000},{brand:"OnePlus",price:35000}]
+
+for (i =0;i<gadget.length;i++){
+  console.log(gadget[i].brand + "-" + gadget[i].price )
+}
+
+//task6
+
+{
+
+  let movies = [
+    {
+        movie: "GOAT",
+        collection: 800
+    },
+    {
+        movie: "Leo",
+        collection: 600
+    },
+    {
+        movie: "Master",
+        collection: 500
+    }
+];
+
+let totalCollection = 0;
+let highestCollection = movies[0].collection;
+let highestMovie = movies[0].movie;
+
+for (let i = 0; i < movies.length; i++) {
+
+    totalCollection = totalCollection + movies[i].collection;
+
+    if (movies[i].collection > highestCollection) {
+        highestCollection = movies[i].collection;
+        highestMovie = movies[i].movie;
+    }
+}
+
+console.log("Total Collection =", totalCollection);
+console.log("Highest Collection =", highestCollection);
+console.log("Movie Name with Highest Collection =", highestMovie);
+}
+
+
+
+
+</script>
