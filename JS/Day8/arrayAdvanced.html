@@ -1,0 +1,187 @@
+<script>
+
+
+
+    //task 1
+
+    {
+        const course = ["HTML", "CSS", "JavaScript"]
+        const add = course.push("React", "Node.js")
+        console.log(course);
+
+    }
+
+
+    //task 2
+
+    {
+        const course = ["HTML", "CSS", "JavaScript", "React"]
+        const remove = course.pop()
+        console.log(remove);
+    }
+
+
+    //task3
+    {
+        const fruits = ["Apple", "Mango", "Orange", "Banana"]
+
+        const remove = fruits.shift()
+        console.log(remove)
+        console.log(fruits)
+
+    }
+
+    //task4
+    {
+        const star = ["Ajith", "Suriya", "Sk"]
+
+        const add = star.unshift("Vijay", "Dhanush")
+        console.log(star)
+    }
+
+    //task5
+
+
+    {
+        const course = ["HTML", "CSS", "BootStrap", "React"]
+
+        const rem = course.splice(2, 1, "JavaScript")
+
+        console.log(course)
+    }
+
+    //task6
+
+    {
+        const course = ["HTML", "CSS", "JavaScript", "React", "Node"]
+
+        const add = course.slice(2, 4)
+
+        console.log(add)
+    }
+
+
+    //task7 
+
+    {
+        let student = {
+            name: "Sudhan", course: "Mern", city: "Chennai", age: 25
+        }
+
+        for (const course in student) {
+
+            console.log(course + ":" + student[course])
+
+
+        }
+    }
+      
+        
+      
+    //task8
+
+    {
+        const stars = [{ name: "Vijay", movie: "GOAT" }, { name: "Ajith", movie: "Vidaamuyarchi" }, { name: "Suriya", movie: "kanguva" }]
+        for (const actor of stars) {
+
+            console.log(actor.name + "-" + actor.movie)
+
+        }
+
+
+    }
+    
+
+    //task9
+
+    {
+
+        const actor = ["Vijay", "Ajith", "Suriya", "Sk"]
+        let act = actor.join("|")
+        console.log(act)
+    }
+
+
+
+    //task10
+
+
+    {
+        const course = ["HTML", "CSS", "JavaScript", "React"]
+
+        course.includes("react")
+        if (true) {
+
+            console.log("cousre found")
+
+        } else {
+
+            console.log("course not found")
+        }
+    }
+
+    //task11
+    //concat()
+    {
+        let firstList = [1, 2, 3, 4, 5,]
+        let secondList = [6, 7, 8, 9, 10]
+
+        let entirelist = firstList.concat(secondList)
+
+        console.log(entirelist)
+    }
+
+    //lastindexof()
+      
+    {
+        let amount = [1000, 2000, 3000, 4000, 5000, 3000]
+        let index = amount.lastIndexOf(3000)
+        console.log(index)
+    }
+
+    //reverse()
+
+    {
+        let product = ["laptop", "macbook", "headphone", "mobile", "smartwatch"]
+
+        console.log(product.reverse())
+    }
+
+
+    //sort()
+
+    {
+        let studentName = ["naveen kumar", "kishore kumar", "mothish kumar", "ajith kumar", "suresh kumar"]
+        studentName.sort()
+        console.log(studentName)
+    }
+
+    {
+
+
+
+        let number = [3, 5, 6, 7, 1, 8, 4]
+        console.log(number.sort())
+    }
+
+    //toString()
+
+    {
+        let number = [1, 2, 3, 4, 5, 6,]
+
+        let string = number.toString()
+        console.log( string)
+    }
+
+
+    //length
+
+    {
+
+        let stars = ["Vijay", "Ajith", "PR", "Suriya", "Sk"]
+        console.log(stars.length)
+    }
+
+
+
+</script>
