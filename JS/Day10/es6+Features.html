@@ -1,0 +1,93 @@
+<script>
+    //task-1
+    let hero="vijay"
+    hero="Ajith"
+    console.log(hero);
+    
+    //task-2
+    let names="Baba gi"
+    if(true){
+        let change="hero"
+         console.log(change);
+    }
+   
+    
+    //task-3
+    const courseName="Fullstack"
+ 
+    console.log(courseName);
+    
+    //task-4
+    const greet=()=>{
+    console.log("Welcome to javascript");
+
+    }
+    greet()
+
+    //task-5
+    const showhero=(heroName)=>{
+    console.log("Hero name :",heroName);
+    
+    }
+    showhero("vijay")
+
+    //task-6
+    const adding=(a,b)=>{
+        console.log(a+b);
+        
+    }
+    adding(10,20)
+
+    //task-7
+    let heros="vijay"
+    console.log(`My favourite Hero is ${heros}`);
+    
+    //task-8
+    let name="Lokesh"
+    let course="Fullstack"
+    let city="chennai"
+    console.log(`name :${name}, course : ${course}, city :${city}`);
+    
+    //task-9
+    let actors=["Vijay","Ajith","Suriya"]
+    let [name11,name2,name3]=actors
+    console.log(name11,name2);
+    
+    //task-10
+    let details={name1:"Gopal",course1:"MERN",city1:"chenni"}
+    const {name1,course1,city1}=details
+    console.log(`${name1},${course1},${city1}`);
+    
+    //task-11
+    let sub=["HTML","CSS","JavaScript"]
+    let add=[...(sub),"React"]
+    console.log(add);
+    
+    //task-12
+    let star=["vijay","Ajith"]
+    let merge=["Suriya","SK"]
+    console.log(...merge,...star);
+    
+    //task-13
+    let detail={name:"Kamal",city:"chennai"}
+    let addings={...detail,course:"Mern"}
+    console.log(addings);
+    
+    //task-14
+    const total=(...number)=>{
+        console.log(number);
+        
+    }
+    total(10,20,30,40,50)
+
+    //task-15
+    const totalnum=(...number1)=>{
+        let sum=0
+        for(let a=0;a<number1.length;a++){
+        sum +=number1[a]
+        }
+         console.log(sum);
+        
+    }
+    totalnum(10,20,30,40,50)
+</script>
