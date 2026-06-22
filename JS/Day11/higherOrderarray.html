@@ -1,0 +1,219 @@
+<script>
+
+   //Task1
+
+   //task-1
+    const hero=["Vijay","Ajith","Suriya"]
+   const capital= hero.map((e,i)=>e.toUpperCase(e))
+    console.log(capital);
+   
+
+    //Task2
+    const collections = [100,200,300,400];
+const result = collections.map((e,i)=>e*10)
+console.log(result);
+
+//Task 3
+   const movies = ["goat","leo","master"]
+   const results = movies.map((e,i)=>"Movie :"+ e )
+   console.log(results);
+   
+//Task 4
+    const collection = [100,500,800,200,900]
+    const filter = collection.filter((e)=>e>500)
+    console.log(filter);
+
+//Task5
+    const marks =[35,80,20,90,45]
+    const pass = marks.filter((e)=>e >= 35)
+    console.log(pass);
+
+//Task6
+    const heros = ["vijay","ajith","sk","suriya"]
+    const names = heros.filter((e,i)=>e.length>4)
+    console.log(names);
+//Task7
+    const heross =[
+
+   "Vijay",
+
+   "Ajith",
+
+   "Suriya"
+];
+const resultss = heross.find((e,i)=>e=="Ajith")
+console.log(resultss);
+//Task 8
+const collectionss = [
+
+   100,
+
+   500,
+
+   800,
+
+   200
+];
+const resultsss = collectionss.find((e,i)=>e>400)
+console.log(resultsss);
+//Task9
+const heroes = [
+
+   "Vijay",
+
+   "Ajith",
+
+   "Suriya"
+];
+const index = heroes.indexOf("Suriya")
+console.log(index);
+//Task10
+const moviess = [
+
+   "GOAT",
+
+   "Leo",
+
+   "Master"
+];
+const indexs = moviess.indexOf("Leo")
+console.log(indexs);
+
+//Task11
+const markss = [
+
+   35,
+
+   80,
+
+   20,
+
+   90
+];
+const take = markss.some((e)=>e<35)
+console.log(take);
+
+//Task12
+const collectionsss = [
+
+   100,
+
+   200,
+
+   900
+];
+const crossed = collectionsss.some((e)=>e>800)
+console.log(crossed);
+//Task13
+const marksss = [
+
+   50,
+
+   70,
+
+   90,
+
+   40
+];
+const passed = marksss.every((e)=>e>=35)
+console.log(passed);
+//Task14
+const ages = [
+
+   20,
+
+   25,
+
+   30,
+
+   35
+];
+const above = ages.every((e)=>e>18)
+console.log(above);
+
+//Task15
+const collectionssss = [
+
+   100,
+
+   200,
+
+   300,
+
+   400
+];
+const rate = collectionssss.reduce((e,i)=>{
+    return e+i
+},0)
+console.log(rate);
+
+//Task16
+const students = [
+
+   {
+      id:1,
+      name:"Sudhan"
+   },
+
+   {
+      id:2,
+      name:"Rahul"
+   }
+];
+const namess = students.map((e,i) =>{
+    return e.name
+})
+console.log(namess);
+//Task17
+const studentss = [
+
+   {
+      id:1,
+      age:20
+   },
+
+   {
+      id:2,
+      age:30
+   },
+
+   {
+      id:3,
+      age:18
+   }
+];
+const guys = studentss.filter((e,i)=>e.age>20)
+console.log(guys);
+
+//Task18
+const studentsss = [
+
+   {
+      id:1,
+      name:"Sudhan"
+   },
+
+   {
+      id:2,
+      name:"Rahul"
+   }
+];
+const people = studentsss.find((e,i)=>e.id=2)
+console.log(people);
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+
+
+</script>
