@@ -131,7 +131,77 @@
    const above = ages.every((e) => e > 18)
    console.log(above);
 
-   
+   //Task15
+   const collectionssss = [
+
+      100,
+
+      200,
+
+      300,
+
+      400
+   ];
+   const rate = collectionssss.reduce((e, i) => {
+      return e + i
+   }, 0)
+   console.log(rate);
+
+   //Task16
+   const students = [
+
+      {
+         id: 1,
+         name: "Sudhan"
+      },
+
+      {
+         id: 2,
+         name: "Rahul"
+      }
+   ];
+   const namess = students.map((e, i) => {
+      return e.name
+   })
+   console.log(namess);
+   //Task17
+   const studentss = [
+
+      {
+         id: 1,
+         age: 20
+      },
+
+      {
+         id: 2,
+         age: 30
+      },
+
+      {
+         id: 3,
+         age: 18
+      }
+   ];
+   const guys = studentss.filter((e, i) => e.age > 20)
+   console.log(guys);
+
+   //Task18
+   const studentsss = [
+
+      {
+         id: 1,
+         name: "Sudhan"
+      },
+
+      {
+         id: 2,
+         name: "Rahul"
+      }
+   ];
+   const people = studentsss.find((e, i) => e.id = 2)
+   console.log(people);
+
+
 
 
 
