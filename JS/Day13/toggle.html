@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+
+    <div class="text-center">
+       
+        <button  onclick="result()"   class="bg-blue-600 text-white px-6 py-2 rounded-lg  mb-4">
+            Click To Hide
+        </button>
+
+       
+        <div class="bg-blue-400 w-[600px] p-6 rounded-lg "  id="hello">
+            <p style="display: flex;" class="text-white  justify-center">
+               Hellooooooooo To Allllllllllll
+            </p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+const result =()=>{
+    const example = document.getElementById("hello")
+    if(example.style.display === "none" ){
+        example.style.display= "flex"
+    }else{
+        example.style.display= "none"
+    }
+
+
+    
+
+}
+
+
+
+
+    </script>
+
+</body>
+</html>
