@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .hide{
+         display: none;
+      }
+    </style>
+    
+</head>
+<body>
+
+   <div>
+     <input  id="hero" type="text" placeholder="Enter Hero name">
+     <button onclick="fulldata()">Click</button>
+      <h2 id="data"></h2>
+   </div>
+
+   <div>
+      <p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur illo adipisci accusantium laboriosam, aperiam iusto fugit, incidunt reprehenderit nobis minima aliquid tempore ex laudantium. Tempora aut earum error odit voluptates!</p>
+      <button onclick="paragraph()">click here to hide</button>
+   </div>
+
+
+   <div>
+      <p id="tap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ad veritatis placeat architecto nesciunt. Velit quis quibusdam laboriosam atque repellendus laborum autem. Nobis, culpa. Repellendus ut aliquid quo atque fuga!</p>
+       <button onclick="double()">click to show</button>
+   </div>
+   
+
+   <div>
+      <p id="tog" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Et veniam nobis ducimus, doloribus, doloremque deserunt officiis numquam laudantium exercitationem nemo consectetur, consequatur iste cupiditate repellendus excepturi quas rem sequi. Delectus?</p>
+      <button onclick="variety()">click</button>
+   </div>
+
+<br>
+   <div>
+      <input id="user" type="text" placeholder="enter username">
+      <button onclick="userName()">login</button>
+      <h2 id="join"></h2>
+      
+   </div>
+  
+  <br>
+   <div>
+      <input id="pas"  type="text" placeholder="create a password">
+      <button onclick="create()">confirm</button>
+      <h2  id="show"></h2>
+   </div>
+
+   <div>
+      <input  id="first" type="text" placeholder="First name">
+      <input  id="last"   type="text" placeholder="Last name">
+      <button onclick="press()">update</button>
+      <h2 id="name"></h2>
+   </div>
+
+
+   <div>
+      <h1 id="super">JAVASCRIPT</h1>
+      <button onclick="newColor()">click</button>
+   </div>
+<br>
+   <div>
+      <input  id="one"  type="text" >
+      <button onclick="enter()">sumbit</button>
+      <h3 id="two"></h3>
+   </div>
+   <br>
+   <div>
+
+      <h2 id="hit"></h2>
+      <button  onclick="touch()">click</button>
+   </div>
+     
+   <script>
+   function  fulldata() {
+    const input = document.getElementById("hero").value;
+    document.getElementById("data").innerText= input
+    
+   }
+
+
+   function paragraph(){
+    document.getElementById("para").style.display="none"
+    
+   }
+
+   const double= ()=>{
+     document.querySelector("#tap")
+     if(tap.style.display === "none"){
+      tap.style.display="block"
+     }
+     else{
+      tap.style.display="none"
+     }
+   }
+
+   const variety = ()=>{
+      document.querySelector("#tog").classList.toggle("hide")
+
+   }
+  
+
+   const userName = ()=>{
+     let int= document.querySelector("#user").value
+     
+     if(int==="admin"){
+     document.querySelector("#join").innerText="Login success"
+     }else{
+       document.querySelector("#join").innerText="Invalid User"
+     }
+
+   }
+
+
+   </script>
+        
+
+
+</body>
+</html>
