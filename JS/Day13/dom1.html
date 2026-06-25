@@ -116,6 +116,56 @@
 
    }
 
+   
+   const create = ()=>{
+      let int = document.querySelector("#pas").value;
+      
+      if(int.length >=8){
+         document.querySelector("#show").innerText="Strong password"
+      }else{
+         document.querySelector("#show").innerText="weak password"
+      }
+   }
+    
+
+const press = ()=>{
+   let full = document.querySelector("#first").value;
+  let half= document.querySelector("#last").value;
+   let add = full+" "+half
+
+   let result= document.querySelector("#name").innerText= add
+
+   console.log(result)
+
+
+}
+
+
+const newColor =()=>{
+   document.querySelector("#super").style.color ="red"
+     document.querySelector("#super").innerText= "full stack"
+
+
+}
+   
+ const enter=()=>{
+   let load =document.querySelector("#one").value
+  
+   if(load===""){
+    document.getElementById("two").innerText ="Please Enter Value" 
+
+   }else{
+      document.getElementById("two").innerText = "Form submitted"
+   }
+   
+ }
+
+let count=0
+const touch=()=>{
+    count++;
+   document.getElementById("hit").innerText =count
+
+}
 
    </script>
         
