@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Tasks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-5">
+
+<h1 class="text-3xl font-bold text-center mb-5">JavaScript Tasks</h1>
+
+<!-- Task 1 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">1. Student Grade</h2>
+
+<input id="mark" type="number" placeholder="Enter Mark" class="border p-2">
+
+<button onclick="grade()" class="bg-blue-500 text-white px-3 py-2 rounded">
+Check
+</button>
+
+<p id="gradeResult"></p>
+</div>
+
+<!-- Task 2 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">2. Even / Odd</h2>
+
+<input id="number" type="number" placeholder="Enter Number" class="border p-2">
+
+<button onclick="evenOdd()" class="bg-green-500 text-white px-3 py-2 rounded">
+Check
+</button>
+
+<p id="evenResult"></p>
+</div>
+
+<!-- Task 3 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">3. Sum of Array</h2>
+
+<button onclick="marksTotal()" class="bg-purple-500 text-white px-3 py-2 rounded">
+Show
+</button>
+
+<p id="arrayResult"></p>
+</div>
+
+<!-- Task 4 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">4. Highest Collection</h2>
+
+<button onclick="highestMovie()" class="bg-red-500 text-white px-3 py-2 rounded">
+Find
+</button>
+
+<p id="movieResult"></p>
+</div>
+
+
+<p id="loginResult"></p>
+</div>
+
+<!-- Task 6 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">6. Welcome</h2>
+
+<input id="userName" placeholder="Name" class="border p-2">
+
+<button onclick="welcome()" class="bg-blue-500 text-white px-3 py-2 rounded">
+Show
+</button>
+
+<h3 id="welcomeText"></h3>
+</div>
+
+<!-- Task 7 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">7. Validation</h2>
+
+<input id="adminName" placeholder="Username" class="border p-2">
+
+<input id="adminPass" placeholder="Password" class="border p-2">
+
+<button onclick="adminLogin()" class="bg-green-500 text-white px-3 py-2 rounded">
+Login
+</button>
+
+<p id="adminResult"></p>
+</div>
+
+<!-- Task 8 -->
+
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">8. Show Paragraph</h2>
+
+<p id="para">This is a paragraph.</p>
+
+<button onclick="hide()" class="bg-red-500 text-white px-3 py-2 rounded">
+Hide
+</button>
+
+<button onclick="show()" class="bg-green-500 text-white px-3 py-2 rounded">
+Show
+</button>
+
+</div>
+
+<!-- Task 9 -->
+<div class="bg-white p-4 rounded mb-4">
+<h2 class="font-bold">9. Change Theme</h2>
+
+<h2 id="heading">Theme Changer</h2>
+
+<button onclick="theme()" class="bg-purple-500 text-white px-3 py-2 rounded">
+Change
+</button>
+
+</div>
+
+<!-- Task 10 -->
+<div class="bg-white p-4 rounded">
+<h2 class="font-bold">10. Register and Display</h2>
+
+<input id="rName" placeholder="Name" class="border p-2">
+
+<input id="rEmail" placeholder="Email" class="border p-2">
+
+<input id="rAge" placeholder="Age" class="border p-2">
+
+<button onclick="register()" class="bg-blue-500 text-white px-3 py-2 rounded">
+Register
+</button>
+
+<div id="card" class="mt-3"></div>
+
+</div>
+
+<script>
+
+// Task 1
+function grade(){
+
+let m=document.getElementById("mark").value;
+
+if(m>=90)
+document.getElementById("gradeResult").innerText="Grade A";
+
+else if(m>=80)
+document.getElementById("gradeResult").innerText="Grade B";
+
+else if(m>=70)
+document.getElementById("gradeResult").innerText="Grade C";
+
+else if(m>=60)
+document.getElementById("gradeResult").innerText="Grade D";
+
+else
+document.getElementById("gradeResult").innerText="Fail";
+
+}
+
+// Task 2
+function evenOdd(){
+
+let n=document.getElementById("number").value;
+
+if(n%2==0)
+document.getElementById("evenResult").innerText="Even";
+
+else
+document.getElementById("evenResult").innerText="Odd";
+
+}
+
+// Task 3
+function marksTotal(){
+
+let marks=[80,90,70,60];
+
+let total=0;
+
+for(let i=0;i<marks.length;i++)
+total+=marks[i];
+
+let avg=total/marks.length;
+
+document.getElementById("arrayResult").innerText=
+"Total = "+total+" Average = "+avg;
+
+}
+
+// Task 4
+function highestMovie(){
+
+let movie=[120,350,250,400];
+
+let max=movie[0];
+let index=0;
+
+for(let i=1;i<movie.length;i++){
+
+if(movie[i]>max){
+
+max=movie[i];
+index=i;
+
+}
+
+}
+
+document.getElementById("movieResult").innerText=
+"Highest = "+max+" Index = "+index;
+
+}
+
+
+
+// Task 6
+function welcome(){
+
+let name=document.getElementById("userName").value;
+
+document.getElementById("welcomeText").innerText="Welcome "+name;
+
+}
+
+// Task 7
+function adminLogin(){
+
+let u=document.getElementById("adminName").value;
+let p=document.getElementById("adminPass").value;
+
+if(u=="admin" && p=="12345")
+document.getElementById("adminResult").innerText="Login Success";
+
+else
+document.getElementById("adminResult").innerText="Invalid Login";
+
+}
+
+// Task 8
+function hide(){
+
+document.getElementById("para").style.display="none";
+
+}
+
+function show(){
+
+document.getElementById("para").style.display="block";
+
+}
+
+// Task 9
+function theme(){
+
+document.getElementById("heading").style.color="red";
+
+document.body.style.background="lightblue";
+
+}
+
+// Task 10
+function register(){
+
+let n=document.getElementById("rName").value;
+
+let e=document.getElementById("rEmail").value;
+
+let a=document.getElementById("rAge").value;
+
+document.getElementById("card").innerHTML=
+"Name : "+n+
+"<br>Email : "+e+
+"<br>Age : "+a;
+
+}
+
+</script>
+
+</body>
+</html>
