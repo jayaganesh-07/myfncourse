@@ -16,7 +16,33 @@
         </form>
     </div>
 
-    
+     <script>
+        
+        const result =[]
+        
+
+       
+        const registerData = (e)=>{
+        
+              e.preventDefault()
+
+            const name = document.getElementById("userName").value 
+            const email = document.getElementById("userEmail").value
+            const pass = document.getElementById("userPassword").value
+            const finalData = {name,email,pass}
+            result.push(finalData)
+            console.log(result)
+
+            
+
+           document.getElementById("userName").value = "";
+           document.getElementById("userEmail").value = "";
+           document.getElementById("userPassword").value = "";
+            
+
+           
+        }
+     </script>
 
 </body>
 </html>
