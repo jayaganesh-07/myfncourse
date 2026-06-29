@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team task</title>
+
+    <style>
+    body{
+        background-color: white;
+        color: black;
+        transition: 0.5;
+    }
+
+    .dark{
+        background-color: black;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+<div>
+ <textarea name="message"  oninput="two()" id="one" placeholder="Typesomething"></textarea><br>
+    
+    <p id="p"></p>
+  
+</div>
+
+<div>
+    <input type="age" id="first"><br><br>
+    <button onclick="second()">Click</button><br>
+    <p id="d"></p>
+</div>
+ 
+<div>
+    <button onclick="dark()">mode toggle</button>
+</div>
+<br>
+<div>
+    <p>ticket price = 150 rupees</p>
+    <input id="total" type="number"><br><br>
+    <button onclick="flim()">book</button><br>
+    <p id="good"></p>
+</div><br>
+
+<div>
+    <h1>Profile card</h1>
+    <form>
+        <input id="userName" type="text" placeholder="Name"><br><br>
+        <input id="userRole" type="text" placeholder="Role"><br><br>
+        <input id="companyName" type="text" placeholder="Company"><br><br><br>
+        <button onclick="profile(event)">generate</button><br>
+    </form>
+    <div>
+        
+        <p id="l"></p>
+        <p id="m"></p>
+        <p id="s"></p>
+    </div>
+</div><br>
+
+<div>
+    <input id="hero" type="text" placeholder="search hero"><br><br>
+    <button onclick="heros()">search</button><br>
+    <p id="top"></p>
+</div><br>
+
+<div>
+    <input id="luck" type="number" placeholder="Enter lucky number"><br><br>
+    <button onclick="lucky()">Click</button><br>
+    <p id="lucks"></p>
+</div>
+
+
+<script>
+
+    //task1 character count
+
+    const two = ()=>{
+
+      const three  =  document.getElementById("one").value
+     const four = document.getElementById("p").innerText = "Total Charaters :" + three.length
+
+     
+
+
+    }
+
+    
+
+    //task2 age
+  const second = ()=>{
+    const third = document.getElementById("first").value
+    
+    if(third>=60){
+       document.getElementById("d").innerText = "Senior Citizen"
+    }else if(third >= 20 && third <= 59){
+       document.getElementById("d").innerText = "Adult"
+    }else if(third >=13 && third <=19){
+       document.getElementById("d").innerText = "Teenager"
+    }else{
+        document.getElementById("d").innerText ="Child"
+    }
+   
+  }
+
+  //task3  dark mode
+   const dark = ()=>{ 
+    document.body.classList.toggle("dark")
+  }
+
+
+  // task4 movie ticket calculator
+ 
+   const price = 150
+  const flim = ()=>{
+      const newPrice = document.getElementById("total").value
+      const result = price*newPrice
+  
+
+      document.getElementById("good").innerText = "Total amount :" + result
+  }
+
+  //task5 profile card generator
+  const profile = (e)=>{
+    e.preventDefault()
+      const one = document.getElementById("userName").value
+      const two = document.getElementById("userRole").value
+      const three = document.getElementById("companyName").value
+      
+      document.getElementById("l").innerText = "Name :" + one 
+      document.getElementById("m").innerText = "Role :" + two
+      document.getElementById("s").innerText = "Company :" + three
+  }
+   
+
+   //task6 search hero
+   const arr = ["Vijay","Ajith","Suriya","Sk","Dhanush"]
+   const heros = ()=>{
+   const star = document.getElementById("hero").value
+    for (let i = 0;i<=arr.length-1;i++)
+    {
+ if(star===arr[i]){
+     document.getElementById("top").innerText="Found"
+     break;
+   }else{
+    document.getElementById("top").innerText="Not Found"
+   }
+    }
+  
+
+   }
+
+   const num =[7,14,21,28]
+   const lucky = ()=>{
+   const val = Number(document.getElementById("luck").value)
+    for (let i = 0; i <=num.length-1; i++) {
+        if(val===num[i]){
+            document.getElementById("lucks").innerText = "Lucky Number"
+            break;
+        }else{
+            document.getElementById("lucks").innerText = "Normal Number"
+        }
+        
+        
+        
+    }
+
+   }
+</script>
+</body>
+</html>
