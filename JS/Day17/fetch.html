@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FETCH</title>
+</head>
+<body>
+ 
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </thead>
+        <tbody id="user">
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <script>
+        const datas = async()=>{
+        const res = await fetch ("https://dummyjson.com/products")
+        const changeData = await res.json()
+        const result = changeData.products
+        let user=document.getElementById("user")
+        result.forEach((e,i)=>
+        user.innerHTML += 
+        ` <tr>
+            <td>${i+1} </td>
+             <td>${e.title} </td>
+              <td>${e.price} </td>
+               <td>${e.ating} </td>
+            
+            </tr>
+
+        
+        
+        
+        
+        `     
+    
+    )
+        }
+        datas()
+
+    </script>
+
+    
+</body>
+</html>
