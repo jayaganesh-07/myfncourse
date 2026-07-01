@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+   
+
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<input type="number" id="age" placeholder="Enter Age">
+
+
+<button onclick="saveData()">Save</button>
+
+
+
+<table border="1">
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Age</th>
+</tr>
+
+</thead>
+
+
+<tbody id="user">
+
+</tbody>
+
+
+</table>
+
+
+
+<script>
+
+
+function saveData(){
+
+
+    // get input values
+
+    let name = document.getElementById("name").value
+
+    let email = document.getElementById("email").value
+
+    let age = document.getElementById("age").value
+
+
+
+    // create object
+
+    let user = {
+
+        name:name,
+        email:email,
+        age:age
+
+    }
+
+
+
+    // get old data
+
+    let data = JSON.parse(localStorage.getItem("users")) || []
+
+
+
+    // push new data
+
+    data.push(user)
+
+
+
+    // save in local storage
+
+    localStorage.setItem("users",JSON.stringify(data))
+
+
+
+    showData()
+
+
+}
+
+
+
+function showData(){
+
+
+    // take table body
+
+    let table = document.getElementById("user")
+
+
+
+    table.innerHTML = ""
+
+
+
+    // get data from local storage
+
+    let data = JSON.parse(localStorage.getItem("users")) || []
+
+
+
+    // loop data
+
+    data.forEach((e)=>{
+
+
+        table.innerHTML += `
+
+        <tr>
+
+        <td>${e.name}</td>
+
+        <td>${e.email}</td>
+
+        <td>${e.age}</td>
+
+        </tr>
+
+        `
+
+
+    })
+
+
+}
+
+
+
+showData()
+
+
+</script>
+
+
+
+    
+</body>
+</html>
