@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100">
+
+    <!-- Sidebar -->
+
+    <div class="fixed left-0 top-0 h-screen w-64 bg-blue-900 text-white shadow-2xl">
+
+        <div class="text-center py-8 border-b border-blue-700">
+
+            <h1 class="text-3xl font-bold text-yellow-400">
+                🛡 SafeLife
+            </h1>
+
+            <p class="text-gray-300 mt-2">
+                Insurance Management
+            </p>
+
+        </div>
+
+        <div class="mt-8 px-5 space-y-3">
+
+            <a href="#" class="block bg-blue-700 rounded-lg p-3">
+                🏠 Dashboard
+            </a>
+
+            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
+                📄 My Policies
+            </a>
+
+            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
+                📋 Claims
+            </a>
+
+            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
+                💳 Payments
+            </a>
+
+            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
+                👤 Profile
+            </a>
+
+            <a href="index.html" class="block hover:bg-red-600 rounded-lg p-3">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="ml-64">
+
+        <!-- Navbar -->
+
+        <nav class="bg-white shadow-md px-10 py-5 flex justify-between items-center">
+
+            <h2 class="text-3xl font-bold text-blue-900">
+                Dashboard
+            </h2>
+
+            <div class="flex items-center gap-4">
+
+                <div class="text-right">
+
+                    <h3 class="font-bold text-lg">
+                        Jaya Ganesh
+                    </h3>
+
+                    <p class="text-gray-500">
+                        Insurance Customer
+                    </p>
+
+                </div>
+
+                <img src="../assets/ganesh.jpeg" class="w-12 h-12 rounded-full border-4 border-blue-900">
+
+            </div>
+
+        </nav>
+
+        <!-- Welcome -->
+
+        <div class="p-8">
+
+            <div class="bg-gradient-to-r from-blue-900 to-blue-600 rounded-2xl text-white p-10 shadow-xl">
+
+                <h1 class="text-4xl font-bold">
+                    Welcome Back, Jaya Ganesh 👋
+                </h1>
+
+                <p class="mt-4 text-lg">
+                    Manage your insurance policies, premium payments, claims, and profile from one secure dashboard.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="grid grid-cols-4 gap-6 px-8">
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 duration-300">
+
+                <div class="text-5xl">📄</div>
+
+                <h2 class="mt-4 text-xl font-bold">
+                    Active Policies
+                </h2>
+
+                <p class="text-4xl text-blue-900 mt-3 font-bold">
+                    05
+                </p>
+
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 duration-300">
+
+                <div class="text-5xl">💳</div>
+
+                <h2 class="mt-4 text-xl font-bold">
+                    Premium Paid
+                </h2>
+
+                <p class="text-4xl text-green-600 mt-3 font-bold">
+                    ₹52K
+                </p>
+
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 duration-300">
+
+                <div class="text-5xl">📋</div>
+
+                <h2 class="mt-4 text-xl font-bold">
+                    Claims
+                </h2>
+
+                <p class="text-4xl text-orange-500 mt-3 font-bold">
+                    02
+                </p>
+
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 duration-300">
+
+                <div class="text-5xl">⭐</div>
+
+                <h2 class="mt-4 text-xl font-bold">
+                    Rewards
+                </h2>
+
+                <p class="text-4xl text-purple-600 mt-3 font-bold">
+                    250
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Policies -->
+
+        <div class="p-8">
+
+            <div class="bg-white rounded-2xl shadow-lg">
+
+                <div class="flex justify-between items-center p-6 border-b">
+
+                    <h2 class="text-2xl font-bold text-blue-900">
+                        Recent Policies
+                    </h2>
+
+                    <button class="bg-blue-900 text-white px-5 py-2 rounded-lg">
+                        View All
+                    </button>
+
+                </div>
+
+                <table class="w-full text-center">
+
+                    <thead class="bg-blue-900 text-white">
+
+                        <tr>
+
+                            <th class="p-4">Policy ID</th>
+
+                            <th>Name</th>
+
+                            <th>Insurance</th>
+
+                            <th>Status</th>
+
+                            <th>Premium</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr class="border-b hover:bg-gray-100">
+
+                            <td class="p-4">PL101</td>
+
+                            <td>Jaya Ganesh</td>
+
+                            <td>Health Insurance</td>
+
+                            <td class="text-green-600 font-bold">
+                                Active
+                            </td>
+
+                            <td>₹8,500</td>
+
+                        </tr>
+
+                        <tr class="border-b hover:bg-gray-100">
+
+                            <td class="p-4">PL102</td>
+
+                            <td>Vijay</td>
+
+                            <td>Vehicle Insurance</td>
+
+                            <td class="text-yellow-500 font-bold">
+                                Pending
+                            </td>
+
+                            <td>₹4,200</td>
+
+                        </tr>
+
+                        <tr class="hover:bg-gray-100">
+
+                            <td class="p-4">PL103</td>
+
+                            <td>Ajith</td>
+
+                            <td>Life Insurance</td>
+
+                            <td class="text-green-600 font-bold">
+                                Active
+                            </td>
+
+                            <td>₹12,000</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="text-center text-gray-500 pb-6">
+
+            © 2026 SafeLife Insurance | Designed by <span class="font-bold text-blue-900">Jaya Ganesh</span>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
