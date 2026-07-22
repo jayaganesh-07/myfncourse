@@ -81,17 +81,34 @@
 
     </div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
+  <script>
+const loginForm = document.getElementById("loginForm");
 
-            // Stop form from refreshing the page
-            event.preventDefault();
+loginForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-            // Go to dashboard page
-            window.location.href = "dashboard.html";
+    // Get input values
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-        });
-    </script>
+    // Get user from localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // Check if user exists
+    if (user === null) {
+        alert("Please register first.");
+        return;
+    }
+
+    // Validate login
+    if (email === user.email && password === user.password) {
+        alert("Login Successful!");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid Email or Password!");
+    }
+});
+</script>
 
 </body>
 </html>

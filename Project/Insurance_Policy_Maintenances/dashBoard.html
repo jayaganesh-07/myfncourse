@@ -30,17 +30,18 @@
 
         <div class="mt-8 px-5 space-y-3">
 
-            <a href="#" class="block bg-blue-700 rounded-lg p-3">
+            <a href="dashBoard.html" class="block bg-blue-700 rounded-lg p-3">
                 🏠 Dashboard
             </a>
 
-            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
-                📄 My Policies
-            </a>
+           <a href="mypolicies.html" class="block hover:bg-blue-700 rounded-lg p-3">
+    📄 My Policies
+</a>
 
-            <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
-                📋 Claims
-            </a>
+            <a href="claims.html" class="block hover:bg-blue-700 rounded-lg p-3">
+    📋 Claims
+</a>
+            
 
             <a href="#" class="block hover:bg-blue-700 rounded-lg p-3">
                 💳 Payments
@@ -64,31 +65,42 @@
 
         <!-- Navbar -->
 
-        <nav class="bg-white shadow-md px-10 py-5 flex justify-between items-center">
+      <!-- Navbar -->
+<nav class="bg-white shadow-md px-10 py-5 flex justify-between items-center">
 
-            <h2 class="text-3xl font-bold text-blue-900">
-                Dashboard
-            </h2>
+    <!-- Left -->
+    <h2 class="text-3xl font-bold text-blue-900">
+        Dashboard
+    </h2>
 
-            <div class="flex items-center gap-4">
+    <!-- Right -->
+    <div class="flex items-center gap-4">
 
-                <div class="text-right">
+        <!-- Notification Bell -->
+        <button id="notifyBtn" class="text-3xl hover:scale-110 duration-300">
+            🔔
+        </button>
 
-                    <h3 class="font-bold text-lg">
-                        Jaya Ganesh
-                    </h3>
+        <!-- User Info -->
+        <div class="text-right">
+            <h3 id="userName" class="font-bold text-lg">
+                Jaya Ganesh
+            </h3>
 
-                    <p class="text-gray-500">
-                        Insurance Customer
-                    </p>
+            <p class="text-gray-500 text-sm">
+                Insurance Customer
+            </p>
+        </div>
 
-                </div>
+        <!-- Profile Image -->
+        <img
+            src="../assets/ganesh.jpeg"
+            alt="Profile"
+            class="w-12 h-12 rounded-full border-4 border-blue-900">
 
-                <img src="../assets/ganesh.jpeg" class="w-12 h-12 rounded-full border-4 border-blue-900">
+    </div>
 
-            </div>
-
-        </nav>
+</nav>
 
         <!-- Welcome -->
 
@@ -97,10 +109,11 @@
             <div class="bg-gradient-to-r from-blue-900 to-blue-600 rounded-2xl text-white p-10 shadow-xl">
 
                 <h1 class="text-4xl font-bold">
-                    Welcome Back, Jaya Ganesh 👋
+                    Welcome Back, Jaya Ganesh
+                    <span id="welcomeName"></span> 👋
                 </h1>
 
-                <p class="mt-4 text-lg">
+                <p id="dateTime" class="mt-3 text-lg">
                     Manage your insurance policies, premium payments, claims, and profile from one secure dashboard.
                 </p>
 
@@ -257,7 +270,7 @@
                             <td>₹12,000</td>
 
                         </tr>
-                          <tr class="border-b hover:bg-gray-100">
+                        <tr class="border-b hover:bg-gray-100">
 
                             <td class="p-4">PL104</td>
 
@@ -265,7 +278,7 @@
 
                             <td>Travel Insurance</td>
 
-                            <td class="text-green-600 font-bold" >
+                            <td class="text-green-600 font-bold">
                                 Active
                             </td>
 
@@ -290,6 +303,14 @@
         </div>
 
     </div>
+
+
+
+    <script>
+document.getElementById("notifyBtn").addEventListener("click", function () {
+    alert("🔔 You have 2 new policy notifications!");
+});
+</script>
 
 </body>
 

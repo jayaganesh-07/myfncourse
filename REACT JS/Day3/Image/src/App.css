@@ -1,0 +1,27 @@
+.parent{
+  padding: 10px;
+  margin: 10px;
+  
+  color: black;
+}
+.vijay{
+
+  color: black;
+  display: flex;
+  border-radius: 60px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.class{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  background-color: antiquewhite;
+
+}
+.navbar{
+  gap: 10px;
+
+}

@@ -13,27 +13,42 @@
 <body class="bg-gray-100">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-blue-900 text-white shadow-2xl shadow-blue-900/50 z-50 ">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+    <nav class="fixed top-0 left-0 w-full bg-blue-900 text-white shadow-2xl shadow-blue-900/50 z-50">
 
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+
+        <!-- Logo -->
         <h1 class="text-3xl font-bold">
             🛡️ SafeLife Insurance
         </h1>
 
-        <ul class="flex gap-8 text-lg">
+        <!-- Menu -->
+        <ul class="flex items-center gap-8 text-lg">
             <li><a href="home.html" class="hover:text-yellow-300">Home</a></li>
             <li><a href="policies.html" class="hover:text-yellow-300">Policies</a></li>
             <li><a href="about.html" class="hover:text-yellow-300">About</a></li>
             <li><a href="contact.html" class="hover:text-yellow-300">Contact</a></li>
         </ul>
 
-       <a href="login.html">
-    <button class="bg-yellow-400 text-black px-5 py-2 rounded-lg hover:bg-yellow-300">
-        Login
-    </button>
-</a>
+        <!-- Buttons -->
+        <div class="flex items-center gap-3">
+
+            <a href="login.html">
+                <button class="bg-yellow-400 text-black px-5 py-2 rounded-lg hover:bg-yellow-300">
+                    Login
+                </button>
+            </a>
+
+            <a href="register.html">
+                <button class="bg-white text-blue-900 px-5 py-2 rounded-lg hover:bg-gray-200">
+                    Register
+                </button>
+            </a>
+
+        </div>
 
     </div>
+
 </nav>
 
    <!-- Hero Section -->
@@ -58,13 +73,17 @@
 
             <div class="mt-10 flex gap-5">
 
-                <button class="bg-blue-900 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 duration-300">
-                    Explore Policies
-                </button>
-
-                <button class="border-2 border-blue-900 text-blue-900 px-8 py-3 rounded-lg hover:bg-blue-900 hover:text-white duration-300">
-                    Get Quote
-                </button>
+               <button
+    id="exploreBtn"
+    class="bg-blue-900 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 duration-300">
+    Explore Policies
+</button>
+ <button
+    id="quoteBtn"
+    class="border-2 border-blue-900 text-blue-900 px-8 py-3 rounded-lg hover:bg-blue-900 hover:text-white duration-300">
+    Get Quote
+</button>
+               
 
             </div>
 
@@ -191,13 +210,61 @@
 
   
   <script>
-    document.getElementById("exploreBtn").addEventListener("click", function () {
-        alert("Welcome! Explore our insurance policies.");
+
+// Explore Policies
+document.getElementById("exploreBtn").addEventListener("click", function () {
+
+    alert("Redirecting to Policies Page...");
+
+    window.location.href = "policies.html";
+
+});
+
+// Login
+document.getElementById("loginBtn").addEventListener("click", function () {
+
+    alert("Welcome to SafeLife Insurance");
+
+    window.location.href = "login.html";
+
+});
+
+// Register
+document.getElementById("registerBtn").addEventListener("click", function () {
+
+    window.location.href = "register.html";
+
+});
+
+// Get Quote
+document.getElementById("quoteBtn").addEventListener("click", function () {
+
+    alert("Our insurance advisor will contact you soon.");
+
+});
+
+// Navbar Active Color
+const navLinks = document.querySelectorAll("nav ul li a");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", function () {
+
+        navLinks.forEach(item => item.classList.remove("text-yellow-300"));
+
+        this.classList.add("text-yellow-300");
+
     });
 
-    document.getElementById("loginBtn").addEventListener("click", function () {
-        window.location.href = "login.html";
-    });
+});
+
+// Welcome Message
+window.onload = function () {
+
+    console.log("Welcome to SafeLife Insurance");
+
+};
+
 </script>
 
 </body>
