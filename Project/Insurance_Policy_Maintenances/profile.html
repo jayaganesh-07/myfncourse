@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | SafeLife Insurance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="../assets/favicon.ico">
+
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+
+    <nav class="bg-blue-900 text-white p-5 flex justify-between items-center">
+
+        <h1 class="text-3xl font-bold">
+            🛡 SafeLife Insurance
+        </h1>
+
+        <div class="flex gap-6">
+
+            <a href="dashboard.html" class="hover:text-yellow-300">
+                Dashboard
+            </a>
+
+            <a href="mypolicies.html" class="hover:text-yellow-300">
+                My Policies
+            </a>
+
+            <a href="claims.html" class="hover:text-yellow-300">
+                Claims
+            </a>
+
+            <a href="payments.html" class="hover:text-yellow-300">
+                Payments
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Profile Card -->
+
+    <div class="max-w-5xl mx-auto mt-10 mb-10">
+
+        <div class="bg-white rounded-2xl shadow-xl p-10">
+
+            <div class="flex flex-col items-center">
+
+                <img src="../assets/ganesh.jpeg" class="w-36 h-36 rounded-full border-4 border-blue-900">
+
+                <h2 class="text-3xl font-bold text-blue-900 mt-4">
+                    My Profile
+                </h2>
+
+                <p class="text-gray-500">
+                    Insurance Customer
+                </p>
+
+            </div>
+
+            <form id="profileForm" class="grid grid-cols-2 gap-6 mt-10">
+
+                <div>
+
+                    <label class="font-bold">
+                        Full Name
+                    </label>
+
+                    <input type="text" id="fullname" class="w-full border rounded-lg p-3 mt-2">
+
+                </div>
+
+                <div>
+
+                    <label class="font-bold">
+                        Email
+                    </label>
+
+                    <input type="email" id="email" class="w-full border rounded-lg p-3 mt-2">
+
+                </div>
+
+                <div>
+
+                    <label class="font-bold">
+                        Mobile Number
+                    </label>
+
+                    <input type="text" id="mobile" class="w-full border rounded-lg p-3 mt-2">
+
+                </div>
+
+                <div>
+
+                    <label class="font-bold">
+                        Address
+                    </label>
+
+                    <input type="text" id="address" class="w-full border rounded-lg p-3 mt-2">
+
+                </div>
+
+                <div class="col-span-2 flex gap-5 mt-5">
+
+                 <button
+    type="button"
+    id="editBtn"
+    class="bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+    Edit Profile
+</button>
+
+                    <button type="submit" class="bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-700">
+
+                        Save Changes
+
+                    </button>
+
+                    <a href="dashboard.html" class="bg-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-700">
+
+                        Back
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="bg-blue-900 text-white text-center p-5">
+
+        <h2 class="text-2xl font-bold">
+            🛡 SafeLife Insurance
+        </h2>
+
+        <p class="mt-2">
+            Secure Today. Protect Tomorrow.
+        </p>
+
+    </footer>
+
+    <script>
+
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user) {
+
+            document.getElementById("fullname").value = user.fullname;
+            document.getElementById("email").value = user.email;
+            document.getElementById("mobile").value = user.mobile;
+            document.getElementById("address").value = user.address;
+
+        }
+
+        const inputs = document.querySelectorAll("#profileForm input");
+
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+
+       document.getElementById("editBtn").addEventListener("click", function () {
+
+    inputs.forEach(input => {
+        input.disabled = false;
+    });
+
+    document.getElementById("fullname").focus();
+
+});
+
+        document.getElementById("profileForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const updatedUser = {
+
+                fullname: document.getElementById("fullname").value,
+                email: document.getElementById("email").value,
+                mobile: document.getElementById("mobile").value,
+                address: document.getElementById("address").value,
+                password: user.password
+
+            };
+
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+
+            alert("Profile Updated Successfully!");
+
+            inputs.forEach(input => {
+                input.disabled = true;
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

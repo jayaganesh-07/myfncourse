@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payments | SafeLife Insurance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" href="../assets/favicon.ico">
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+
+<nav class="bg-blue-900 text-white p-5 flex justify-between items-center">
+
+<h1 class="text-3xl font-bold">
+🛡 SafeLife Insurance
+</h1>
+
+<div class="flex gap-6">
+
+<a href="dashboard.html" class="hover:text-yellow-300">Dashboard</a>
+
+<a href="mypolicies.html" class="hover:text-yellow-300">My Policies</a>
+
+<a href="claims.html" class="hover:text-yellow-300">Claims</a>
+
+<a href="profile.html" class="hover:text-yellow-300">Profile</a>
+
+</div>
+
+</nav>
+
+<!-- Heading -->
+
+<section class="text-center py-10">
+
+<h1 class="text-5xl font-bold text-blue-900">
+Premium Payment
+</h1>
+
+<p class="text-gray-600 mt-3">
+Pay your insurance premium securely.
+</p>
+
+</section>
+
+<!-- Payment Form -->
+
+<div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+
+<form id="paymentForm">
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+<label class="font-bold">
+Customer Name
+</label>
+
+<input
+id="name"
+type="text"
+placeholder="Enter Name"
+class="w-full border rounded-lg p-3 mt-2">
+
+</div>
+
+<div>
+
+<label class="font-bold">
+Email
+</label>
+
+<input
+id="email"
+type="email"
+placeholder="Enter Email"
+class="w-full border rounded-lg p-3 mt-2">
+
+</div>
+
+<div>
+
+<label class="font-bold">
+Policy Number
+</label>
+
+<input
+id="policyNumber"
+type="text"
+placeholder="PL101"
+class="w-full border rounded-lg p-3 mt-2">
+
+</div>
+
+<div>
+
+<label class="font-bold">
+Policy Type
+</label>
+
+<select
+id="policyType"
+class="w-full border rounded-lg p-3 mt-2">
+
+<option value="">Select Policy</option>
+<option>Health Insurance</option>
+<option>Life Insurance</option>
+<option>Vehicle Insurance</option>
+<option>Travel Insurance</option>
+<option>Home Insurance</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label class="font-bold">
+Premium Amount
+</label>
+
+<input
+id="amount"
+type="number"
+placeholder="Enter Amount"
+class="w-full border rounded-lg p-3 mt-2">
+
+</div>
+
+<div>
+
+<label class="font-bold">
+Payment Method
+</label>
+
+<select
+id="paymentMethod"
+class="w-full border rounded-lg p-3 mt-2">
+
+<option value="">Choose Payment</option>
+<option>UPI</option>
+<option>Credit Card</option>
+<option>Debit Card</option>
+<option>Net Banking</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="mt-6">
+
+<label class="font-bold">
+Payment Date
+</label>
+
+<input
+id="paymentDate"
+type="date"
+class="w-full border rounded-lg p-3 mt-2">
+
+</div>
+
+<div class="flex gap-5 mt-8">
+
+<button
+type="submit"
+class="bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-700">
+
+Pay Now
+
+</button>
+
+<button
+type="reset"
+class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-gray-700">
+
+Reset
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+<!-- Payment History -->
+
+<div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl mt-10 mb-10 p-8">
+
+<h2 class="text-3xl font-bold text-blue-900 mb-6">
+Payment History
+</h2>
+
+<table class="w-full text-center">
+
+<thead class="bg-blue-900 text-white">
+
+<tr>
+
+<th class="p-3">Payment ID</th>
+<th>Policy</th>
+<th>Amount</th>
+<th>Method</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="paymentTable">
+
+<tr>
+
+<td class="p-3">PAY001</td>
+<td>Health Insurance</td>
+<td>₹5,000</td>
+<td>UPI</td>
+<td class="text-green-600 font-bold">Paid</td>
+
+</tr>
+
+<tr>
+
+<td class="p-3">PAY002</td>
+<td>Vehicle Insurance</td>
+<td>₹6,500</td>
+<td>Card</td>
+<td class="text-green-600 font-bold">Paid</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center py-5">
+
+<h2 class="text-2xl font-bold">
+🛡 SafeLife Insurance
+</h2>
+
+<p class="mt-2">
+Secure Today. Protect Tomorrow.
+</p>
+
+<p class="mt-2 text-gray-300">
+© 2026 SafeLife Insurance. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+const paymentForm = document.getElementById("paymentForm");
+
+paymentForm.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const policyNumber=document.getElementById("policyNumber").value.trim();
+const policyType=document.getElementById("policyType").value;
+const amount=document.getElementById("amount").value;
+const paymentMethod=document.getElementById("paymentMethod").value;
+const paymentDate=document.getElementById("paymentDate").value;
+
+if(name===""||email===""||policyNumber===""||policyType===""||amount===""||paymentMethod===""||paymentDate===""){
+
+alert("Please fill all fields.");
+
+return;
+
+}
+
+const payment={
+
+name,
+email,
+policyNumber,
+policyType,
+amount,
+paymentMethod,
+paymentDate
+
+};
+
+localStorage.setItem("payment",JSON.stringify(payment));
+
+alert("Payment Successful!");
+
+paymentForm.reset();
+
+});
+
+</script>
+
+</body>
+
+</html>
