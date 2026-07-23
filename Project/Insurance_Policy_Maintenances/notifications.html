@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | SafeLife Insurance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="../assets/favicon.ico">
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+
+<nav class="bg-blue-900 text-white p-5 flex justify-between items-center">
+
+    <h1 class="text-3xl font-bold">
+        🛡 SafeLife Insurance
+    </h1>
+
+    <div class="flex gap-6">
+
+        <a href="dashboard.html" class="hover:text-yellow-300">
+            Dashboard
+        </a>
+
+        <a href="profile.html" class="hover:text-yellow-300">
+            Profile
+        </a>
+
+        <a href="settings.html" class="hover:text-yellow-300">
+            Settings
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- Heading -->
+
+<section class="py-10 text-center">
+
+    <h1 class="text-5xl font-bold text-blue-900">
+        🔔 Notifications
+    </h1>
+
+    <p class="text-gray-500 mt-3">
+        Stay updated with your insurance activities.
+    </p>
+
+</section>
+
+<!-- Notification List -->
+
+<div id="notificationList" class="max-w-4xl mx-auto space-y-5 px-5">
+
+    <div class="bg-white p-5 rounded-xl shadow flex justify-between items-center">
+
+        <div>
+            <h2 class="text-xl font-bold">
+                💳 Premium Payment Due
+            </h2>
+            <p class="text-gray-600">
+                Your Health Insurance premium is due on 30 July 2026.
+            </p>
+        </div>
+
+        <span class="bg-red-500 text-white px-3 py-1 rounded-full">
+            Unread
+        </span>
+
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow flex justify-between items-center">
+
+        <div>
+            <h2 class="text-xl font-bold">
+                📄 Claim Approved
+            </h2>
+            <p class="text-gray-600">
+                Your vehicle insurance claim has been approved.
+            </p>
+        </div>
+
+        <span class="bg-green-600 text-white px-3 py-1 rounded-full">
+            Read
+        </span>
+
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow flex justify-between items-center">
+
+        <div>
+            <h2 class="text-xl font-bold">
+                🎉 New Policy Offer
+            </h2>
+            <p class="text-gray-600">
+                Get 20% discount on Travel Insurance.
+            </p>
+        </div>
+
+        <span class="bg-red-500 text-white px-3 py-1 rounded-full">
+            Unread
+        </span>
+
+    </div>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="flex justify-center gap-5 mt-10 mb-10">
+
+    <button
+        id="clearBtn"
+        class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700">
+
+        Clear All
+
+    </button>
+
+    <a
+        href="dashboard.html"
+        class="bg-blue-900 text-white px-8 py-3 rounded-lg hover:bg-blue-700">
+
+        Back to Dashboard
+
+    </a>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center py-5">
+
+    <h2 class="text-2xl font-bold">
+        🛡 SafeLife Insurance
+    </h2>
+
+    <p class="mt-2">
+        Secure Today. Protect Tomorrow.
+    </p>
+
+</footer>
+
+<script>
+
+document.getElementById("clearBtn").addEventListener("click", function(){
+
+    document.getElementById("notificationList").innerHTML = `
+        <div class="bg-white p-10 rounded-xl shadow text-center">
+            <h2 class="text-3xl">🔕</h2>
+            <p class="text-xl mt-3 text-gray-500">
+                No Notifications Available
+            </p>
+        </div>
+    `;
+
+    alert("All notifications cleared successfully!");
+
+});
+
+</script>
+
+</body>
+</html>

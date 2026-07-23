@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | SafeLife Insurance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+
+    <nav class="bg-blue-900 text-white p-5 flex justify-between items-center">
+
+        <h1 class="text-3xl font-bold">
+            🛡 SafeLife Insurance
+        </h1>
+
+        <div class="flex gap-6">
+            <a href="dashboard.html" class="hover:text-yellow-300">Dashboard</a>
+            <a href="profile.html" class="hover:text-yellow-300">Profile</a>
+            <a href="logout.html" class="hover:text-red-300">Logout</a>
+        </div>
+
+    </nav>
+
+    <!-- Settings -->
+
+    <div class="max-w-4xl mx-auto mt-10 mb-10">
+
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+
+            <h1 class="text-4xl font-bold text-blue-900 mb-8">
+                ⚙️ Settings
+            </h1>
+
+            <!-- User -->
+
+            <div class="border rounded-xl p-5 mb-6">
+
+                <h2 class="text-2xl font-bold mb-4">
+                    👤 Account
+                </h2>
+
+                <p id="userName" class="text-lg"></p>
+
+                <p id="userEmail" class="text-gray-600"></p>
+
+            </div>
+
+            <!-- Notification -->
+
+            <div class="border rounded-xl p-5 mb-6 flex justify-between items-center">
+
+                <div>
+
+                    <h2 class="text-xl font-bold">
+                        🔔 Notifications
+                    </h2>
+
+                    <p class="text-gray-500">
+                        Enable or Disable Notifications
+                    </p>
+
+                </div>
+
+                <input id="notify" type="checkbox" class="w-6 h-6">
+
+            </div>
+
+            <!-- Dark Mode -->
+
+            <div class="border rounded-xl p-5 mb-6 flex justify-between items-center">
+
+                <div>
+
+                    <h2 class="text-xl font-bold">
+                        🌙 Dark Mode
+                    </h2>
+
+                    <p class="text-gray-500">
+                        Switch Theme
+                    </p>
+
+                </div>
+
+                <button id="themeBtn"
+                    class="bg-blue-900 text-white px-5 py-2 rounded-lg">
+                    Enable
+                </button>
+
+            </div>
+
+            <!-- Change Password -->
+
+            <div class="border rounded-xl p-5 mb-6">
+
+                <h2 class="text-xl font-bold mb-4">
+                    🔒 Change Password
+                </h2>
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="New Password"
+                    class="w-full border rounded-lg p-3 mb-4">
+
+                <button
+                    id="changePassBtn"
+                    class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+                    Update Password
+                </button>
+
+            </div>
+
+            <!-- Logout -->
+
+            <div class="text-center mt-8">
+
+                <a href="logout.html"
+                    class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700">
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if(user){
+            document.getElementById("userName").innerHTML =
+                "<b>Name:</b> " + user.fullname;
+
+            document.getElementById("userEmail").innerHTML =
+                "<b>Email:</b> " + user.email;
+        }
+
+        // Notification
+
+        document.getElementById("notify").addEventListener("change",function(){
+
+            if(this.checked){
+                alert("Notifications Enabled");
+            }else{
+                alert("Notifications Disabled");
+            }
+
+        });
+
+        // Dark Mode
+
+        const btn=document.getElementById("themeBtn");
+
+        btn.addEventListener("click",function(){
+
+            document.body.classList.toggle("bg-gray-900");
+            document.body.classList.toggle("text-white");
+
+            if(btn.innerText==="Enable"){
+                btn.innerText="Disable";
+            }else{
+                btn.innerText="Enable";
+            }
+
+        });
+
+        // Change Password
+
+        document.getElementById("changePassBtn").addEventListener("click",function(){
+
+            const pass=document.getElementById("newPassword").value;
+
+            if(pass===""){
+                alert("Enter New Password");
+                return;
+            }
+
+            user.password=pass;
+
+            localStorage.setItem("user",JSON.stringify(user));
+
+            alert("Password Updated Successfully");
+
+            document.getElementById("newPassword").value="";
+
+        });
+
+    </script>
+
+</body>
+</html>

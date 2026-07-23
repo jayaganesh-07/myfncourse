@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | SafeLife Insurance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" href="../assets/favicon.ico">
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Sidebar -->
+
+<div class="fixed left-0 top-0 h-screen w-64 bg-blue-900 text-white">
+
+<div class="text-center py-8 border-b border-blue-700">
+
+<h1 class="text-3xl font-bold text-yellow-400">
+🛡 SafeLife
+</h1>
+
+<p>Admin Panel</p>
+
+</div>
+
+<div class="mt-8 px-5 space-y-3">
+
+<a href="admin.html" class="block bg-blue-700 p-3 rounded-lg">
+📊 Dashboard
+</a>
+
+<a href="users.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+👥 Users
+</a>
+
+<a href="policies.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+📄 Policies
+</a>
+
+<a href="claims.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+📋 Claims
+</a>
+
+<a href="payments.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+💳 Payments
+</a>
+
+<a href="logout.html" class="block hover:bg-red-600 p-3 rounded-lg">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+<!-- Main -->
+
+<div class="ml-64">
+
+<!-- Navbar -->
+
+<nav class="bg-white shadow p-6 flex justify-between">
+
+<h2 class="text-3xl font-bold text-blue-900">
+Admin Dashboard
+</h2>
+
+<h3 class="text-xl font-bold">
+Admin
+</h3>
+
+</nav>
+
+<!-- Cards -->
+
+<div class="grid grid-cols-4 gap-6 p-8">
+
+<div class="bg-white rounded-xl shadow p-6 text-center">
+
+<h2 class="text-5xl">👥</h2>
+
+<p class="mt-4 font-bold">
+Users
+</p>
+
+<h1 id="userCount" class="text-4xl text-blue-900 mt-3">
+0
+</h1>
+
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 text-center">
+
+<h2 class="text-5xl">📄</h2>
+
+<p class="mt-4 font-bold">
+Policies
+</p>
+
+<h1 class="text-4xl text-blue-900 mt-3">
+6
+</h1>
+
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 text-center">
+
+<h2 class="text-5xl">📋</h2>
+
+<p class="mt-4 font-bold">
+Claims
+</p>
+
+<h1 class="text-4xl text-blue-900 mt-3">
+2
+</h1>
+
+</div>
+
+<div class="bg-white rounded-xl shadow p-6 text-center">
+
+<h2 class="text-5xl">💳</h2>
+
+<p class="mt-4 font-bold">
+Payments
+</p>
+
+<h1 class="text-4xl text-blue-900 mt-3">
+5
+</h1>
+
+</div>
+
+</div>
+
+<!-- User Table -->
+
+<div class="p-8">
+
+<div class="bg-white rounded-xl shadow">
+
+<h2 class="text-2xl font-bold bg-blue-900 text-white p-5 rounded-t-xl">
+Registered User
+</h2>
+
+<table class="w-full text-center">
+
+<thead class="bg-gray-200">
+
+<tr>
+
+<th class="p-4">Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Address</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td id="name"></td>
+<td id="email"></td>
+<td id="mobile"></td>
+<td id="address"></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+document.getElementById("name").innerText=user.fullname;
+
+document.getElementById("email").innerText=user.email;
+
+document.getElementById("mobile").innerText=user.mobile;
+
+document.getElementById("address").innerText=user.address;
+
+document.getElementById("userCount").innerText=1;
+
+}else{
+
+document.getElementById("userCount").innerText=0;
+
+}
+
+</script>
+
+</body>
+</html>
