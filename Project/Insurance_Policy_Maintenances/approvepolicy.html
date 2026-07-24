@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approve Policies | SafeLife Insurance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-blue-900 text-white shadow-lg">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+<h1 class="text-3xl font-bold">
+🛡 SafeLife Admin
+</h1>
+
+<div class="flex gap-6">
+
+<a href="admin.html" class="hover:text-yellow-300">Dashboard</a>
+
+<a href="users.html" class="hover:text-yellow-300">Users</a>
+
+<a href="approvepolicy.html" class="text-yellow-300 font-bold">
+Policy Approval
+</a>
+
+<a href="logout.html" class="hover:text-red-300">Logout</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Heading -->
+
+<div class="max-w-7xl mx-auto py-10">
+
+<h2 class="text-4xl font-bold text-blue-900">
+📄 Policy Approval
+</h2>
+
+<p class="text-gray-500 mt-2">
+Approve or Reject customer policy requests.
+</p>
+
+<!-- Search -->
+
+<div class="bg-white shadow rounded-xl p-5 mt-6">
+
+<input
+id="search"
+type="text"
+placeholder="Search Policy..."
+class="w-full border rounded-lg p-3 outline-none">
+
+</div>
+
+<!-- Table -->
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden mt-8">
+
+<table class="w-full text-center">
+
+<thead class="bg-blue-900 text-white">
+
+<tr>
+
+<th class="p-4">ID</th>
+<th>Name</th>
+<th>Policy</th>
+<th>Premium</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="policyTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<footer class="bg-blue-900 text-white text-center py-5 mt-10">
+
+<h2 class="text-xl font-bold">
+🛡 SafeLife Insurance
+</h2>
+
+<p class="mt-2">
+© 2026 SafeLife Insurance
+</p>
+
+</footer>
+
+<script>
+
+let policies = [
+
+{
+id:1,
+name:"Jaya Ganesh",
+policy:"Health Insurance",
+premium:"₹5,000",
+status:"Pending"
+},
+
+{
+id:2,
+name:"Vijay",
+policy:"Life Insurance",
+premium:"₹8,000",
+status:"Pending"
+},
+
+{
+id:3,
+name:"Ajith",
+policy:"Vehicle Insurance",
+premium:"₹6,500",
+status:"Approved"
+},
+
+{
+id:4,
+name:"Surya",
+policy:"Travel Insurance",
+premium:"₹4,000",
+status:"Rejected"
+}
+
+];
+
+const table=document.getElementById("policyTable");
+
+function displayPolicies(data=policies){
+
+table.innerHTML="";
+
+data.forEach((p,index)=>{
+
+table.innerHTML+=`
+
+<tr class="border-b hover:bg-gray-100">
+
+<td class="p-4">${p.id}</td>
+
+<td>${p.name}</td>
+
+<td>${p.policy}</td>
+
+<td>${p.premium}</td>
+
+<td>
+
+<span class="${
+p.status=="Approved"
+?"text-green-600":
+p.status=="Rejected"
+?"text-red-600":
+"text-yellow-500"
+} font-bold">
+
+${p.status}
+
+</span>
+
+</td>
+
+<td>
+
+<button
+onclick="approvePolicy(${index})"
+class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700">
+
+Approve
+
+</button>
+
+<button
+onclick="rejectPolicy(${index})"
+class="bg-red-600 text-white px-3 py-2 rounded ml-2 hover:bg-red-700">
+
+Reject
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+displayPolicies();
+
+function approvePolicy(index){
+
+policies[index].status="Approved";
+
+displayPolicies();
+
+}
+
+function rejectPolicy(index){
+
+policies[index].status="Rejected";
+
+displayPolicies();
+
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase();
+
+const filtered=policies.filter(p=>
+
+p.name.toLowerCase().includes(value) ||
+
+p.policy.toLowerCase().includes(value)
+
+);
+
+displayPolicies(filtered);
+
+});
+
+</script>
+
+</body>
+</html>

@@ -71,32 +71,52 @@
 
     </div>
 
-  <script>
+ <script>
 const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", function(event) {
+
     event.preventDefault();
 
-    // Get input values
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    // Get user from localStorage
-    const user = JSON.parse(localStorage.getItem("user"));
+    // --------------------
+    // ADMIN LOGIN
+    // --------------------
+    if (email === "admin" && password === "admin123") {
 
-    // Check if user exists
-    if (user === null) {
-        alert("Please register first.");
+        alert("Welcome Admin!");
+
+        window.location.href = "admin.html";
+
         return;
     }
 
-    // Validate login
-    if (email === user.email && password === user.password) {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Invalid Email or Password!");
+    // --------------------
+    // USER LOGIN
+    // --------------------
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+
+        alert("Please register first.");
+
+        return;
     }
+
+    if (email === user.email && password === user.password) {
+
+        alert("Login Successful!");
+
+        window.location.href = "dashboard.html";
+
+    } else {
+
+        alert("Invalid Email or Password!");
+
+    }
+
 });
 </script>
 

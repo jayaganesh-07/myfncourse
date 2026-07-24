@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feedback | SafeLife Insurance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+
+<nav class="bg-blue-900 text-white shadow-lg">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+<h1 class="text-3xl font-bold">
+🛡 SafeLife Admin
+</h1>
+
+<div class="flex gap-6">
+
+<a href="admin.html" class="hover:text-yellow-300">Dashboard</a>
+
+<a href="users.html" class="hover:text-yellow-300">Users</a>
+
+<a href="claimmanagement.html" class="hover:text-yellow-300">Claims</a>
+
+<a href="feedback.html" class="text-yellow-300 font-bold">Feedback</a>
+
+<a href="logout.html" class="hover:text-red-300">Logout</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Heading -->
+
+<div class="max-w-7xl mx-auto py-10">
+
+<h2 class="text-4xl font-bold text-blue-900">
+⭐ Customer Feedback
+</h2>
+
+<p class="text-gray-500 mt-2">
+View customer reviews and ratings.
+</p>
+
+<!-- Cards -->
+
+<div class="grid md:grid-cols-3 gap-6 mt-8">
+
+<div class="bg-white shadow rounded-xl p-6 text-center">
+
+<h2 class="text-4xl">💬</h2>
+
+<p class="mt-3 font-bold">Total Feedback</p>
+
+<h1 id="feedbackCount" class="text-4xl text-blue-900 mt-2">0</h1>
+
+</div>
+
+<div class="bg-white shadow rounded-xl p-6 text-center">
+
+<h2 class="text-4xl">⭐</h2>
+
+<p class="mt-3 font-bold">Average Rating</p>
+
+<h1 class="text-4xl text-yellow-500 mt-2">4.5</h1>
+
+</div>
+
+<div class="bg-white shadow rounded-xl p-6 text-center">
+
+<h2 class="text-4xl">😊</h2>
+
+<p class="mt-3 font-bold">Happy Customers</p>
+
+<h1 class="text-4xl text-green-600 mt-2">95%</h1>
+
+</div>
+
+<!-- Search -->
+
+</div>
+
+<div class="bg-white shadow rounded-xl p-5 mt-8">
+
+<input
+id="searchFeedback"
+type="text"
+placeholder="Search Feedback..."
+class="w-full border rounded-lg p-3 outline-none">
+
+</div>
+
+<!-- Table -->
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden mt-8">
+
+<table class="w-full text-center">
+
+<thead class="bg-blue-900 text-white">
+
+<tr>
+
+<th class="p-4">ID</th>
+<th>Customer</th>
+<th>Rating</th>
+<th>Feedback</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="feedbackTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center py-5 mt-10">
+
+<h2 class="text-xl font-bold">
+🛡 SafeLife Insurance
+</h2>
+
+<p class="mt-2">
+© 2026 SafeLife Insurance. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+let feedbacks=[
+
+{
+id:1,
+name:"Jaya Ganesh",
+rating:"⭐⭐⭐⭐⭐",
+message:"Excellent insurance service."
+},
+
+{
+id:2,
+name:"Vijay",
+rating:"⭐⭐⭐⭐",
+message:"Very quick claim approval."
+},
+
+{
+id:3,
+name:"Ajith",
+rating:"⭐⭐⭐⭐⭐",
+message:"Customer support was very helpful."
+},
+
+{
+id:4,
+name:"Surya",
+rating:"⭐⭐⭐",
+message:"Premium is little expensive."
+}
+
+];
+
+const table=document.getElementById("feedbackTable");
+
+document.getElementById("feedbackCount").innerText=feedbacks.length;
+
+function displayFeedback(data=feedbacks){
+
+table.innerHTML="";
+
+data.forEach((item,index)=>{
+
+table.innerHTML+=`
+
+<tr class="border-b hover:bg-gray-100">
+
+<td class="p-4">${item.id}</td>
+
+<td>${item.name}</td>
+
+<td class="text-yellow-500">${item.rating}</td>
+
+<td>${item.message}</td>
+
+<td>
+
+<button
+onclick="deleteFeedback(${index})"
+class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+displayFeedback();
+
+function deleteFeedback(index){
+
+if(confirm("Delete this feedback?")){
+
+feedbacks.splice(index,1);
+
+document.getElementById("feedbackCount").innerText=feedbacks.length;
+
+displayFeedback();
+
+}
+
+}
+
+document.getElementById("searchFeedback").addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase();
+
+const filtered=feedbacks.filter(item=>
+
+item.name.toLowerCase().includes(value) ||
+
+item.message.toLowerCase().includes(value)
+
+);
+
+displayFeedback(filtered);
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,152 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SafeLife Insurance</title>
 
-<title>Admin Dashboard | SafeLife Insurance</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link rel="icon" href="../assets/favicon.ico">
-
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100">
 
 <!-- Sidebar -->
 
-<div class="fixed left-0 top-0 h-screen w-64 bg-blue-900 text-white">
+<div class="fixed left-0 top-0 w-64 h-screen bg-blue-900 text-white">
 
-<div class="text-center py-8 border-b border-blue-700">
+    <div class="text-center py-6 border-b border-blue-700">
 
-<h1 class="text-3xl font-bold text-yellow-400">
-🛡 SafeLife
-</h1>
+        <h1 class="text-3xl font-bold text-yellow-400">
+            🛡 SafeLife
+        </h1>
 
-<p>Admin Panel</p>
+        <p class="text-gray-300 mt-2">
+            Insurance Admin
+        </p>
+
+    </div>
+
+    <div class="mt-6 space-y-2 px-4">
+
+        <a href="admin.html" class="block bg-blue-700 p-3 rounded-lg">
+            📊 Dashboard
+        </a>
+
+        <a href="users.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            👥 Users
+        </a>
+
+        <a href="reports.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            📈 Reports
+        </a>
+
+        <a href="approvepolicy.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            ✅ Policy Approval
+        </a>
+
+        <a href="claimmanagement.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            📋 Claims
+        </a>
+
+        <a href="feedback.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            ⭐ Feedback
+        </a>
+
+        <a href="messages.html" class="block hover:bg-blue-700 p-3 rounded-lg">
+            💬 Messages
+        </a>
+
+        <a href="logout.html" class="block hover:bg-red-600 p-3 rounded-lg">
+            🚪 Logout
+        </a>
+
+    </div>
 
 </div>
 
-<div class="mt-8 px-5 space-y-3">
-
-<a href="admin.html" class="block bg-blue-700 p-3 rounded-lg">
-📊 Dashboard
-</a>
-
-<a href="users.html" class="block hover:bg-blue-700 p-3 rounded-lg">
-👥 Users
-</a>
-
-<a href="policies.html" class="block hover:bg-blue-700 p-3 rounded-lg">
-📄 Policies
-</a>
-
-<a href="claims.html" class="block hover:bg-blue-700 p-3 rounded-lg">
-📋 Claims
-</a>
-
-<a href="payments.html" class="block hover:bg-blue-700 p-3 rounded-lg">
-💳 Payments
-</a>
-
-<a href="logout.html" class="block hover:bg-red-600 p-3 rounded-lg">
-🚪 Logout
-</a>
-
-</div>
-
-</div>
-
-<!-- Main -->
+<!-- Main Content -->
 
 <div class="ml-64">
 
-<!-- Navbar -->
+<!-- Top Navbar -->
 
-<nav class="bg-white shadow p-6 flex justify-between">
+<div class="bg-white shadow flex justify-between items-center p-6">
 
-<h2 class="text-3xl font-bold text-blue-900">
-Admin Dashboard
-</h2>
+    <div>
 
-<h3 class="text-xl font-bold">
-Admin
-</h3>
+        <h2 class="text-3xl font-bold text-blue-900">
+            Admin Dashboard
+        </h2>
 
-</nav>
+        <p class="text-gray-500">
+            Welcome Back, Administrator
+        </p>
 
-<!-- Cards -->
+    </div>
+
+    <div class="flex items-center gap-6">
+
+        <button class="text-2xl">
+            🔔
+        </button>
+
+        <img src="../assets/ganesh.jpeg"
+        class="w-12 h-12 rounded-full border-2 border-blue-900">
+
+    </div>
+
+</div>
+
+<!-- Dashboard Cards -->
 
 <div class="grid grid-cols-4 gap-6 p-8">
 
-<div class="bg-white rounded-xl shadow p-6 text-center">
+<div class="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 duration-300">
 
-<h2 class="text-5xl">👥</h2>
+<h1 class="text-5xl">👥</h1>
 
-<p class="mt-4 font-bold">
-Users
+<p class="mt-4 text-gray-500">
+Total Users
 </p>
 
-<h1 id="userCount" class="text-4xl text-blue-900 mt-3">
-0
-</h1>
+<h2 id="usersCount" class="text-4xl font-bold text-blue-900 mt-2">
+150
+</h2>
 
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 text-center">
+<div class="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 duration-300">
 
-<h2 class="text-5xl">📄</h2>
+<h1 class="text-5xl">📄</h1>
 
-<p class="mt-4 font-bold">
+<p class="mt-4 text-gray-500">
 Policies
 </p>
 
-<h1 class="text-4xl text-blue-900 mt-3">
-6
-</h1>
+<h2 class="text-4xl font-bold text-green-600 mt-2">
+95
+</h2>
 
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 text-center">
+<div class="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 duration-300">
 
-<h2 class="text-5xl">📋</h2>
+<h1 class="text-5xl">📋</h1>
 
-<p class="mt-4 font-bold">
+<p class="mt-4 text-gray-500">
 Claims
 </p>
 
-<h1 class="text-4xl text-blue-900 mt-3">
-2
-</h1>
+<h2 class="text-4xl font-bold text-yellow-500 mt-2">
+18
+</h2>
 
 </div>
 
-<div class="bg-white rounded-xl shadow p-6 text-center">
+<div class="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 duration-300">
 
-<h2 class="text-5xl">💳</h2>
+<h1 class="text-5xl">💰</h1>
 
-<p class="mt-4 font-bold">
-Payments
+<p class="mt-4 text-gray-500">
+Revenue
 </p>
 
-<h1 class="text-4xl text-blue-900 mt-3">
-5
-</h1>
-
-</div>
-
-</div>
-
-<!-- User Table -->
-
-<div class="p-8">
-
-<div class="bg-white rounded-xl shadow">
-
-<h2 class="text-2xl font-bold bg-blue-900 text-white p-5 rounded-t-xl">
-Registered User
+<h2 class="text-3xl font-bold text-red-600 mt-2">
+₹15L
 </h2>
+
+</div>
+
+</div>
+
+<!-- Quick Actions -->
+
+<div class="grid grid-cols-4 gap-6 px-8">
+
+<a href="users.html">
+
+<div class="bg-blue-900 text-white p-6 rounded-xl text-center hover:bg-blue-700">
+
+<h2 class="text-4xl">👥</h2>
+
+<p class="mt-3 font-bold">
+Manage Users
+</p>
+
+</div>
+
+</a>
+
+<a href="approvepolicy.html">
+
+<div class="bg-green-600 text-white p-6 rounded-xl text-center hover:bg-green-700">
+
+<h2 class="text-4xl">✅</h2>
+
+<p class="mt-3 font-bold">
+Approve Policies
+</p>
+
+</div>
+
+</a>
+
+<a href="claimmanagement.html">
+
+<div class="bg-yellow-500 text-white p-6 rounded-xl text-center hover:bg-yellow-600">
+
+<h2 class="text-4xl">📋</h2>
+
+<p class="mt-3 font-bold">
+Manage Claims
+</p>
+
+</div>
+
+</a>
+
+<a href="reports.html">
+
+<div class="bg-purple-600 text-white p-6 rounded-xl text-center hover:bg-purple-700">
+
+<h2 class="text-4xl">📈</h2>
+
+<p class="mt-3 font-bold">
+View Reports
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+<!-- Recent Users -->
+
+<div class="m-8 bg-white rounded-xl shadow-lg">
+
+<div class="bg-blue-900 text-white p-5 rounded-t-xl">
+
+<h2 class="text-2xl font-bold">
+Recent Users
+</h2>
+
+</div>
 
 <table class="w-full text-center">
 
@@ -156,8 +241,8 @@ Registered User
 
 <th class="p-4">Name</th>
 <th>Email</th>
-<th>Mobile</th>
-<th>Address</th>
+<th>Policy</th>
+<th>Status</th>
 
 </tr>
 
@@ -165,12 +250,21 @@ Registered User
 
 <tbody>
 
+<tr class="border-b">
+
+<td class="p-4">Jaya Ganesh</td>
+<td>jayaganesh@gmail.com</td>
+<td>Health Insurance</td>
+<td class="text-green-600 font-bold">Active</td>
+
+</tr>
+
 <tr>
 
-<td id="name"></td>
-<td id="email"></td>
-<td id="mobile"></td>
-<td id="address"></td>
+<td class="p-4">Vijay</td>
+<td>vijay@gmail.com</td>
+<td>Vehicle Insurance</td>
+<td class="text-green-600 font-bold">Active</td>
 
 </tr>
 
@@ -180,32 +274,98 @@ Registered User
 
 </div>
 
-</div>
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center p-5">
+
+<h2 class="text-xl font-bold">
+🛡 SafeLife Insurance
+</h2>
+
+<p class="mt-2">
+© 2026 SafeLife Insurance. All Rights Reserved.
+</p>
+
+</footer>
 
 </div>
+
 
 <script>
+// Get users from localStorage
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
-const user = JSON.parse(localStorage.getItem("user"));
+// Sample users (only if localStorage is empty)
+if (users.length === 0) {
 
-if(user){
+    users = [
+        {
+            name: "Jaya Ganesh",
+            email: "jayaganesh@gmail.com",
+            mobile: "9876543210",
+            policy: "Health Insurance",
+            status: "Active"
+        },
+        {
+            name: "Vijay",
+            email: "vijay@gmail.com",
+            mobile: "9876543211",
+            policy: "Vehicle Insurance",
+            status: "Active"
+        },
+        {
+            name: "Ajith",
+            email: "ajith@gmail.com",
+            mobile: "9876543212",
+            policy: "Life Insurance",
+            status: "Pending"
+        }
+    ];
 
-document.getElementById("name").innerText=user.fullname;
-
-document.getElementById("email").innerText=user.email;
-
-document.getElementById("mobile").innerText=user.mobile;
-
-document.getElementById("address").innerText=user.address;
-
-document.getElementById("userCount").innerText=1;
-
-}else{
-
-document.getElementById("userCount").innerText=0;
-
+    localStorage.setItem("users", JSON.stringify(users));
 }
 
+// Dashboard Counters
+document.getElementById("usersCount").innerText = users.length;
+
+let active = users.filter(user => user.status === "Active").length;
+let pending = users.filter(user => user.status === "Pending").length;
+
+document.getElementById("activeCount").innerText = active;
+document.getElementById("pendingCount").innerText = pending;
+
+// Recent Users Table
+let table = document.getElementById("recentUsers");
+
+table.innerHTML = "";
+
+users.slice(0, 5).forEach(user => {
+
+    table.innerHTML += `
+    <tr class="border-b hover:bg-gray-100">
+
+        <td class="p-4">${user.name}</td>
+
+        <td>${user.email}</td>
+
+        <td>${user.policy}</td>
+
+        <td>
+            <span class="${
+                user.status === "Active"
+                ? "text-green-600"
+                : "text-yellow-500"
+            } font-bold">
+
+                ${user.status}
+
+            </span>
+        </td>
+
+    </tr>
+    `;
+
+});
 </script>
 
 </body>

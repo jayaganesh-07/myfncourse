@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Messages | SafeLife Insurance</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+
+<nav class="bg-blue-900 text-white shadow-lg">
+
+<div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+<h1 class="text-3xl font-bold">
+🛡 SafeLife Admin
+</h1>
+
+<div class="flex gap-6">
+
+<a href="admin.html" class="hover:text-yellow-300">Dashboard</a>
+
+<a href="users.html" class="hover:text-yellow-300">Users</a>
+
+<a href="claimmanagement.html" class="hover:text-yellow-300">Claims</a>
+
+<a href="feedback.html" class="hover:text-yellow-300">Feedback</a>
+
+<a href="messages.html" class="text-yellow-300 font-bold">Messages</a>
+
+<a href="logout.html" class="hover:text-red-300">Logout</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Main -->
+
+<div class="max-w-7xl mx-auto py-10">
+
+<h2 class="text-4xl font-bold text-blue-900">
+📩 Customer Messages
+</h2>
+
+<p class="text-gray-500 mt-2">
+View and manage customer enquiries.
+</p>
+
+<!-- Cards -->
+
+<div class="grid md:grid-cols-3 gap-6 mt-8">
+
+<div class="bg-white rounded-xl shadow-lg p-6 text-center">
+
+<h2 class="text-5xl">📩</h2>
+
+<p class="mt-3 font-bold">
+Total Messages
+</p>
+
+<h1 id="messageCount" class="text-4xl text-blue-900 mt-2">
+0
+</h1>
+
+</div>
+
+<div class="bg-white rounded-xl shadow-lg p-6 text-center">
+
+<h2 class="text-5xl">📬</h2>
+
+<p class="mt-3 font-bold">
+Unread
+</p>
+
+<h1 id="unreadCount" class="text-4xl text-red-600 mt-2">
+0
+</h1>
+
+</div>
+
+<div class="bg-white rounded-xl shadow-lg p-6 text-center">
+
+<h2 class="text-5xl">✅</h2>
+
+<p class="mt-3 font-bold">
+Replied
+</p>
+
+<h1 id="replyCount" class="text-4xl text-green-600 mt-2">
+0
+</h1>
+
+</div>
+
+</div>
+
+<!-- Search -->
+
+<div class="bg-white rounded-xl shadow-lg p-5 mt-8">
+
+<input
+id="searchMessage"
+type="text"
+placeholder="Search Customer..."
+class="w-full border rounded-lg p-3 outline-none">
+
+</div>
+
+<!-- Table -->
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden mt-8">
+
+<table class="w-full text-center">
+
+<thead class="bg-blue-900 text-white">
+
+<tr>
+
+<th class="p-4">ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Message</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="messageTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center py-5 mt-10">
+
+<h2 class="text-xl font-bold">
+🛡 SafeLife Insurance
+</h2>
+
+<p class="mt-2">
+© 2026 SafeLife Insurance. All Rights Reserved.
+</p>
+
+</footer>
+
+<script>
+
+let messages=[
+
+{
+id:1,
+name:"Jaya Ganesh",
+email:"jayaganesh@gmail.com",
+message:"Need Health Insurance details.",
+status:"Unread"
+},
+
+{
+id:2,
+name:"Vijay",
+email:"vijay@gmail.com",
+message:"Claim status not updated.",
+status:"Unread"
+},
+
+{
+id:3,
+name:"Ajith",
+email:"ajith@gmail.com",
+message:"Premium payment completed.",
+status:"Replied"
+},
+
+{
+id:4,
+name:"Surya",
+email:"surya@gmail.com",
+message:"Need Travel Insurance quotation.",
+status:"Unread"
+}
+
+];
+
+function displayMessages(data=messages){
+
+const table=document.getElementById("messageTable");
+
+table.innerHTML="";
+
+data.forEach((msg,index)=>{
+
+table.innerHTML+=`
+
+<tr class="border-b hover:bg-gray-100">
+
+<td class="p-4">${msg.id}</td>
+
+<td>${msg.name}</td>
+
+<td>${msg.email}</td>
+
+<td>${msg.message}</td>
+
+<td>
+
+<span class="${
+msg.status==="Unread"
+?"text-red-600":"text-green-600"
+} font-bold">
+
+${msg.status}
+
+</span>
+
+</td>
+
+<td>
+
+<button
+onclick="replyMessage(${index})"
+class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700">
+
+Reply
+
+</button>
+
+<button
+onclick="deleteMessage(${index})"
+class="bg-red-600 text-white px-3 py-2 rounded ml-2 hover:bg-red-700">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+updateCards();
+
+}
+
+function updateCards(){
+
+document.getElementById("messageCount").innerText=messages.length;
+
+document.getElementById("unreadCount").innerText=
+
+messages.filter(m=>m.status==="Unread").length;
+
+document.getElementById("replyCount").innerText=
+
+messages.filter(m=>m.status==="Replied").length;
+
+}
+
+function replyMessage(index){
+
+messages[index].status="Replied";
+
+alert("Reply Sent Successfully!");
+
+displayMessages();
+
+}
+
+function deleteMessage(index){
+
+if(confirm("Delete this message?")){
+
+messages.splice(index,1);
+
+displayMessages();
+
+}
+
+}
+
+document.getElementById("searchMessage").addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase();
+
+const filtered=messages.filter(msg=>
+
+msg.name.toLowerCase().includes(value) ||
+
+msg.email.toLowerCase().includes(value) ||
+
+msg.message.toLowerCase().includes(value)
+
+);
+
+displayMessages(filtered);
+
+});
+
+displayMessages();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | SafeLife Insurance</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-blue-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+        <h1 class="text-3xl font-bold">
+            🛡 SafeLife Admin
+        </h1>
+
+        <div class="flex gap-6">
+            <a href="admin.html" class="hover:text-yellow-300">Dashboard</a>
+            <a href="users.html" class="hover:text-yellow-300">Users</a>
+            <a href="reports.html" class="text-yellow-300 font-bold">Reports</a>
+            <a href="logout.html" class="hover:text-red-300">Logout</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Heading -->
+<div class="max-w-7xl mx-auto py-10">
+
+    <h2 class="text-4xl font-bold text-blue-900">
+        📊 Reports Dashboard
+    </h2>
+
+    <p class="text-gray-500 mt-2">
+        View and generate insurance reports.
+    </p>
+
+    <!-- Cards -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <h3 class="text-xl font-bold">👥 Users</h3>
+            <p id="usersCount" class="text-4xl font-bold text-blue-900 mt-3">0</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <h3 class="text-xl font-bold">📄 Policies</h3>
+            <p id="policyCount" class="text-4xl font-bold text-green-600 mt-3">0</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <h3 class="text-xl font-bold">📋 Claims</h3>
+            <p id="claimCount" class="text-4xl font-bold text-red-600 mt-3">0</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <h3 class="text-xl font-bold">💰 Revenue</h3>
+            <p id="revenueCount" class="text-4xl font-bold text-yellow-500 mt-3">₹0</p>
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="flex gap-4 mt-8">
+
+        <button onclick="generateReport()"
+            class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+            Generate Report
+        </button>
+
+        <button onclick="downloadReport()"
+            class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+            Download PDF
+        </button>
+
+        <button onclick="printReport()"
+            class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600">
+            Print Report
+        </button>
+
+    </div>
+
+    <!-- Report Table -->
+
+    <div class="bg-white rounded-xl shadow-lg mt-10 overflow-hidden">
+
+        <table class="w-full text-center">
+
+            <thead class="bg-blue-900 text-white">
+
+                <tr>
+
+                    <th class="p-4">Report ID</th>
+                    <th>Report Name</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="reportTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="bg-blue-900 text-white text-center py-5 mt-10">
+
+    <h2 class="text-xl font-bold">
+        🛡 SafeLife Insurance
+    </h2>
+
+    <p class="mt-2">
+        © 2026 SafeLife Insurance. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script>
+
+// Users
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+document.getElementById("usersCount").innerText = users.length;
+document.getElementById("policyCount").innerText = 120;
+document.getElementById("claimCount").innerText = 18;
+document.getElementById("revenueCount").innerText = "₹15,00,000";
+
+// Reports
+
+const reports = [
+
+{
+id:"RP001",
+name:"User Report",
+date:"24-07-2026",
+status:"Generated"
+},
+
+{
+id:"RP002",
+name:"Policy Report",
+date:"24-07-2026",
+status:"Generated"
+},
+
+{
+id:"RP003",
+name:"Claim Report",
+date:"24-07-2026",
+status:"Pending"
+},
+
+{
+id:"RP004",
+name:"Revenue Report",
+date:"24-07-2026",
+status:"Generated"
+}
+
+];
+
+let table=document.getElementById("reportTable");
+
+reports.forEach(report=>{
+
+table.innerHTML+=`
+
+<tr class="border-b hover:bg-gray-100">
+
+<td class="p-4">${report.id}</td>
+
+<td>${report.name}</td>
+
+<td>${report.date}</td>
+
+<td>
+
+<span class="${
+report.status==="Generated"
+?"text-green-600":"text-yellow-500"
+} font-bold">
+
+${report.status}
+
+</span>
+
+</td>
+
+<td>
+
+<button
+class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700">
+
+Download
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+function generateReport(){
+
+alert("Report Generated Successfully!");
+
+}
+
+function downloadReport(){
+
+alert("Downloading Report...");
+
+}
+
+function printReport(){
+
+window.print();
+
+}
+
+</script>
+
+</body>
+</html>

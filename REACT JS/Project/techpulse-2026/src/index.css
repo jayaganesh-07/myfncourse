@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-space-900 text-mist font-body antialiased;
+  background-image: radial-gradient(ellipse 80% 50% at 20% 0%, rgba(79,209,197,0.14), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(139,92,246,0.12), transparent 60%);
+  background-attachment: fixed;
+}
+
+.light body,
+html:not(.dark) body {
+  background-color: #F4F6FA;
+  color: #10131C;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2CA79A55;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4FD1C5;
+}
+
+.glass {
+  @apply bg-space-800/60 backdrop-blur-xl border border-white/10;
+}
+
+.glass-card {
+  @apply glass rounded-2xl transition-all duration-300;
+}
+
+.glass-card:hover {
+  @apply border-aurora/40 -translate-y-1;
+  box-shadow: 0 20px 40px -20px rgba(79, 209, 197, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #4FD1C5, #8B5CF6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-aurora to-nebula px-6 py-3 font-semibold text-space-950 transition-transform duration-300 hover:scale-[1.03] active:scale-95;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold text-mist transition-all duration-300 hover:border-aurora hover:text-aurora;
+}
+
+.section {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.eyebrow {
+  @apply text-xs font-mono uppercase tracking-[0.25em] text-aurora;
+}
+
+.star-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 999px;
+  background: white;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #8A93A6 0%, #E8EAF0 50%, #8A93A6 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 2.5s linear infinite;
+}
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-in {
+  animation: reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

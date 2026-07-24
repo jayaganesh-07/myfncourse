@@ -1,24 +1,84 @@
-<!-- Users Management -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | SafeLife Insurance</title>
 
-<section id="users" class="mt-10">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <div class="bg-white rounded-2xl shadow-xl">
+<body class="bg-gray-100">
 
-        <div class="bg-blue-900 text-white p-5 rounded-t-2xl flex justify-between items-center">
+<!-- Navbar -->
+<nav class="bg-blue-900 text-white p-5 shadow-lg">
 
-            <h2 class="text-2xl font-bold">
-                👥 User Management
-            </h2>
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
 
-            <button class="bg-green-600 px-5 py-2 rounded-lg hover:bg-green-700">
-                + Add User
-            </button>
+        <h1 class="text-3xl font-bold">
+            🛡 SafeLife Admin
+        </h1>
+
+        <div class="flex gap-6">
+
+            <a href="admin.html" class="hover:text-yellow-300">Dashboard</a>
+
+            <a href="users.html" class="text-yellow-300 font-bold">Users</a>
+
+            <a href="reports.html" class="hover:text-yellow-300">Reports</a>
+
+            <a href="logout.html" class="hover:text-red-300">Logout</a>
 
         </div>
 
+    </div>
+
+</nav>
+
+<!-- Main -->
+<div class="max-w-7xl mx-auto py-10">
+
+    <div class="flex justify-between items-center mb-8">
+
+        <div>
+
+            <h2 class="text-4xl font-bold text-blue-900">
+                👥 User Management
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Add, Edit, Delete and Search Users
+            </p>
+
+        </div>
+
+        <button
+            id="addUserBtn"
+            class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+
+            + Add User
+
+        </button>
+
+    </div>
+
+    <!-- Search -->
+    <div class="bg-white rounded-xl shadow p-5 mb-6">
+
+        <input
+            id="searchUser"
+            type="text"
+            placeholder="Search user..."
+            class="w-full border p-3 rounded-lg outline-none">
+
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+
         <table class="w-full text-center">
 
-            <thead class="bg-gray-200">
+            <thead class="bg-blue-900 text-white">
 
                 <tr>
 
@@ -34,91 +94,9 @@
 
             </thead>
 
-            <tbody>
+            <tbody id="userTable">
 
-                <tr class="border-b hover:bg-gray-100">
-
-                    <td>1</td>
-                    <td>Jaya Ganesh</td>
-                    <td>jayaganesh@gmail.com</td>
-                    <td>9876543210</td>
-                    <td>Health Insurance</td>
-                    <td class="text-green-600 font-bold">Active</td>
-
-                    <td>
-                        <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                            Edit
-                        </button>
-
-                        <button class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 ml-2">
-                            Delete
-                        </button>
-                    </td>
-
-                </tr>
-
-                <tr class="border-b hover:bg-gray-100">
-
-                    <td>2</td>
-                    <td>Vijay</td>
-                    <td>vijay@gmail.com</td>
-                    <td>9876543211</td>
-                    <td>Vehicle Insurance</td>
-                    <td class="text-green-600 font-bold">Active</td>
-
-                    <td>
-                        <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                            Edit
-                        </button>
-
-                        <button class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 ml-2">
-                            Delete
-                        </button>
-                    </td>
-
-                </tr>
-
-                <tr class="border-b hover:bg-gray-100">
-
-                    <td>3</td>
-                    <td>Ajith</td>
-                    <td>ajith@gmail.com</td>
-                    <td>9876543212</td>
-                    <td>Life Insurance</td>
-                    <td class="text-green-600 font-bold">Active</td>
-
-                    <td>
-                        <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                            Edit
-                        </button>
-
-                        <button class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 ml-2">
-                            Delete
-                        </button>
-                    </td>
-
-                </tr>
-
-                <tr class="hover:bg-gray-100">
-
-                    <td>4</td>
-                    <td>Surya</td>
-                    <td>surya@gmail.com</td>
-                    <td>9876543213</td>
-                    <td>Travel Insurance</td>
-                    <td class="text-yellow-500 font-bold">Pending</td>
-
-                    <td>
-                        <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
-                            Edit
-                        </button>
-
-                        <button class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 ml-2">
-                            Delete
-                        </button>
-                    </td>
-
-                </tr>
+                <!-- JavaScript will add users here -->
 
             </tbody>
 
@@ -126,4 +104,309 @@
 
     </div>
 
-</section>
+</div>
+
+<!-- User Modal -->
+<div
+    id="userModal"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+
+    <div class="bg-white w-96 rounded-xl p-6">
+
+        <h2 id="modalTitle" class="text-2xl font-bold mb-5">
+
+            Add User
+
+        </h2>
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Full Name"
+            class="w-full border p-3 rounded mb-3">
+
+        <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            class="w-full border p-3 rounded mb-3">
+
+        <input
+            id="mobile"
+            type="text"
+            placeholder="Mobile Number"
+            class="w-full border p-3 rounded mb-3">
+
+        <select
+            id="policy"
+            class="w-full border p-3 rounded mb-3">
+
+            <option>Health Insurance</option>
+            <option>Life Insurance</option>
+            <option>Vehicle Insurance</option>
+            <option>Travel Insurance</option>
+
+        </select>
+
+        <select
+            id="status"
+            class="w-full border p-3 rounded mb-4">
+
+            <option>Active</option>
+            <option>Pending</option>
+
+        </select>
+
+        <div class="flex justify-end gap-3">
+
+            <button
+                id="cancelBtn"
+                class="bg-gray-500 text-white px-5 py-2 rounded-lg">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="saveBtn"
+                class="bg-blue-900 text-white px-5 py-2 rounded-lg">
+
+                Save User
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let editIndex = -1;
+
+// Elements
+const userTable = document.getElementById("userTable");
+const userModal = document.getElementById("userModal");
+const addUserBtn = document.getElementById("addUserBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+const saveBtn = document.getElementById("saveBtn");
+const searchUser = document.getElementById("searchUser");
+const modalTitle = document.getElementById("modalTitle");
+
+// Sample Data
+if (users.length === 0) {
+
+    users = [
+        {
+            name: "Jaya Ganesh",
+            email: "jayaganesh@gmail.com",
+            mobile: "9876543210",
+            policy: "Health Insurance",
+            status: "Active"
+        },
+        {
+            name: "Vijay",
+            email: "vijay@gmail.com",
+            mobile: "9876543211",
+            policy: "Vehicle Insurance",
+            status: "Active"
+        },
+        {
+            name: "Ajith",
+            email: "ajith@gmail.com",
+            mobile: "9876543212",
+            policy: "Life Insurance",
+            status: "Pending"
+        }
+    ];
+
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+// Display Users
+function displayUsers(data = users) {
+
+    userTable.innerHTML = "";
+
+    if (data.length === 0) {
+
+        userTable.innerHTML = `
+        <tr>
+            <td colspan="7" class="p-6 text-gray-500">
+                No Users Found
+            </td>
+        </tr>`;
+
+        return;
+    }
+
+    data.forEach((user, index) => {
+
+        userTable.innerHTML += `
+        <tr class="border-b hover:bg-gray-100">
+
+            <td class="p-4">${index + 1}</td>
+
+            <td>${user.name}</td>
+
+            <td>${user.email}</td>
+
+            <td>${user.mobile}</td>
+
+            <td>${user.policy}</td>
+
+            <td>
+                <span class="${
+                    user.status === "Active"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-yellow-100 text-yellow-700"
+                } px-3 py-1 rounded-full">
+
+                    ${user.status}
+
+                </span>
+            </td>
+
+            <td>
+
+                <button
+                    onclick="editUser(${index})"
+                    class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+
+                    Edit
+
+                </button>
+
+                <button
+                    onclick="deleteUser(${index})"
+                    class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 ml-2">
+
+                    Delete
+
+                </button>
+
+            </td>
+
+        </tr>`;
+    });
+}
+
+// Open Add User Modal
+addUserBtn.onclick = () => {
+
+    editIndex = -1;
+
+    modalTitle.innerText = "Add User";
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("policy").value = "Health Insurance";
+    document.getElementById("status").value = "Active";
+
+    userModal.classList.remove("hidden");
+};
+
+// Cancel
+cancelBtn.onclick = () => {
+
+    userModal.classList.add("hidden");
+
+};
+
+// Save User
+saveBtn.onclick = () => {
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const policy = document.getElementById("policy").value;
+    const status = document.getElementById("status").value;
+
+    if (!name || !email || !mobile) {
+
+        alert("Please fill all fields.");
+
+        return;
+    }
+
+    const user = {
+        name,
+        email,
+        mobile,
+        policy,
+        status
+    };
+
+    if (editIndex === -1) {
+
+        users.push(user);
+
+    } else {
+
+        users[editIndex] = user;
+
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    displayUsers();
+
+    userModal.classList.add("hidden");
+};
+
+// Edit User
+function editUser(index) {
+
+    editIndex = index;
+
+    modalTitle.innerText = "Edit User";
+
+    document.getElementById("name").value = users[index].name;
+    document.getElementById("email").value = users[index].email;
+    document.getElementById("mobile").value = users[index].mobile;
+    document.getElementById("policy").value = users[index].policy;
+    document.getElementById("status").value = users[index].status;
+
+    userModal.classList.remove("hidden");
+}
+
+// Delete User
+function deleteUser(index) {
+
+    if (confirm("Delete this user?")) {
+
+        users.splice(index, 1);
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        displayUsers();
+
+    }
+
+}
+
+// Search User
+searchUser.addEventListener("keyup", function () {
+
+    const value = this.value.toLowerCase();
+
+    const filtered = users.filter(user =>
+
+        user.name.toLowerCase().includes(value) ||
+        user.email.toLowerCase().includes(value) ||
+        user.policy.toLowerCase().includes(value)
+
+    );
+
+    displayUsers(filtered);
+
+});
+
+// Initial Load
+displayUsers();
+</script>
+
+
+</body>
+</html>
