@@ -1,7 +1,7 @@
 CREATE DATABASE fronteneddb;
 USE fronteneddb;
 
-CREATE TABLE users (
+CREATE TABLE usersS (
     userid INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50),
     useremail VARCHAR(200) UNIQUE,
@@ -11,7 +11,7 @@ CREATE TABLE users (
     updated_by VARCHAR(200),
     updated_at DATE
 );
-DESC users;
+DESC usersS;
 
 
 
