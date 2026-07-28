@@ -57,4 +57,9 @@ DELETE FROM  Employees where id=5;
 
 -- TASK 6
 UPDATE Employees 	SET salary=salary+10000 where department="software_developer";
+
+-- task 7
+UPDATE Student
+SET city = 'Chennai'
+WHERE city = 'Bangalore';
   
