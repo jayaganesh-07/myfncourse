@@ -1,4 +1,5 @@
 
+
 USE Employees;
 
 CREATE TABLE Employe (
@@ -36,4 +37,24 @@ SELECT * FROM Employe WHERE department= 'developer' AND city = 'chennai';
    -- (2)
 SELECT * FROM Employe WHERE  city= 'Madurai' OR city = 'salem';
 -- task 7
-SELECT * FROM Employe WHERE city LIKE  'A%';
+SELECT * FROM Employe WHERE name LIKE 'A%';
+
+SELECT * FROM Employe WHERE name LIKE '%a';
+
+SELECT * FROM Employe WHERE name LIKE '%ya%';
+
+-- task 8
+
+SELECT * FROM Employe WHERE city IN ('Chennai', 'Salem');
+
+SELECT * FROM Employe WHERE salary BETWEEN 45000 AND 70000;
+
+-- task 9
+SELECT * FROM Employe ORDER BY salary DESC;
+
+SELECT * FROM Employe ORDER BY name ASC;
+
+
+
+
+
