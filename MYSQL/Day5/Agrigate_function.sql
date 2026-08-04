@@ -71,3 +71,4 @@ SELECT department, count(*)empCount,sum(salary) from Employees group by departme
 SELECT department , city ,count(*),avg(salary) from Employees group by department, city;
 -- Task - 5
 SELECT department , count(*),sum(salary),avg(salary),max(salary),min(salary) from Employees group by department ORDER BY sum(salary) DESC LIMIT 3;
+use employees;
