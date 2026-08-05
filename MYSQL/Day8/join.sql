@@ -1,6 +1,8 @@
 CREATE DATABASE CinemaDB;
 USE CinemaDB;
 
+
+
 CREATE TABLE Movies (
     movie_id INT PRIMARY KEY AUTO_INCREMENT,
     movie_name VARCHAR(100),
@@ -153,4 +155,39 @@ VALUES
 
 -- Task 1
 SELECT Movies.movie_name, Genres.genre_name FROM Movies INNER JOIN Genres ON Movies.genre_id = Genres.genre_id;
+-- Task 2
 SELECT Movies.movie_name, Directors.director_name FROM Movies INNER JOIN Directors ON Movies.director_id = Directors.director_id;
+-- Task 3
+SELECT Movies.movie_name, Actors.actor_name FROM Movies INNER JOIN Actors ON Movies.movie_id = Actors.movie_id;
+-- Task 4
+SELECT
+    Customers.customer_name,
+    Movies.movie_name,
+    Theaters.theater_name
+FROM Customers
+INNER JOIN Bookings
+    ON Customers.customer_id = Bookings.customer_id
+INNER JOIN Shows
+    ON Bookings.show_id = Shows.show_id
+INNER JOIN Movies
+    ON Shows.movie_id = Movies.movie_id
+INNER JOIN Screens
+    ON Shows.screen_id = Screens.screen_id
+INNER JOIN Theaters
+    ON Screens.theater_id = Theaters.theater_id;
+    
+-- Task 5
+SELECT
+    Customers.customer_name,
+    Movies.movie_name,
+    Tickets.ticket_price,
+    Tickets.seat_number
+FROM Customers
+INNER JOIN Bookings
+    ON Customers.customer_id = Bookings.customer_id
+INNER JOIN Tickets
+    ON Bookings.booking_id = Tickets.booking_id
+INNER JOIN Shows
+    ON Bookings.show_id = Shows.show_id
+INNER JOIN Movies
+    ON Shows.movie_id = Movies.movie_id;
