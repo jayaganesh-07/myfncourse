@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approve Policies — SafeLife Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Policy applications</p>
+    </header>
+    <main class="p-5 sm:p-8">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Approve or reject applications</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">Review each application against the applicant's history before deciding.</p>
+
+      <div class="flex gap-2 mb-6" id="status-tabs"></div>
+      <div id="applications-list" class="space-y-4"></div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderAdminSidebar('approvepolicy.html');
+  const catalog = SL.all('catalog');
+  let tab = 'pending';
+  const tabs = ['pending','approved','rejected'];
+
+  function renderTabs(){
+    document.getElementById('status-tabs').innerHTML = tabs.map(t=>`
+      <button onclick="setTab('${t}')" class="px-4 py-2 rounded-full text-sm font-semibold capitalize border ${tab===t?'bg-[var(--sl-teal-800)] text-white border-[var(--sl-teal-800)]':'border-[var(--sl-line)] text-[var(--sl-teal-800)]'}">${t}</button>
+    `).join('');
+  }
+  function setTab(t){ tab = t; renderTabs(); renderList(); }
+
+  function renderList(){
+    const users = SL.all('users');
+    const ups = SL.all('userPolicies').filter(u=>u.status===tab);
+    document.getElementById('applications-list').innerHTML = ups.length ? ups.map(u=>{
+      const p = catalog.find(c=>c.id===u.policyId) || {};
+      const usr = users.find(x=>x.id===u.userId) || {};
+      const actions = tab==='pending' ? `
+        <div class="flex gap-2 shrink-0">
+          <button onclick="decide('${u.id}','approved')" class="btn-primary px-4 py-2 rounded-lg text-xs font-semibold">Approve</button>
+          <button onclick="decide('${u.id}','rejected')" class="border border-[var(--sl-rust-600)] text-[var(--sl-rust-600)] px-4 py-2 rounded-lg text-xs font-semibold hover:bg-[var(--sl-rust-100)]">Reject</button>
+        </div>` : `<span class="badge ${tab==='approved'?'badge-approved':'badge-rejected'}">${tab}</span>`;
+      return `<div class="card p-6 flex items-center justify-between gap-6 flex-wrap">
+        <div class="flex items-start gap-4">
+          <span class="text-2xl">${({Health:'🏥',Life:'🛡️',Vehicle:'🚗',Travel:'✈️'})[p.type]||'📄'}</span>
+          <div>
+            <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">${p.name||'Policy'}</p>
+            <p class="text-sm text-[#5B7A72]">${usr.name||'Unknown applicant'} · ${usr.email||''}</p>
+            <p class="text-xs font-mono text-[#8FA8A0] mt-1">${u.policyNumber} · Applied ${SL.fmtDate(u.appliedDate)} · ₹${(p.premium||0).toLocaleString('en-IN')}/yr · Cover ₹${(p.coverage||0).toLocaleString('en-IN')}</p>
+          </div>
+        </div>
+        ${actions}
+      </div>`;
+    }).join('') : `<div class="card p-10 text-center text-sm text-[#5B7A72]">No ${tab} applications.</div>`;
+  }
+
+  function decide(id, status){
+    const ups = SL.all('userPolicies');
+    const u = ups.find(x=>x.id===id);
+    u.status = status;
+    SL.save('userPolicies', ups);
+    const p = catalog.find(c=>c.id===u.policyId);
+    SL.addNotification(u.userId, status==='approved' ? 'Policy approved' : 'Policy application rejected',
+      status==='approved' ? `Your application for ${p?.name} has been approved. Policy number ${u.policyNumber}.` : `Your application for ${p?.name} was not approved. Contact support for details.`);
+    toast(`Application ${status}.`, 'success');
+    renderList();
+  }
+
+  renderTabs(); renderList();
+</script>
+</body>
+</html>

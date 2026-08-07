@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans">
+<header id="site-nav" class="sticky top-0 z-50 bg-[var(--sl-mint-50)]/90 backdrop-blur border-b hairline"></header>
+
+<section class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid md:grid-cols-2 gap-14">
+  <div>
+    <p class="text-xs font-semibold tracking-widest text-[var(--sl-gold-600)] mb-2">GET IN TOUCH</p>
+    <h1 class="font-display text-4xl font-semibold text-[var(--sl-teal-950)] mb-4">Questions before you buy? We answer those too.</h1>
+    <p class="text-[#3D5751] mb-10">Send us a message and our support team replies within one business day — or find a channel you'd rather use below.</p>
+    <div class="space-y-5">
+      <div class="flex gap-4"><span class="shield" style="--s:.8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span><div><p class="font-semibold text-[var(--sl-teal-950)] text-sm">Phone</p><p class="text-sm text-[#5B7A72]">1800-209-4636 (toll-free, Mon–Sat 9am–7pm)</p></div></div>
+      <div class="flex gap-4"><span class="shield" style="--s:.8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span><div><p class="font-semibold text-[var(--sl-teal-950)] text-sm">Email</p><p class="text-sm text-[#5B7A72]">support@safelife.example</p></div></div>
+      <div class="flex gap-4"><span class="shield" style="--s:.8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span><div><p class="font-semibold text-[var(--sl-teal-950)] text-sm">Offices</p><p class="text-sm text-[#5B7A72]">Chennai · Mumbai · Delhi</p></div></div>
+    </div>
+  </div>
+
+  <form id="contact-form" class="card p-8 space-y-5">
+    <h3 class="font-display text-xl font-semibold text-[var(--sl-teal-950)] mb-1">Send a message</h3>
+    <div>
+      <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Full name</label>
+      <input required id="c-name" type="text" class="input-field" placeholder="Your name">
+    </div>
+    <div>
+      <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Email</label>
+      <input required id="c-email" type="email" class="input-field" placeholder="you@example.com">
+    </div>
+    <div>
+      <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Subject</label>
+      <input required id="c-subject" type="text" class="input-field" placeholder="What's this about?">
+    </div>
+    <div>
+      <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Message</label>
+      <textarea required id="c-message" rows="4" class="input-field" placeholder="Tell us more..."></textarea>
+    </div>
+    <button type="submit" class="btn-gold w-full py-3 rounded-lg font-semibold text-sm">Send message</button>
+  </form>
+</section>
+
+<footer id="site-footer" class="bg-[var(--sl-teal-950)] border-t border-white/10"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderPublicNav('contact.html'); renderFooter();
+  document.getElementById('contact-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const msgs = SL.all('messages');
+    msgs.unshift({
+      id: SL.uid('MSG'),
+      name: document.getElementById('c-name').value,
+      email: document.getElementById('c-email').value,
+      subject: document.getElementById('c-subject').value,
+      message: document.getElementById('c-message').value,
+      date: SL.nowISO(), status:'open'
+    });
+    SL.save('messages', msgs);
+    toast('Message sent — we\'ll reply within one business day.', 'success');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

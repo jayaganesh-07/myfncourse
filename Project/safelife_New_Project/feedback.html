@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — SafeLife Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Feedback</p>
+    </header>
+    <main class="p-5 sm:p-8">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Policyholder feedback</h1>
+      <p class="text-sm text-[#5B7A72] mb-2">What customers are saying, average rating <span id="avg-rating" class="font-semibold text-[var(--sl-teal-950)]"></span>.</p>
+      <div id="feedback-list" class="grid sm:grid-cols-2 gap-5 mt-8"></div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderAdminSidebar('feedback.html');
+  const fb = SL.all('feedback');
+  const avg = fb.length ? (fb.reduce((s,f)=>s+f.rating,0)/fb.length).toFixed(1) : '—';
+  document.getElementById('avg-rating').textContent = avg + ' / 5 ⭐';
+
+  document.getElementById('feedback-list').innerHTML = fb.length ? fb.map(f=>`
+    <div class="card p-6">
+      <div class="flex items-center justify-between mb-2">
+        <p class="font-semibold text-sm text-[var(--sl-teal-950)]">${f.name}</p>
+        <span class="text-sm">${'⭐'.repeat(f.rating)}${'☆'.repeat(5-f.rating)}</span>
+      </div>
+      <p class="text-sm text-[#5B7A72] leading-relaxed">"${f.comment}"</p>
+      <p class="text-xs text-[#8FA8A0] mt-3">${SL.fmtDate(f.date)}</p>
+    </div>`).join('') : `<div class="card p-10 text-center text-sm text-[#5B7A72] sm:col-span-2">No feedback submitted yet.</div>`;
+</script>
+</body>
+</html>

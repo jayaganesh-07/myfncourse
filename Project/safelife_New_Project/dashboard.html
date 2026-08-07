@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center justify-between px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)] lg:hidden">SafeLife</p>
+      <p class="hidden lg:block text-sm text-[#5B7A72]">Welcome back, <span id="topbar-username" class="font-semibold text-[var(--sl-teal-950)]"></span> 👋</p>
+      <a href="notifications.html" class="relative p-2 rounded-lg hover:bg-[var(--sl-mint-100)]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-[var(--sl-teal-800)]"><path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="topbar-bell-count" class="hidden absolute -top-0.5 -right-0.5 bg-[var(--sl-rust-600)] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center"></span>
+      </a>
+    </header>
+
+    <main class="p-5 sm:p-8 max-w-6xl">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Your coverage, at a glance</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">Everything about your policies and claims, in one place.</p>
+
+      <div class="grid sm:grid-cols-3 gap-5 mb-10">
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Active policies</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-active">0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Pending applications</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-pending">0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Total coverage</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-coverage">₹0</p></div>
+      </div>
+
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display text-xl font-semibold text-[var(--sl-teal-950)]">My policies</h2>
+        <a href="policies.html" class="text-sm font-semibold text-[var(--sl-teal-800)]">+ Apply for another plan</a>
+      </div>
+      <div id="my-policies" class="grid sm:grid-cols-2 gap-5 mb-10"></div>
+
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display text-xl font-semibold text-[var(--sl-teal-950)]">Recent claims</h2>
+      </div>
+      <div class="card overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-[var(--sl-mint-100)] text-left text-[#3D5751]">
+            <tr><th class="px-5 py-3 font-semibold">Claim #</th><th class="px-5 py-3 font-semibold">Policy</th><th class="px-5 py-3 font-semibold">Amount</th><th class="px-5 py-3 font-semibold">Status</th></tr>
+          </thead>
+          <tbody id="my-claims"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- File claim modal -->
+<div id="claim-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-5">
+  <div class="card bg-white max-w-md w-full p-7">
+    <h3 class="font-display text-xl font-semibold text-[var(--sl-teal-950)] mb-5">File a new claim</h3>
+    <form id="claim-form" class="space-y-4">
+      <div>
+        <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Policy</label>
+        <select id="claim-policy" class="input-field"></select>
+      </div>
+      <div>
+        <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Claim type</label>
+        <input required id="claim-type" type="text" class="input-field" placeholder="e.g. Hospitalization, Accident">
+      </div>
+      <div>
+        <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Amount claimed (₹)</label>
+        <input required id="claim-amount" type="number" min="1" class="input-field" placeholder="25000">
+      </div>
+      <div>
+        <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Description</label>
+        <textarea required id="claim-desc" rows="3" class="input-field" placeholder="What happened?"></textarea>
+      </div>
+      <div class="flex gap-3 pt-2">
+        <button type="button" onclick="closeClaimModal()" class="btn-outline flex-1 py-2.5 rounded-lg font-semibold text-sm">Cancel</button>
+        <button type="submit" class="btn-primary flex-1 py-2.5 rounded-lg font-semibold text-sm">Submit claim</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  const user = renderUserSidebar('dashboard.html');
+
+  function loadDashboard(){
+    const catalog = SL.all('catalog');
+    const myUP = SL.all('userPolicies').filter(u=>u.userId===user.id);
+    const active = myUP.filter(u=>u.status==='approved');
+    const pending = myUP.filter(u=>u.status==='pending');
+    const totalCoverage = active.reduce((sum,u)=>{ const p = catalog.find(c=>c.id===u.policyId); return sum + (p?p.coverage:0); },0);
+
+    document.getElementById('stat-active').textContent = active.length;
+    document.getElementById('stat-pending').textContent = pending.length;
+    document.getElementById('stat-coverage').textContent = '₹' + totalCoverage.toLocaleString('en-IN');
+
+    document.getElementById('my-policies').innerHTML = myUP.length ? myUP.map(u=>{
+      const p = catalog.find(c=>c.id===u.policyId) || {};
+      const badgeClass = u.status==='approved'?'badge-approved':u.status==='pending'?'badge-pending':'badge-rejected';
+      return `<div class="card p-6">
+        <div class="flex items-start justify-between mb-3">
+          <div><p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">${p.name||'Policy'}</p><p class="text-xs font-mono text-[#5B7A72]">${u.policyNumber}</p></div>
+          <span class="badge ${badgeClass}">${u.status}</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+          <div><p class="text-[11px] text-[#5B7A72]">Coverage</p><p class="font-mono font-semibold text-[var(--sl-teal-950)]">₹${(p.coverage||0).toLocaleString('en-IN')}</p></div>
+          <div><p class="text-[11px] text-[#5B7A72]">Applied</p><p class="text-[var(--sl-teal-950)]">${SL.fmtDate(u.appliedDate)}</p></div>
+        </div>
+      </div>`;
+    }).join('') : `<div class="card p-10 text-center sm:col-span-2"><p class="text-sm text-[#5B7A72] mb-3">You haven't applied for any policy yet.</p><a href="policies.html" class="btn-primary px-5 py-2.5 rounded-lg font-semibold text-sm inline-block">Browse policies</a></div>`;
+
+    const myClaims = SL.all('claims').filter(c=>c.userId===user.id);
+    document.getElementById('my-claims').innerHTML = myClaims.length ? myClaims.map(c=>{
+      const badgeClass = c.status==='approved'?'badge-approved':c.status==='pending'?'badge-pending':'badge-rejected';
+      return `<tr class="border-t hairline">
+        <td class="px-5 py-3 font-mono text-xs">${c.claimNumber}</td>
+        <td class="px-5 py-3">${c.policyName}</td>
+        <td class="px-5 py-3 font-mono">₹${c.amount.toLocaleString('en-IN')}</td>
+        <td class="px-5 py-3"><span class="badge ${badgeClass}">${c.status}</span></td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="4" class="px-5 py-8 text-center text-sm text-[#5B7A72]">No claims filed yet.</td></tr>`;
+
+    document.getElementById('claim-policy').innerHTML = active.length
+      ? active.map(u=>{ const p = catalog.find(c=>c.id===u.policyId); return `<option value="${u.id}|${p.name}">${p.name} (${u.policyNumber})</option>`; }).join('')
+      : `<option value="">No active policies</option>`;
+  }
+
+  function openClaimModal(){ document.getElementById('claim-modal').classList.remove('hidden'); document.getElementById('claim-modal').classList.add('flex'); }
+  function closeClaimModal(){ document.getElementById('claim-modal').classList.add('hidden'); document.getElementById('claim-modal').classList.remove('flex'); }
+
+  document.getElementById('claim-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const sel = document.getElementById('claim-policy').value;
+    if(!sel){ toast('You need an active policy to file a claim.', 'error'); return; }
+    const [, policyName] = sel.split('|');
+    const claims = SL.all('claims');
+    claims.unshift({
+      id: SL.uid('CLM'), userId:user.id,
+      claimNumber: 'CLM-2026-' + Math.floor(1000+Math.random()*8999),
+      policyName, type: document.getElementById('claim-type').value,
+      amount: Number(document.getElementById('claim-amount').value),
+      status:'pending', date: SL.nowISO(),
+      description: document.getElementById('claim-desc').value
+    });
+    SL.save('claims', claims);
+    SL.addNotification(user.id, 'Claim filed', `Your claim for ${policyName} has been submitted and is under review.`);
+    toast('Claim submitted for review.', 'success');
+    closeClaimModal(); e.target.reset(); loadDashboard();
+  });
+
+  // floating action button to file a claim
+  const fab = document.createElement('button');
+  fab.onclick = openClaimModal;
+  fab.className = 'btn-gold fixed bottom-6 right-6 px-5 py-3 rounded-full font-semibold text-sm shadow-xl z-20 flex items-center gap-2';
+  fab.innerHTML = '<span>＋</span> File a claim';
+  document.body.appendChild(fab);
+
+  loadDashboard();
+</script>
+</body>
+</html>

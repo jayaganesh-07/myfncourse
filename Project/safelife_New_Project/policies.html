@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans">
+<header id="site-nav" class="sticky top-0 z-50 bg-[var(--sl-mint-50)]/90 backdrop-blur border-b hairline"></header>
+
+<section class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+  <p class="text-xs font-semibold tracking-widest text-[var(--sl-gold-600)] mb-2">POLICY CATALOG</p>
+  <h1 class="font-display text-4xl font-semibold text-[var(--sl-teal-950)] mb-4">Find the cover that fits your life.</h1>
+  <p class="text-[#3D5751] max-w-xl mb-8">Every plan below shows its real premium and coverage — apply directly and track approval from your dashboard.</p>
+
+  <div class="flex flex-wrap gap-2 mb-10" id="filter-bar"></div>
+  <div id="policy-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<footer id="site-footer" class="bg-[var(--sl-teal-950)] border-t border-white/10"></footer>
+
+<!-- Apply Modal -->
+<div id="apply-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-5">
+  <div class="card bg-white max-w-md w-full p-7">
+    <h3 class="font-display text-xl font-semibold text-[var(--sl-teal-950)] mb-1">Apply for coverage</h3>
+    <p class="text-sm text-[#5B7A72] mb-5" id="apply-modal-plan"></p>
+    <p class="text-sm text-[#5B7A72] mb-5">You'll need to be logged in to submit an application. We'll take you to login, and bring you right back here.</p>
+    <div class="flex gap-3">
+      <button onclick="closeApplyModal()" class="btn-outline flex-1 py-2.5 rounded-lg font-semibold text-sm">Cancel</button>
+      <a id="apply-modal-cta" href="#" class="btn-primary flex-1 py-2.5 rounded-lg font-semibold text-sm text-center">Continue</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderPublicNav('policies.html');
+  renderFooter();
+
+  const catalog = SL.all('catalog');
+  const types = ['All', ...new Set(catalog.map(p=>p.type))];
+  let activeFilter = 'All';
+
+  function renderFilters(){
+    document.getElementById('filter-bar').innerHTML = types.map(t=>`
+      <button onclick="setFilter('${t}')" class="px-4 py-2 rounded-full text-sm font-semibold border ${activeFilter===t ? 'bg-[var(--sl-teal-800)] text-white border-[var(--sl-teal-800)]' : 'border-[var(--sl-line)] text-[var(--sl-teal-800)] hover:border-[var(--sl-teal-800)]'}">${t}</button>
+    `).join('');
+  }
+  function setFilter(t){ activeFilter = t; renderFilters(); renderGrid(); }
+
+  const iconFor = {Health:'🏥',Life:'🛡️',Vehicle:'🚗',Travel:'✈️'};
+
+  function renderGrid(){
+    const list = activeFilter==='All' ? catalog : catalog.filter(p=>p.type===activeFilter);
+    document.getElementById('policy-grid').innerHTML = list.map(p=>`
+      <div class="card p-6 flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-2xl">${iconFor[p.type]}</span>
+          <span class="badge badge-active">${p.type}</span>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-1.5">${p.name}</h3>
+        <p class="text-sm text-[#5B7A72] leading-relaxed mb-5 flex-1">${p.desc}</p>
+        <div class="grid grid-cols-2 gap-3 mb-5 text-sm">
+          <div class="bg-[var(--sl-mint-50)] rounded-lg px-3 py-2">
+            <p class="text-[11px] text-[#5B7A72]">Premium</p><p class="font-mono font-semibold text-[var(--sl-teal-950)]">₹${p.premium.toLocaleString('en-IN')}/yr</p>
+          </div>
+          <div class="bg-[var(--sl-mint-50)] rounded-lg px-3 py-2">
+            <p class="text-[11px] text-[#5B7A72]">Coverage</p><p class="font-mono font-semibold text-[var(--sl-teal-950)]">₹${p.coverage.toLocaleString('en-IN')}</p>
+          </div>
+        </div>
+        <button onclick="apply('${p.id}','${p.name.replace(/'/g,"\\'")}')" class="btn-primary py-2.5 rounded-lg font-semibold text-sm">Apply for this plan</button>
+      </div>
+    `).join('');
+  }
+
+  function apply(planId, planName){
+    const user = SL.currentUser();
+    if(user){
+      const ups = SL.all('userPolicies');
+      ups.push({ id: SL.uid('UPL'), userId:user.id, policyId:planId, policyNumber:'SL-'+planId.split('-')[1]+'-'+Math.floor(10000+Math.random()*89999), status:'pending', appliedDate: SL.nowISO() });
+      SL.save('userPolicies', ups);
+      SL.addNotification(user.id, 'Application submitted', `Your application for ${planName} has been submitted and is pending approval.`);
+      toast('Application submitted — track it from your dashboard.', 'success');
+    } else {
+      document.getElementById('apply-modal-plan').textContent = planName;
+      document.getElementById('apply-modal-cta').href = 'login.html';
+      document.getElementById('apply-modal').classList.remove('hidden');
+      document.getElementById('apply-modal').classList.add('flex');
+    }
+  }
+  function closeApplyModal(){
+    document.getElementById('apply-modal').classList.add('hidden');
+    document.getElementById('apply-modal').classList.remove('flex');
+  }
+
+  renderFilters(); renderGrid();
+</script>
+</body>
+</html>

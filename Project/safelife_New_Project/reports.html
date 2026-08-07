@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports — SafeLife Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Reports</p>
+    </header>
+    <main class="p-5 sm:p-8">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Business reports</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">A read-out of policies, claims and revenue by category.</p>
+
+      <div class="grid sm:grid-cols-3 gap-5 mb-8">
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Approval rate</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="r-approval">0%</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Avg. claim amount</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="r-avgclaim">₹0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Total premium collected</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="r-premium">₹0</p></div>
+      </div>
+
+      <div class="card p-6 mb-8">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-5">Policies by category</h2>
+        <div id="category-bars" class="space-y-4"></div>
+      </div>
+
+      <div class="card p-6">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-4">Claims by status</h2>
+        <div class="grid sm:grid-cols-3 gap-4" id="claim-status-cards"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderAdminSidebar('reports.html');
+  const catalog = SL.all('catalog');
+  const ups = SL.all('userPolicies');
+  const claims = SL.all('claims');
+
+  const approvedUps = ups.filter(u=>u.status==='approved');
+  const approvalRate = ups.length ? Math.round((approvedUps.length/ups.length)*100) : 0;
+  document.getElementById('r-approval').textContent = approvalRate + '%';
+  const avgClaim = claims.length ? Math.round(claims.reduce((s,c)=>s+c.amount,0)/claims.length) : 0;
+  document.getElementById('r-avgclaim').textContent = '₹' + avgClaim.toLocaleString('en-IN');
+  const premium = approvedUps.reduce((s,u)=>{ const p = catalog.find(c=>c.id===u.policyId); return s + (p?p.premium:0); },0);
+  document.getElementById('r-premium').textContent = '₹' + premium.toLocaleString('en-IN');
+
+  const types = ['Health','Life','Vehicle','Travel'];
+  const counts = types.map(t=>approvedUps.filter(u=>{ const p = catalog.find(c=>c.id===u.policyId); return p && p.type===t; }).length);
+  const max = Math.max(1, ...counts);
+  document.getElementById('category-bars').innerHTML = types.map((t,i)=>`
+    <div>
+      <div class="flex justify-between text-sm mb-1.5"><span class="font-medium text-[var(--sl-teal-950)]">${t}</span><span class="text-[#5B7A72]">${counts[i]} policies</span></div>
+      <div class="w-full h-2.5 bg-[var(--sl-mint-100)] rounded-full overflow-hidden"><div class="h-full bg-[var(--sl-teal-700)] rounded-full" style="width:${(counts[i]/max)*100}%"></div></div>
+    </div>`).join('');
+
+  const statuses = ['pending','approved','rejected'];
+  document.getElementById('claim-status-cards').innerHTML = statuses.map(s=>{
+    const n = claims.filter(c=>c.status===s).length;
+    const cls = s==='approved'?'badge-approved':s==='pending'?'badge-pending':'badge-rejected';
+    return `<div class="bg-[var(--sl-mint-50)] rounded-xl p-5 text-center">
+      <p class="font-display text-2xl font-semibold text-[var(--sl-teal-950)]">${n}</p>
+      <span class="badge ${cls} mt-2 capitalize">${s}</span>
+    </div>`;
+  }).join('');
+</script>
+</body>
+</html>

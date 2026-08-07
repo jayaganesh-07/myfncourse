@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-teal-950)] min-h-screen flex items-center justify-center p-5">
+  <div class="w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl">
+    <div class="hidden md:flex flex-col justify-between p-10 bg-[radial-gradient(circle_at_80%_20%,rgba(30,131,119,.35),transparent_45%),linear-gradient(155deg,#0F3F3A,#0A2E2B_65%)]">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="shield"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span>
+        <span class="font-display text-xl font-semibold text-white">SafeLife</span>
+      </a>
+      <div class="space-y-4">
+        <div class="flex items-center gap-3"><span class="badge badge-approved">✓</span><p class="text-sm text-white">Apply for any policy in minutes</p></div>
+        <div class="flex items-center gap-3"><span class="badge badge-approved">✓</span><p class="text-sm text-white">Track approvals & claims live</p></div>
+        <div class="flex items-center gap-3"><span class="badge badge-approved">✓</span><p class="text-sm text-white">No paperwork, no branch visits</p></div>
+      </div>
+    </div>
+    <div class="bg-[var(--sl-paper)] p-8 sm:p-10">
+      <h1 class="font-display text-2xl font-semibold text-[var(--sl-teal-950)] mb-1">Create your account</h1>
+      <p class="text-sm text-[#5B7A72] mb-7">Already covered? <a href="login.html" class="font-semibold text-[var(--sl-teal-800)]">Log in</a></p>
+      <form id="register-form" class="space-y-4">
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Full name</label>
+          <input required id="r-name" type="text" class="input-field" placeholder="Your full name">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Email</label>
+          <input required id="r-email" type="email" class="input-field" placeholder="you@example.com">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Phone</label>
+          <input required id="r-phone" type="tel" class="input-field" placeholder="+91 98765 43210">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Password</label>
+          <input required id="r-password" type="password" minlength="6" class="input-field" placeholder="At least 6 characters">
+        </div>
+        <p id="register-error" class="text-sm text-[var(--sl-rust-600)] hidden"></p>
+        <button type="submit" class="btn-gold w-full py-3 rounded-lg font-semibold text-sm">Create account</button>
+      </form>
+    </div>
+  </div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  document.getElementById('register-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const res = SL.register({
+      name: document.getElementById('r-name').value,
+      email: document.getElementById('r-email').value,
+      phone: document.getElementById('r-phone').value,
+      password: document.getElementById('r-password').value
+    });
+    const err = document.getElementById('register-error');
+    if(res.ok){
+      SL.addNotification(res.user.id, 'Welcome to SafeLife', 'Your account has been created. Browse policies to get your first cover.');
+      window.location.href = 'dashboard.html';
+    } else { err.textContent = res.error; err.classList.remove('hidden'); }
+  });
+</script>
+</body>
+</html>

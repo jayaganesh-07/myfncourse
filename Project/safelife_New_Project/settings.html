@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center justify-between px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Settings</p>
+      <a href="notifications.html" class="relative p-2 rounded-lg hover:bg-[var(--sl-mint-100)]">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-[var(--sl-teal-800)]"><path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="topbar-bell-count" class="hidden absolute -top-0.5 -right-0.5 bg-[var(--sl-rust-600)] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center"></span>
+      </a>
+    </header>
+
+    <main class="p-5 sm:p-8 max-w-2xl">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Account settings</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">Keep your profile details current so claims and renewals reach you.</p>
+
+      <form id="profile-form" class="card p-7 space-y-4 mb-6">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-1">Profile</h2>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Full name</label>
+          <input id="s-name" type="text" class="input-field">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Email</label>
+          <input id="s-email" type="email" class="input-field" disabled>
+          <p class="text-xs text-[#5B7A72] mt-1">Email can't be changed on this demo.</p>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Phone</label>
+          <input id="s-phone" type="tel" class="input-field">
+        </div>
+        <button type="submit" class="btn-primary px-6 py-2.5 rounded-lg font-semibold text-sm">Save changes</button>
+      </form>
+
+      <form id="password-form" class="card p-7 space-y-4 mb-6">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-1">Change password</h2>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Current password</label>
+          <input required id="s-current-pw" type="password" class="input-field">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">New password</label>
+          <input required id="s-new-pw" type="password" minlength="6" class="input-field">
+        </div>
+        <p id="pw-error" class="text-sm text-[var(--sl-rust-600)] hidden"></p>
+        <button type="submit" class="btn-primary px-6 py-2.5 rounded-lg font-semibold text-sm">Update password</button>
+      </form>
+
+      <div class="card p-7 border-[var(--sl-rust-600)]/30">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-rust-600)] mb-1">Danger zone</h2>
+        <p class="text-sm text-[#5B7A72] mb-4">Deleting your account removes your profile and application history from this demo permanently.</p>
+        <button onclick="deleteAccount()" class="border border-[var(--sl-rust-600)] text-[var(--sl-rust-600)] px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[var(--sl-rust-100)]">Delete my account</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  const user = renderUserSidebar('settings.html');
+  document.getElementById('s-name').value = user.name;
+  document.getElementById('s-email').value = user.email;
+  document.getElementById('s-phone').value = user.phone;
+
+  document.getElementById('profile-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const users = SL.all('users');
+    const idx = users.findIndex(u=>u.id===user.id);
+    users[idx].name = document.getElementById('s-name').value;
+    users[idx].phone = document.getElementById('s-phone').value;
+    SL.save('users', users);
+    toast('Profile updated.', 'success');
+    setTimeout(()=>location.reload(), 700);
+  });
+
+  document.getElementById('password-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const err = document.getElementById('pw-error');
+    const cur = document.getElementById('s-current-pw').value;
+    if(cur !== user.password){ err.textContent = 'Current password is incorrect.'; err.classList.remove('hidden'); return; }
+    err.classList.add('hidden');
+    const users = SL.all('users');
+    const idx = users.findIndex(u=>u.id===user.id);
+    users[idx].password = document.getElementById('s-new-pw').value;
+    SL.save('users', users);
+    toast('Password updated.', 'success');
+    e.target.reset();
+  });
+
+  function deleteAccount(){
+    if(!confirm('This will permanently delete your account. Continue?')) return;
+    const users = SL.all('users').filter(u=>u.id!==user.id);
+    SL.save('users', users);
+    SL.logout();
+    toast('Account deleted.', 'success');
+    setTimeout(()=> window.location.href='index.html', 800);
+  }
+</script>
+</body>
+</html>

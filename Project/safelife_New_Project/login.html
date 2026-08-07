@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-teal-950)] min-h-screen flex items-center justify-center p-5">
+  <div class="w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-2xl">
+    <div class="hidden md:flex flex-col justify-between p-10 bg-[radial-gradient(circle_at_20%_20%,rgba(214,169,79,.18),transparent_45%),linear-gradient(155deg,#0F3F3A,#0A2E2B_65%)]">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="shield"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span>
+        <span class="font-display text-xl font-semibold text-white">SafeLife</span>
+      </a>
+      <div>
+        <p class="font-display text-2xl text-white leading-snug mb-3">"Welcome back — your coverage, claims and notifications are all right where you left them."</p>
+        <p class="text-sm text-[#9FC2B8]">Demo login — email: <span class="font-mono">demo@safelife.com</span> · password: <span class="font-mono">demo123</span></p>
+      </div>
+    </div>
+    <div class="bg-[var(--sl-paper)] p-8 sm:p-10">
+      <h1 class="font-display text-2xl font-semibold text-[var(--sl-teal-950)] mb-1">Log in to your account</h1>
+      <p class="text-sm text-[#5B7A72] mb-7">New to SafeLife? <a href="register.html" class="font-semibold text-[var(--sl-teal-800)]">Create an account</a></p>
+      <form id="login-form" class="space-y-5">
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Email</label>
+          <input required id="l-email" type="email" class="input-field" placeholder="you@example.com">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Password</label>
+          <input required id="l-password" type="password" class="input-field" placeholder="••••••••">
+        </div>
+        <p id="login-error" class="text-sm text-[var(--sl-rust-600)] hidden"></p>
+        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-sm">Log in</button>
+      </form>
+      <p class="text-xs text-center text-[#5B7A72] mt-6">Are you an administrator? <a href="adminlogin.html" class="font-semibold text-[var(--sl-teal-800)]">Go to admin portal</a></p>
+    </div>
+  </div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  document.getElementById('login-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const res = SL.login(document.getElementById('l-email').value, document.getElementById('l-password').value);
+    const err = document.getElementById('login-error');
+    if(res.ok){ window.location.href = 'dashboard.html'; }
+    else { err.textContent = res.error; err.classList.remove('hidden'); }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+:root{
+  --sl-ink:#122023;
+  --sl-teal-950:#0A2E2B;
+  --sl-teal-800:#124A44;
+  --sl-teal-700:#166059;
+  --sl-teal-500:#1E8377;
+  --sl-mint-50:#EEF4F1;
+  --sl-mint-100:#E3ECE7;
+  --sl-paper:#FBFBF8;
+  --sl-gold-600:#B6862F;
+  --sl-gold-400:#D6A94F;
+  --sl-gold-100:#F4E7C8;
+  --sl-rust-600:#B3452F;
+  --sl-rust-100:#F6E1DA;
+  --sl-green-600:#2F7A55;
+  --sl-green-100:#DDEEE3;
+  --sl-line:#D8E0DB;
+}
+*{scroll-behavior:smooth;}
+body{
+  background:var(--sl-mint-50);
+  color:var(--sl-ink);
+  font-family:'Inter',sans-serif;
+}
+.font-display{font-family:'Fraunces',serif;}
+.font-mono{font-family:'IBM Plex Mono',monospace;}
+
+/* Shield signature mark */
+.shield{
+  --s:1;
+  width:calc(2.25rem * var(--s));
+  height:calc(2.5rem * var(--s));
+  background:linear-gradient(155deg,var(--sl-teal-500),var(--sl-teal-950));
+  clip-path:polygon(50% 0%,100% 18%,100% 55%,50% 100%,0% 55%,0% 18%);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sl-gold-100);
+  flex-shrink:0;
+}
+
+/* Perforated policy card */
+.policy-card{
+  position:relative;
+  background:linear-gradient(155deg,#0F3F3A,#0A2E2B 65%);
+  border-radius:18px;
+  color:#F4EFE1;
+  overflow:hidden;
+  isolation:isolate;
+}
+.policy-card::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle at 18% 30%, rgba(214,169,79,.16), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(30,131,119,.35), transparent 50%);
+  z-index:-1;
+}
+.policy-card .perf{
+  position:absolute; left:0; right:0; height:0;
+  border-top:2px dashed rgba(244,239,225,.28);
+}
+.policy-card .notch{
+  position:absolute; width:18px; height:18px; border-radius:50%;
+  background:var(--sl-mint-50);
+}
+
+.btn-primary{
+  background:var(--sl-teal-800);
+  color:#F4EFE1;
+  transition:background .15s ease, transform .1s ease;
+}
+.btn-primary:hover{background:var(--sl-teal-950); transform:translateY(-1px);}
+.btn-primary:active{transform:translateY(0);}
+
+.btn-gold{
+  background:var(--sl-gold-400);
+  color:var(--sl-teal-950);
+  transition:background .15s ease, transform .1s ease;
+}
+.btn-gold:hover{background:var(--sl-gold-600); transform:translateY(-1px);}
+
+.btn-outline{
+  border:1.5px solid var(--sl-teal-800);
+  color:var(--sl-teal-800);
+  background:transparent;
+  transition:all .15s ease;
+}
+.btn-outline:hover{background:var(--sl-teal-800); color:#F4EFE1;}
+
+.card{
+  background:var(--sl-paper);
+  border:1px solid var(--sl-line);
+  border-radius:16px;
+}
+
+.input-field{
+  background:#fff;
+  border:1.5px solid var(--sl-line);
+  border-radius:10px;
+  padding:.65rem .9rem;
+  transition:border-color .15s ease, box-shadow .15s ease;
+  width:100%;
+}
+.input-field:focus{
+  outline:none;
+  border-color:var(--sl-teal-500);
+  box-shadow:0 0 0 3px rgba(30,131,119,.15);
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.2rem .65rem;border-radius:999px;
+  font-size:.72rem;font-weight:600;letter-spacing:.02em;
+}
+.badge-pending{background:var(--sl-gold-100); color:#8A6412;}
+.badge-approved{background:var(--sl-green-100); color:var(--sl-green-600);}
+.badge-rejected{background:var(--sl-rust-100); color:var(--sl-rust-600);}
+.badge-active{background:var(--sl-green-100); color:var(--sl-green-600);}
+.badge-closed{background:#E7E7E2; color:#5B5B54;}
+
+.sidebar-link{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.6rem .9rem;border-radius:10px;
+  color:#CFE0DB;font-size:.9rem;font-weight:500;
+  transition:background .15s ease,color .15s ease;
+}
+.sidebar-link:hover{background:rgba(255,255,255,.08); color:#fff;}
+.sidebar-link.active{background:var(--sl-gold-400); color:var(--sl-teal-950); font-weight:600;}
+
+.hairline{border-color:var(--sl-line);}
+
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--sl-mint-50);}
+::-webkit-scrollbar-thumb{background:var(--sl-line); border-radius:8px;}
+
+.stamp-rotate{transform:rotate(-8deg);}
+
+.toast{
+  position:fixed; bottom:1.5rem; right:1.5rem; z-index:100;
+  background:var(--sl-teal-950); color:#F4EFE1;
+  padding:.85rem 1.2rem; border-radius:12px; font-size:.9rem;
+  box-shadow:0 10px 30px rgba(10,46,43,.3);
+  display:flex; align-items:center; gap:.6rem;
+  animation:slideIn .25s ease;
+}
+@keyframes slideIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+.stat-tick{
+  font-variant-numeric:tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important;}
+}

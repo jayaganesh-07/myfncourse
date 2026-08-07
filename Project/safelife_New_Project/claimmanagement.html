@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Management — SafeLife Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Claims</p>
+    </header>
+    <main class="p-5 sm:p-8">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Claim management</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">Review claim details and settle them from here.</p>
+
+      <div class="card overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-[var(--sl-mint-100)] text-left text-[#3D5751]">
+            <tr><th class="px-5 py-3 font-semibold">Claim #</th><th class="px-5 py-3 font-semibold">Policyholder</th><th class="px-5 py-3 font-semibold">Policy</th><th class="px-5 py-3 font-semibold">Amount</th><th class="px-5 py-3 font-semibold">Status</th><th class="px-5 py-3 font-semibold text-right">Actions</th></tr>
+          </thead>
+          <tbody id="claims-table"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="claim-detail-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-5">
+  <div class="card bg-white max-w-md w-full p-7" id="claim-detail-body"></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderAdminSidebar('claimmanagement.html');
+  const users = SL.all('users');
+
+  function renderClaims(){
+    const claims = SL.all('claims');
+    document.getElementById('claims-table').innerHTML = claims.length ? claims.map(c=>{
+      const usr = users.find(u=>u.id===c.userId) || {};
+      const badgeClass = c.status==='approved'?'badge-approved':c.status==='pending'?'badge-pending':'badge-rejected';
+      return `<tr class="border-t hairline">
+        <td class="px-5 py-3 font-mono text-xs">${c.claimNumber}</td>
+        <td class="px-5 py-3">${usr.name||'Unknown'}</td>
+        <td class="px-5 py-3">${c.policyName}</td>
+        <td class="px-5 py-3 font-mono">₹${c.amount.toLocaleString('en-IN')}</td>
+        <td class="px-5 py-3"><span class="badge ${badgeClass}">${c.status}</span></td>
+        <td class="px-5 py-3 text-right"><button onclick="viewClaim('${c.id}')" class="text-xs font-semibold text-[var(--sl-teal-800)]">Review</button></td>
+      </tr>`;
+    }).join('') : `<tr><td colspan="6" class="px-5 py-10 text-center text-sm text-[#5B7A72]">No claims filed yet.</td></tr>`;
+  }
+
+  function viewClaim(id){
+    const c = SL.all('claims').find(x=>x.id===id);
+    const usr = users.find(u=>u.id===c.userId) || {};
+    const actions = c.status==='pending' ? `
+      <div class="flex gap-3 pt-4">
+        <button onclick="decideClaim('${c.id}','rejected')" class="border border-[var(--sl-rust-600)] text-[var(--sl-rust-600)] flex-1 py-2.5 rounded-lg font-semibold text-sm hover:bg-[var(--sl-rust-100)]">Reject</button>
+        <button onclick="decideClaim('${c.id}','approved')" class="btn-primary flex-1 py-2.5 rounded-lg font-semibold text-sm">Approve claim</button>
+      </div>` : `<div class="pt-4"><span class="badge ${c.status==='approved'?'badge-approved':'badge-rejected'}">${c.status}</span></div>`;
+    document.getElementById('claim-detail-body').innerHTML = `
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-display text-xl font-semibold text-[var(--sl-teal-950)]">${c.claimNumber}</h3>
+        <button onclick="closeClaimDetail()" class="text-[#5B7A72] text-xl leading-none">&times;</button>
+      </div>
+      <div class="space-y-2 text-sm mb-2">
+        <p><span class="text-[#5B7A72]">Policyholder:</span> <span class="font-medium text-[var(--sl-teal-950)]">${usr.name||'Unknown'}</span></p>
+        <p><span class="text-[#5B7A72]">Policy:</span> <span class="font-medium text-[var(--sl-teal-950)]">${c.policyName}</span></p>
+        <p><span class="text-[#5B7A72]">Claim type:</span> <span class="font-medium text-[var(--sl-teal-950)]">${c.type}</span></p>
+        <p><span class="text-[#5B7A72]">Amount claimed:</span> <span class="font-mono font-medium text-[var(--sl-teal-950)]">₹${c.amount.toLocaleString('en-IN')}</span></p>
+        <p><span class="text-[#5B7A72]">Filed:</span> <span class="font-medium text-[var(--sl-teal-950)]">${SL.fmtDate(c.date)}</span></p>
+        <p class="text-[#5B7A72]">Description:</p>
+        <p class="bg-[var(--sl-mint-50)] rounded-lg p-3 text-[var(--sl-teal-950)]">${c.description}</p>
+      </div>
+      ${actions}`;
+    document.getElementById('claim-detail-modal').classList.remove('hidden');
+    document.getElementById('claim-detail-modal').classList.add('flex');
+  }
+  function closeClaimDetail(){ document.getElementById('claim-detail-modal').classList.add('hidden'); document.getElementById('claim-detail-modal').classList.remove('flex'); }
+
+  function decideClaim(id, status){
+    const claims = SL.all('claims');
+    const c = claims.find(x=>x.id===id);
+    c.status = status;
+    SL.save('claims', claims);
+    SL.addNotification(c.userId, status==='approved' ? 'Claim approved' : 'Claim rejected',
+      status==='approved' ? `Your claim ${c.claimNumber} for ₹${c.amount.toLocaleString('en-IN')} has been approved.` : `Your claim ${c.claimNumber} was not approved. Contact support for details.`);
+    toast(`Claim ${status}.`, 'success');
+    closeClaimDetail(); renderClaims();
+  }
+
+  renderClaims();
+</script>
+</body>
+</html>

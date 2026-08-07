@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-mint-50)]">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="hidden lg:flex w-64 shrink-0 bg-[var(--sl-teal-950)] p-5 flex-col fixed h-screen"></aside>
+  <div class="flex-1 lg:ml-64">
+    <header class="h-16 flex items-center justify-between px-5 sm:px-8 border-b hairline bg-[var(--sl-paper)]/80 backdrop-blur sticky top-0 z-30">
+      <p class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Overview</p>
+      <span class="badge badge-approved">System nominal</span>
+    </header>
+    <main class="p-5 sm:p-8">
+      <h1 class="font-display text-3xl font-semibold text-[var(--sl-teal-950)] mb-1">Console overview</h1>
+      <p class="text-sm text-[#5B7A72] mb-8">A snapshot of everything happening across SafeLife right now.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Total users</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-users">0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Active policies</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-policies">0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Open claims</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-claims">0</p></div>
+        <div class="card p-6"><p class="text-xs text-[#5B7A72] mb-1">Premium revenue</p><p class="font-display text-3xl font-semibold text-[var(--sl-teal-950)]" id="stat-revenue">₹0</p></div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 card p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)]">Pending approvals</h2>
+            <a href="approvepolicy.html" class="text-sm font-semibold text-[var(--sl-teal-800)]">Review all →</a>
+          </div>
+          <div id="pending-list" class="space-y-3"></div>
+        </div>
+        <div class="card p-6">
+          <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-4">Quick actions</h2>
+          <div class="space-y-2">
+            <a href="approvepolicy.html" class="block btn-outline text-center py-2.5 rounded-lg font-semibold text-sm">Approve policies</a>
+            <a href="claimmanagement.html" class="block btn-outline text-center py-2.5 rounded-lg font-semibold text-sm">Manage claims</a>
+            <a href="users.html" class="block btn-outline text-center py-2.5 rounded-lg font-semibold text-sm">Manage users</a>
+            <a href="reports.html" class="block btn-outline text-center py-2.5 rounded-lg font-semibold text-sm">View reports</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 card p-6">
+        <h2 class="font-display text-lg font-semibold text-[var(--sl-teal-950)] mb-4">Recent claims</h2>
+        <table class="w-full text-sm">
+          <thead class="bg-[var(--sl-mint-100)] text-left text-[#3D5751]">
+            <tr><th class="px-4 py-2.5 font-semibold rounded-l-lg">Claim #</th><th class="px-4 py-2.5 font-semibold">Policy</th><th class="px-4 py-2.5 font-semibold">Amount</th><th class="px-4 py-2.5 font-semibold rounded-r-lg">Status</th></tr>
+          </thead>
+          <tbody id="recent-claims"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+  renderAdminSidebar('admin.html');
+  const catalog = SL.all('catalog');
+  const users = SL.all('users');
+  const ups = SL.all('userPolicies');
+  const claims = SL.all('claims');
+
+  document.getElementById('stat-users').textContent = users.length;
+  document.getElementById('stat-policies').textContent = ups.filter(u=>u.status==='approved').length;
+  document.getElementById('stat-claims').textContent = claims.filter(c=>c.status==='pending').length;
+  const revenue = ups.filter(u=>u.status==='approved').reduce((sum,u)=>{ const p = catalog.find(c=>c.id===u.policyId); return sum + (p?p.premium:0); },0);
+  document.getElementById('stat-revenue').textContent = '₹' + revenue.toLocaleString('en-IN');
+
+  const pending = ups.filter(u=>u.status==='pending').slice(0,5);
+  document.getElementById('pending-list').innerHTML = pending.length ? pending.map(u=>{
+    const p = catalog.find(c=>c.id===u.policyId) || {};
+    const usr = users.find(x=>x.id===u.userId) || {};
+    return `<div class="flex items-center justify-between py-2 border-b hairline last:border-0">
+      <div><p class="text-sm font-semibold text-[var(--sl-teal-950)]">${p.name||'Policy'}</p><p class="text-xs text-[#5B7A72]">${usr.name||'Unknown'} · ${u.policyNumber}</p></div>
+      <span class="badge badge-pending">Pending</span>
+    </div>`;
+  }).join('') : `<p class="text-sm text-[#5B7A72] py-4">No pending applications — all caught up.</p>`;
+
+  document.getElementById('recent-claims').innerHTML = claims.slice(0,6).map(c=>{
+    const badgeClass = c.status==='approved'?'badge-approved':c.status==='pending'?'badge-pending':'badge-rejected';
+    return `<tr class="border-t hairline"><td class="px-4 py-3 font-mono text-xs">${c.claimNumber}</td><td class="px-4 py-3">${c.policyName}</td><td class="px-4 py-3 font-mono">₹${c.amount.toLocaleString('en-IN')}</td><td class="px-4 py-3"><span class="badge ${badgeClass}">${c.status}</span></td></tr>`;
+  }).join('') || `<tr><td colspan="4" class="px-4 py-6 text-center text-sm text-[#5B7A72]">No claims yet.</td></tr>`;
+</script>
+</body>
+</html>

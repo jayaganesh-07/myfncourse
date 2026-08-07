@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Portal — SafeLife Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans bg-[var(--sl-teal-950)] min-h-screen flex items-center justify-center p-5">
+  <div class="w-full max-w-sm">
+    <div class="flex flex-col items-center mb-8">
+      <span class="shield mb-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z" fill="currentColor"/></svg></span>
+      <p class="font-display text-xl font-semibold text-white">SafeLife Admin Console</p>
+      <p class="text-xs text-[#8FB2AA] mt-1">Authorized personnel only</p>
+    </div>
+    <div class="card bg-[var(--sl-paper)] p-8">
+      <form id="admin-login-form" class="space-y-5">
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Username</label>
+          <input required id="a-username" type="text" class="input-field" placeholder="admin">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-[var(--sl-teal-950)] block mb-1.5">Password</label>
+          <input required id="a-password" type="password" class="input-field" placeholder="••••••••">
+        </div>
+        <p id="admin-login-error" class="text-sm text-[var(--sl-rust-600)] hidden"></p>
+        <button type="submit" class="btn-gold w-full py-3 rounded-lg font-semibold text-sm">Enter console</button>
+      </form>
+      <p class="text-xs text-center text-[#5B7A72] mt-6 font-mono">Demo: admin / admin123</p>
+    </div>
+    <p class="text-center mt-6"><a href="index.html" class="text-sm text-[#8FB2AA] hover:text-white">← Back to SafeLife</a></p>
+  </div>
+
+<script src="assets/js/data.js"></script>
+<script>
+  document.getElementById('admin-login-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    const res = SL.adminLogin(document.getElementById('a-username').value, document.getElementById('a-password').value);
+    const err = document.getElementById('admin-login-error');
+    if(res.ok){ window.location.href = 'admin.html'; }
+    else { err.textContent = res.error; err.classList.remove('hidden'); }
+  });
+</script>
+</body>
+</html>
