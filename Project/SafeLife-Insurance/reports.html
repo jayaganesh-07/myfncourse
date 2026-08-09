@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Analytics - SafeLife Insurance Admin</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    
+    <!-- Admin Navigation Bar -->
+    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
+        <a href="admin.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-chart-line mr-1"></i> Dashboard
+        </a>
+        <a href="users.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-users mr-1"></i> User Management
+        </a>
+        <a href="approvepolicy.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-file-signature mr-1"></i> Policy Applications
+        </a>
+        <a href="claimmanagement.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-hand-holding-dollar mr-1"></i> Claim Hub
+        </a>
+        <a href="reports.html" class="px-4 py-2.5 rounded-xl bg-brand-600 text-white shadow-md">
+          <i class="fa-solid fa-chart-pie mr-1"></i> Analytics & Reports
+        </a>
+        <a href="feedback.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-comments mr-1"></i> Feedback
+        </a>
+        <a href="messages.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-inbox mr-1"></i> Messages Inbox
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-black text-white">Financial & Policy Performance Analytics</h1>
+        <p class="text-xs text-slate-400 mt-1">System wide revenue statistics, claim payouts, and coverage distributions.</p>
+      </div>
+
+      <button onclick="exportSummaryCSV()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg transition-all flex items-center gap-2">
+        <i class="fa-solid fa-file-csv text-sm"></i> Export CSV Summary
+      </button>
+    </div>
+
+    <!-- Metrics Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-md space-y-2">
+        <span class="text-xs font-bold text-slate-400 uppercase">Gross Annual Premium Revenue</span>
+        <h3 id="rep-total-revenue" class="text-3xl font-black text-emerald-400">$0</h3>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-md space-y-2">
+        <span class="text-xs font-bold text-slate-400 uppercase">Approved Claim Payouts</span>
+        <h3 id="rep-claims-payout" class="text-3xl font-black text-rose-400">$0</h3>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-md space-y-2">
+        <span class="text-xs font-bold text-slate-400 uppercase">Active Policyholders</span>
+        <h3 id="rep-active-users" class="text-3xl font-black text-white">0</h3>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-md space-y-2">
+        <span class="text-xs font-bold text-slate-400 uppercase">Application Approval Rate</span>
+        <h3 id="rep-approval-rate" class="text-3xl font-black text-brand-400">100%</h3>
+      </div>
+
+    </div>
+
+    <!-- Distribution & Breakdown -->
+    <div class="bg-white text-slate-900 rounded-3xl p-8 border border-slate-100 shadow-xl space-y-6">
+      <h3 class="text-xl font-bold">Policy Category Share</h3>
+      
+      <div id="category-breakdown-bars" class="space-y-4">
+        <!-- Injected by reports.js -->
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>

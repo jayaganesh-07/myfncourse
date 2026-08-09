@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+    
+    <div class="flex items-center justify-between border-b border-slate-200 pb-6">
+      <div>
+        <h1 class="text-3xl font-black text-slate-900 tracking-tight">Notification Center</h1>
+        <p class="text-sm text-slate-500 mt-1">Policy updates, claim approvals, and account reminders.</p>
+      </div>
+
+      <button id="mark-all-read-btn" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-100 shadow-sm transition-all">
+        Mark All as Read
+      </button>
+    </div>
+
+    <div id="notifications-list" class="space-y-4">
+      <!-- Dynamic notification items -->
+    </div>
+
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = requireAuth();
+      if (!user) return;
+
+      renderNotifications(user);
+
+      document.getElementById('mark-all-read-btn').addEventListener('click', () => {
+        let notifications = getItem(DB_KEYS.NOTIFICATIONS);
+        notifications.forEach(n => {
+          if (n.userId === user.id) n.read = true;
+        });
+        setItem(DB_KEYS.NOTIFICATIONS, notifications);
+        showToast('All notifications marked as read.', 'info');
+        renderNotifications(user);
+        renderNavbar();
+      });
+    });
+
+    function renderNotifications(user) {
+      const container = document.getElementById('notifications-list');
+      const notifications = getItem(DB_KEYS.NOTIFICATIONS).filter(n => n.userId === user.id);
+
+      if (notifications.length === 0) {
+        container.innerHTML = `
+          <div class="p-12 text-center bg-white rounded-3xl border border-slate-100 shadow-sm">
+            <i class="fa-solid fa-bell-slash text-3xl text-slate-300 mb-3"></i>
+            <h4 class="font-bold text-slate-700">No Notifications</h4>
+            <p class="text-xs text-slate-400 mt-1">You are all caught up!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = notifications.map(n => `
+        <div class="p-5 rounded-2xl ${n.read ? 'bg-white' : 'bg-brand-50/50 border-brand-200'} border border-slate-100 shadow-sm flex items-start gap-4 transition-all">
+          <div class="w-10 h-10 rounded-xl ${n.type === 'success' ? 'bg-emerald-100 text-emerald-600' : 'bg-brand-100 text-brand-600'} flex items-center justify-center text-lg shrink-0">
+            <i class="fa-solid ${n.type === 'success' ? 'fa-circle-check' : 'fa-bell'}"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-base">${n.title}</h4>
+              <span class="text-[10px] text-slate-400 font-semibold">${n.date}</span>
+            </div>
+            <p class="text-sm text-slate-600">${n.message}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

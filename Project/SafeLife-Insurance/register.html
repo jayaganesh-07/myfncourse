@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 flex items-center justify-center p-4 py-12">
+    <div class="max-w-lg w-full bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl space-y-6">
+      
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 rounded-2xl gradient-primary flex items-center justify-center text-white mx-auto shadow-lg shadow-brand-500/30">
+          <i class="fa-solid fa-user-plus text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight">Create SafeLife Account</h2>
+        <p class="text-xs text-slate-500">Get instant access to personalized coverage plans & 24/7 claims support.</p>
+      </div>
+
+      <form id="register-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Full Name *</label>
+          <input type="text" id="name" required placeholder="Alexander Wright" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email Address *</label>
+          <input type="email" id="email" required placeholder="alexander@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+1 (555) 392-8172" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Password *</label>
+            <input type="password" id="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Confirm Password *</label>
+            <input type="password" id="confirmPassword" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Profile Photo Avatar (URL Optional)</label>
+          <input type="url" id="avatarUrl" placeholder="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+        </div>
+
+        <div class="flex items-center gap-2 pt-2">
+          <input type="checkbox" id="terms" required class="rounded border-slate-300 text-brand-600 focus:ring-brand-500">
+          <label for="terms" class="text-xs text-slate-500">I accept the <a href="#" class="text-brand-600 underline">Terms of Service</a> & <a href="#" class="text-brand-600 underline">Privacy Policy</a>.</label>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/30 transition-all text-sm">
+          Create Account & Sign In
+        </button>
+      </form>
+
+      <div class="text-center pt-2 border-t border-slate-100">
+        <p class="text-xs text-slate-500">Already registered? <a href="login.html" class="text-brand-600 font-bold hover:underline">Sign In Here</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

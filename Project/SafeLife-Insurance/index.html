@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeLife Insurance - Protect What Matters Most</title>
+  <meta name="description" content="SafeLife Insurance offers comprehensive health, life, auto, home, and travel insurance plans with instant digital approval.">
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <!-- Dynamic Header injected by db.js -->
+  <div id="navbar-header"></div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 bg-gradient-to-b from-brand-50/50 via-white to-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100/80 text-brand-700 text-xs font-bold uppercase tracking-wider shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Trusted by 500,000+ Families Nationwide</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-none">
+            Secure Your Future With <span class="text-gradient">Complete Confidence</span>
+          </h1>
+
+          <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Instant policy issuance, 99.4% claim settlement ratio, and transparent coverage tailored for Health, Term Life, Vehicles, and Homes.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="policies.html" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-2xl font-bold shadow-xl shadow-brand-500/25 hover:scale-[1.02] transition-all flex items-center justify-center gap-3">
+              Explore Plans <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#premium-calculator" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-2xl font-bold transition-all flex items-center justify-center gap-3">
+              Calculate Premium <i class="fa-solid fa-calculator text-brand-600"></i>
+            </a>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-3 gap-6 pt-10 border-t border-slate-200/80">
+            <div>
+              <span class="text-2xl sm:text-3xl font-black text-slate-900 block">$2.5B+</span>
+              <span class="text-xs text-slate-500 font-semibold uppercase">Claims Paid</span>
+            </div>
+            <div>
+              <span class="text-2xl sm:text-3xl font-black text-slate-900 block">99.4%</span>
+              <span class="text-xs text-slate-500 font-semibold uppercase">Settlement Ratio</span>
+            </div>
+            <div>
+              <span class="text-2xl sm:text-3xl font-black text-slate-900 block">24/7</span>
+              <span class="text-xs text-slate-500 font-semibold uppercase">Instant Support</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card Graphic -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -top-10 -left-10 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl"></div>
+            
+            <div class="relative glass-card rounded-3xl p-6 shadow-2xl space-y-6">
+              <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?w=700&auto=format&fit=crop&q=80" alt="Insurance Shield" class="w-full h-56 object-cover rounded-2xl shadow-md">
+              
+              <div class="flex items-center justify-between p-4 bg-white/80 rounded-2xl border border-slate-100">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-shield-check text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Active Protection</h4>
+                    <p class="text-xs text-slate-400">Policy #SL-8849-01</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 font-bold text-xs rounded-full">Guaranteed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Insurance Categories -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Our Products</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">Tailored Policies for Every Protection Need</h2>
+        <p class="text-slate-500 text-base">Select a plan designed to safeguard your family health, assets, vehicles, and global travels.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Health Card -->
+        <a href="policies.html?cat=Health" class="group p-8 rounded-3xl bg-slate-50 hover:bg-brand-600 transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 group-hover:bg-white/20 group-hover:text-white flex items-center justify-center text-2xl font-bold mb-6 transition-colors">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 group-hover:text-white transition-colors">Health Shield</h3>
+          <p class="text-slate-500 group-hover:text-brand-100 text-sm mt-2 transition-colors">Comprehensive medical coverage, cashless hospitalization, and pre-existing illness protection.</p>
+          <div class="mt-6 flex items-center gap-2 text-sm font-bold text-brand-600 group-hover:text-white">
+            <span>Explore Plans</span> <i class="fa-solid fa-chevron-right text-xs"></i>
+          </div>
+        </a>
+
+        <!-- Term Life Card -->
+        <a href="policies.html?cat=Life" class="group p-8 rounded-3xl bg-slate-50 hover:bg-brand-600 transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 group-hover:bg-white/20 group-hover:text-white flex items-center justify-center text-2xl font-bold mb-6 transition-colors">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 group-hover:text-white transition-colors">Term Life Cover</h3>
+          <p class="text-slate-500 group-hover:text-brand-100 text-sm mt-2 transition-colors">High-value payout for your family's future stability up to $1,000,000 guaranteed.</p>
+          <div class="mt-6 flex items-center gap-2 text-sm font-bold text-emerald-600 group-hover:text-white">
+            <span>Explore Plans</span> <i class="fa-solid fa-chevron-right text-xs"></i>
+          </div>
+        </a>
+
+        <!-- Auto Guard Card -->
+        <a href="policies.html?cat=Vehicle" class="group p-8 rounded-3xl bg-slate-50 hover:bg-brand-600 transition-all duration-300 border border-slate-100 hover:shadow-2xl hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 group-hover:bg-white/20 group-hover:text-white flex items-center justify-center text-2xl font-bold mb-6 transition-colors">
+            <i class="fa-solid fa-car-burst"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 group-hover:text-white transition-colors">Auto Guard Deluxe</h3>
+          <p class="text-slate-500 group-hover:text-brand-100 text-sm mt-2 transition-colors">Zero depreciation auto repair, towing support, and third-party liability cover.</p>
+          <div class="mt-6 flex items-center gap-2 text-sm font-bold text-amber-600 group-hover:text-white">
+            <span>Explore Plans</span> <i class="fa-solid fa-chevron-right text-xs"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Calculator Widget -->
+  <section id="premium-calculator" class="py-20 bg-slate-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-400 bg-brand-900/60 px-3 py-1 rounded-full">Interactive Estimator</span>
+          <h2 class="text-3xl sm:text-5xl font-black tracking-tight">Instant Premium Calculator</h2>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Estimate your monthly insurance premium instantly by adjusting desired coverage limit and age parameters.
+          </p>
+          
+          <div class="space-y-4 pt-4 text-sm text-slate-300">
+            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> No hidden fees or surprise charges</div>
+            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Instant policy generation in under 3 minutes</div>
+            <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Cancel or upgrade policy anytime</div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-slate-800/90 rounded-3xl p-8 border border-slate-700 shadow-2xl space-y-6">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-bold text-slate-300">Desired Coverage Amount</label>
+                <span id="calc-sum-val" class="text-xl font-black text-brand-400">$250,000</span>
+              </div>
+              <input type="range" id="calc-sum-slider" min="50000" max="1000000" step="25000" value="250000" class="w-full accent-brand-500 cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-sm font-bold text-slate-300">Applicant Age</label>
+                <span id="calc-age-val" class="text-xl font-black text-brand-400">30 years</span>
+              </div>
+              <input type="range" id="calc-age-slider" min="18" max="75" step="1" value="30" class="w-full accent-brand-500 cursor-pointer">
+            </div>
+
+            <div class="pt-6 border-t border-slate-700 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-slate-400 uppercase font-bold block">Estimated Monthly Premium</span>
+                <span id="calc-result" class="text-3xl font-black text-emerald-400">$68 <span class="text-xs text-slate-400 font-normal">/ month</span></span>
+              </div>
+              <a href="register.html" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 font-bold text-sm text-white shadow-lg transition-all">
+                Get Covered Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Customer Reviews</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">What Our Policyholders Say</h2>
+      </div>
+
+      <div id="homepage-testimonials" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Injected dynamically by feedback.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <div id="footer-section"></div>
+
+  <!-- Scripts -->
+  <script src="js/db.js"></script>
+  <script src="js/feedback.js"></script>
+  <script>
+    // Premium Calculator JS Logic
+    const sumSlider = document.getElementById('calc-sum-slider');
+    const ageSlider = document.getElementById('calc-age-slider');
+    const sumVal = document.getElementById('calc-sum-val');
+    const ageVal = document.getElementById('calc-age-val');
+    const resultVal = document.getElementById('calc-result');
+
+    function updateCalc() {
+      const sum = parseInt(sumSlider.value);
+      const age = parseInt(ageSlider.value);
+
+      sumVal.textContent = `$${sum.toLocaleString()}`;
+      ageVal.textContent = `${age} years`;
+
+      let basePremium = (sum / 10000) * 2.5;
+      let ageFactor = age > 40 ? 1.5 : age > 30 ? 1.2 : 1.0;
+      let finalEst = Math.round(basePremium * ageFactor);
+
+      resultVal.innerHTML = `$${finalEst} <span class="text-xs text-slate-400 font-normal">/ month</span>`;
+    }
+
+    if (sumSlider && ageSlider) {
+      sumSlider.addEventListener('input', updateCalc);
+      ageSlider.addEventListener('input', updateCalc);
+    }
+  </script>
+</body>
+</html>

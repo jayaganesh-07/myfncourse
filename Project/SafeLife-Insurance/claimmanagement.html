@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claim Management Hub - SafeLife Insurance Admin</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    
+    <!-- Admin Navigation Bar -->
+    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
+        <a href="admin.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-chart-line mr-1"></i> Dashboard
+        </a>
+        <a href="users.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-users mr-1"></i> User Management
+        </a>
+        <a href="approvepolicy.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-file-signature mr-1"></i> Policy Applications
+        </a>
+        <a href="claimmanagement.html" class="px-4 py-2.5 rounded-xl bg-brand-600 text-white shadow-md">
+          <i class="fa-solid fa-hand-holding-dollar mr-1"></i> Claim Hub
+        </a>
+        <a href="reports.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-chart-pie mr-1"></i> Analytics & Reports
+        </a>
+        <a href="feedback.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-comments mr-1"></i> Feedback
+        </a>
+        <a href="messages.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
+          <i class="fa-solid fa-inbox mr-1"></i> Messages Inbox
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h1 class="text-2xl font-black text-white">Insurance Claim Management Hub</h1>
+      <p class="text-xs text-slate-400 mt-1">Audit claim submissions, verify medical/damage documentation, and authorize payouts.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 text-slate-900">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 border-b border-slate-200 text-[11px] uppercase font-bold text-slate-500">
+              <th class="px-6 py-3.5">Claim ID</th>
+              <th class="px-6 py-3.5">Policyholder</th>
+              <th class="px-6 py-3.5">Policy Title</th>
+              <th class="px-6 py-3.5">Claimed Amount</th>
+              <th class="px-6 py-3.5">Incident Reason</th>
+              <th class="px-6 py-3.5">Status</th>
+              <th class="px-6 py-3.5 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-claims-tbody">
+            <!-- Injected by claims.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/claims.js"></script>
+</body>
+</html>

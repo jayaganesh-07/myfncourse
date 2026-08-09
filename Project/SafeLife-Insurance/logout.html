@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logging Out - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4">
+
+  <div class="text-center space-y-4 animate-pulse max-w-sm">
+    <div class="w-16 h-16 rounded-3xl gradient-primary flex items-center justify-center text-white mx-auto shadow-2xl shadow-brand-500/50">
+      <i class="fa-solid fa-arrow-right-from-bracket text-2xl"></i>
+    </div>
+    <h2 class="text-2xl font-black">Signing Out...</h2>
+    <p class="text-xs text-slate-400">Clearing active user session & persisting data to storage.</p>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        logout();
+      }, 800);
+    });
+  </script>
+</body>
+</html>

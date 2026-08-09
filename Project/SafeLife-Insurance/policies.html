@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Policies Catalog - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    
+    <!-- Title & Search Bar -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Catalog</span>
+        <h1 class="text-3xl font-black text-slate-900 tracking-tight mt-1">Explore Insurance Policies</h1>
+        <p class="text-sm text-slate-500 mt-1">Select from our top-tier coverage options with instant online enrollment.</p>
+      </div>
+
+      <div class="relative w-full md:w-80">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+        <input type="text" id="search-policies" placeholder="Search by policy name or cover..." class="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm bg-white shadow-sm">
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap gap-2">
+      <button data-category="All" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-brand-600 text-white transition-all shadow-sm">
+        All Categories
+      </button>
+      <button data-category="Health" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition-all shadow-sm">
+        <i class="fa-solid fa-heart-pulse text-rose-500 mr-1"></i> Health
+      </button>
+      <button data-category="Life" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition-all shadow-sm">
+        <i class="fa-solid fa-user-shield text-emerald-500 mr-1"></i> Life
+      </button>
+      <button data-category="Vehicle" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition-all shadow-sm">
+        <i class="fa-solid fa-car text-amber-500 mr-1"></i> Vehicle
+      </button>
+      <button data-category="Home" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition-all shadow-sm">
+        <i class="fa-solid fa-house text-purple-500 mr-1"></i> Home
+      </button>
+      <button data-category="Travel" class="cat-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 transition-all shadow-sm">
+        <i class="fa-solid fa-plane text-cyan-500 mr-1"></i> Travel
+      </button>
+    </div>
+
+    <!-- Policies Grid Container -->
+    <div id="policies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected by policies.js -->
+    </div>
+
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/policies.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Sign In - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 flex items-center justify-center p-4 py-12">
+    <div class="max-w-md w-full bg-white rounded-3xl p-8 border border-slate-100 shadow-2xl space-y-6">
+      
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 rounded-2xl gradient-primary flex items-center justify-center text-white mx-auto shadow-lg shadow-brand-500/30">
+          <i class="fa-solid fa-lock text-xl"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight">Sign In to Your Account</h2>
+        <p class="text-xs text-slate-500">Access your policies, track claims, and renew coverage.</p>
+      </div>
+
+      <!-- Quick Demo Buttons -->
+      <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+        <span class="text-[10px] uppercase font-bold text-slate-400 block text-center">Fast Demo Access</span>
+        <div class="grid grid-cols-2 gap-2">
+          <button id="demo-user-btn" type="button" class="py-2 px-3 bg-white border border-slate-200 hover:border-brand-500 rounded-xl text-xs font-bold text-slate-700 shadow-sm transition-all flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-user text-brand-600"></i> Demo User
+          </button>
+          <button id="demo-admin-btn" type="button" class="py-2 px-3 bg-white border border-slate-200 hover:border-purple-500 rounded-xl text-xs font-bold text-slate-700 shadow-sm transition-all flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-user-shield text-purple-600"></i> Demo Admin
+          </button>
+        </div>
+      </div>
+
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email Address</label>
+          <input type="email" id="email" required placeholder="user@safelife.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none text-sm transition-all">
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Password</label>
+            <a href="#" onclick="alert('Demo password is password123')" class="text-xs text-brand-600 hover:underline font-semibold">Forgot?</a>
+          </div>
+          <input type="password" id="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none text-sm transition-all">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/30 transition-all text-sm">
+          Sign In
+        </button>
+      </form>
+
+      <div class="text-center pt-2 border-t border-slate-100">
+        <p class="text-xs text-slate-500">Don't have an insurance account yet? <a href="register.html" class="text-brand-600 font-bold hover:underline">Register Now</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

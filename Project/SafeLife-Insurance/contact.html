@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Customer Support - SafeLife Insurance</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between pt-20">
+
+  <div id="navbar-header"></div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full">24/7 Support</span>
+      <h1 class="text-4xl font-black text-slate-900 tracking-tight">We're Here to Help</h1>
+      <p class="text-slate-500 text-sm">Have questions about a policy, need assistance filing a claim, or interested in corporate group covers? Send us a message.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Contact Info Cards -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md flex items-center gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-base">24/7 Claims Toll-Free</h4>
+            <p class="text-sm font-semibold text-brand-600">+1 (800) 555-SAFE</p>
+            <p class="text-xs text-slate-400 mt-0.5">Emergency roadside & medical dispatch</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md flex items-center gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-base">General Inquiry Email</h4>
+            <p class="text-sm font-semibold text-emerald-600">support@safelife.com</p>
+            <p class="text-xs text-slate-400 mt-0.5">Response within 2 hours</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-md flex items-center gap-5">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-base">Global Headquarters</h4>
+            <p class="text-sm text-slate-600">100 Financial Center Blvd, Suite 400</p>
+            <p class="text-xs text-slate-400">New York, NY 10005</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-7">
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl space-y-6">
+          <h3 class="text-2xl font-bold text-slate-900">Send an Inquiry</h3>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Full Name *</label>
+                <input type="text" id="contact-name" required placeholder="David Miller" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Email Address *</label>
+                <input type="email" id="contact-email" required placeholder="david@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Subject *</label>
+              <input type="text" id="contact-subject" required placeholder="Inquiry about Auto Insurance" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Message *</label>
+              <textarea id="contact-message" required rows="4" placeholder="Please describe your question or assistance needed..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-500 outline-none text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/25 transition-all text-sm">
+              Submit Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-section"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/messages.js"></script>
+</body>
+</html>
