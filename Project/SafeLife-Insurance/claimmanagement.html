@@ -13,11 +13,13 @@
         extend: {
           colors: {
             brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
             }
           }
         }
@@ -27,14 +29,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20 gradient-dark-mesh">
 
   <div id="navbar-header"></div>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-slide-up">
     
     <!-- Admin Navigation Bar -->
-    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3">
+    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
       <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
         <a href="admin.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
           <i class="fa-solid fa-chart-line mr-1"></i> Dashboard
@@ -45,7 +47,7 @@
         <a href="approvepolicy.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
           <i class="fa-solid fa-file-signature mr-1"></i> Policy Applications
         </a>
-        <a href="claimmanagement.html" class="px-4 py-2.5 rounded-xl bg-brand-600 text-white shadow-md">
+        <a href="claimmanagement.html" class="px-4 py-2.5 rounded-xl gradient-brand text-white shadow-lg shadow-indigo-500/25">
           <i class="fa-solid fa-hand-holding-dollar mr-1"></i> Claim Hub
         </a>
         <a href="reports.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
@@ -60,27 +62,73 @@
       </div>
     </div>
 
-    <div>
-      <h1 class="text-2xl font-black text-white">Insurance Claim Management Hub</h1>
-      <p class="text-xs text-slate-400 mt-1">Audit claim submissions, verify medical/damage documentation, and authorize payouts.</p>
+    <!-- Title & Search Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-black text-white tracking-tight">Claim Audit & Payout Hub</h1>
+        <p class="text-xs text-slate-400 mt-1">Audit customer claim submissions, verify document proof, and set approval status.</p>
+      </div>
+
+      <!-- Search Input -->
+      <div class="relative w-full md:w-80">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+        <input type="text" id="search-claims" placeholder="Search by claim ID, user, policy..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
     </div>
 
-    <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 text-slate-900">
+    <!-- Stats Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700/80 shadow-md">
+        <span class="text-[10px] uppercase font-bold text-slate-400 block">Total Claims Submitted</span>
+        <h3 id="stat-claim-total" class="text-2xl font-black text-white mt-1">0</h3>
+      </div>
+      <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700/80 shadow-md">
+        <span class="text-[10px] uppercase font-bold text-slate-400 block">Pending Audits</span>
+        <h3 id="stat-claim-pending" class="text-2xl font-black text-amber-400 mt-1">0</h3>
+      </div>
+      <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700/80 shadow-md">
+        <span class="text-[10px] uppercase font-bold text-slate-400 block">Total Approved Payouts</span>
+        <h3 id="stat-claim-payouts" class="text-2xl font-black text-emerald-400 mt-1">$0</h3>
+      </div>
+      <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700/80 shadow-md">
+        <span class="text-[10px] uppercase font-bold text-slate-400 block">Rejected Claims</span>
+        <h3 id="stat-claim-rejected" class="text-2xl font-black text-rose-400 mt-1">0</h3>
+      </div>
+    </div>
+
+    <!-- Claim Filter Tabs -->
+    <div class="flex flex-wrap gap-2">
+      <button data-status="All" class="claim-filter-btn px-4 py-2 rounded-xl text-xs font-bold gradient-brand text-white shadow-md">
+        All Claims
+      </button>
+      <button data-status="Pending" class="claim-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all">
+        <i class="fa-solid fa-clock text-amber-400 mr-1"></i> Pending
+      </button>
+      <button data-status="Approved" class="claim-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all">
+        <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Approved
+      </button>
+      <button data-status="Rejected" class="claim-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all">
+        <i class="fa-solid fa-circle-xmark text-rose-400 mr-1"></i> Rejected
+      </button>
+    </div>
+
+    <!-- Claims Table -->
+    <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 text-slate-100">
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
-            <tr class="bg-slate-100 border-b border-slate-200 text-[11px] uppercase font-bold text-slate-500">
-              <th class="px-6 py-3.5">Claim ID</th>
-              <th class="px-6 py-3.5">Policyholder</th>
-              <th class="px-6 py-3.5">Policy Title</th>
-              <th class="px-6 py-3.5">Claimed Amount</th>
-              <th class="px-6 py-3.5">Incident Reason</th>
-              <th class="px-6 py-3.5">Status</th>
-              <th class="px-6 py-3.5 text-right">Actions</th>
+            <tr class="bg-slate-800/90 border-b border-slate-700/80 text-[11px] uppercase font-bold text-slate-400">
+              <th class="px-6 py-4">Claim ID & Date</th>
+              <th class="px-6 py-4">Policyholder</th>
+              <th class="px-6 py-4">Policy Plan</th>
+              <th class="px-6 py-4">Claim Amount</th>
+              <th class="px-6 py-4">Reason / Notes</th>
+              <th class="px-6 py-4">Status</th>
+              <th class="px-6 py-4 text-right">Actions</th>
             </tr>
           </thead>
           <tbody id="admin-claims-tbody">
-            <!-- Injected by claims.js -->
+            <!-- Injected dynamically by claims.js -->
           </tbody>
         </table>
       </div>

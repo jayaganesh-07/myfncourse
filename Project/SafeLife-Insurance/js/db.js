@@ -263,15 +263,37 @@ const INITIAL_DATA = {
   ]
 };
 
-// Initialize LocalStorage Data Store
+// Initialize LocalStorage Data// Storage Ops
 function initDB() {
   for (const [key, value] of Object.entries(DB_KEYS)) {
     if (!localStorage.getItem(value)) {
-      const seedKey = key;
-      if (INITIAL_DATA[seedKey]) {
-        localStorage.setItem(value, JSON.stringify(INITIAL_DATA[seedKey]));
+      if (INITIAL_DATA[key]) {
+        localStorage.setItem(value, JSON.stringify(INITIAL_DATA[key]));
       }
     }
+  }
+
+  // Sanitize Claims to guarantee numeric values
+  try {
+    const claims = JSON.parse(localStorage.getItem(DB_KEYS.CLAIMS) || '[]');
+    let updated = false;
+    claims.forEach(c => {
+      if (typeof c.claimAmount === 'string') {
+        c.claimAmount = parseFloat(c.claimAmount.replace(/[^0-9.]/g, '')) || 1000;
+        updated = true;
+      }
+      if (typeof c.approvedAmount === 'string') {
+        c.approvedAmount = parseFloat(c.approvedAmount.replace(/[^0-9.]/g, '')) || 0;
+        updated = true;
+      }
+      if (isNaN(c.claimAmount)) { c.claimAmount = 1000; updated = true; }
+      if (isNaN(c.approvedAmount)) { c.approvedAmount = 0; updated = true; }
+    });
+    if (updated) {
+      localStorage.setItem(DB_KEYS.CLAIMS, JSON.stringify(claims));
+    }
+  } catch (e) {
+    console.error('Claims DB Sanitization error:', e);
   }
 }
 

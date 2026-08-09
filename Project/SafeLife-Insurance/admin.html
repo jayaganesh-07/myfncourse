@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin System Control Panel - SafeLife Insurance</title>
+  <title>Admin Control Panel - SafeLife Insurance</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -13,11 +13,13 @@
         extend: {
           colors: {
             brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#1e1b4b',
             }
           }
         }
@@ -27,16 +29,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between pt-20 gradient-dark-mesh">
 
   <div id="navbar-header"></div>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-slide-up">
     
-    <!-- Admin Bar Navigation Tabs -->
-    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3">
+    <!-- Admin Navigation Bar -->
+    <div class="bg-slate-800/90 rounded-2xl p-3 border border-slate-700 shadow-xl flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
       <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
-        <a href="admin.html" class="px-4 py-2.5 rounded-xl bg-brand-600 text-white shadow-md">
+        <a href="admin.html" class="px-4 py-2.5 rounded-xl gradient-brand text-white shadow-lg shadow-indigo-500/25">
           <i class="fa-solid fa-chart-line mr-1"></i> Dashboard Overview
         </a>
         <a href="users.html" class="px-4 py-2.5 rounded-xl text-slate-300 hover:bg-slate-700 transition-colors">
@@ -67,51 +69,55 @@
     <!-- Admin Overview Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-lg space-y-2">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Registered Users</span>
+      <div class="bg-slate-800/90 p-6 rounded-3xl border border-slate-700 shadow-xl space-y-2 hover-lift">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Registered Users</span>
         <h3 id="admin-total-users" class="text-3xl font-black text-white">0</h3>
-        <p class="text-[10px] text-emerald-400 font-semibold"><i class="fa-solid fa-arrow-up"></i> +12% this month</p>
+        <p class="text-[10px] text-emerald-400 font-semibold"><i class="fa-solid fa-arrow-up"></i> +12% active customers</p>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-lg space-y-2">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending Policy Approvals</span>
+      <div class="bg-slate-800/90 p-6 rounded-3xl border border-slate-700 shadow-xl space-y-2 hover-lift">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Pending Policy Applications</span>
         <h3 id="admin-pending-policies" class="text-3xl font-black text-amber-400">0</h3>
-        <a href="approvepolicy.html" class="text-[10px] text-brand-400 hover:underline font-semibold block">Review Applications →</a>
+        <a href="approvepolicy.html" class="text-[10px] text-indigo-400 hover:underline font-bold block">Review Applications →</a>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-lg space-y-2">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending Claims Review</span>
+      <div class="bg-slate-800/90 p-6 rounded-3xl border border-slate-700 shadow-xl space-y-2 hover-lift">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Pending Claim Audits</span>
         <h3 id="admin-pending-claims" class="text-3xl font-black text-rose-400">0</h3>
-        <a href="claimmanagement.html" class="text-[10px] text-brand-400 hover:underline font-semibold block">Audit Claim Vouchers →</a>
+        <a href="claimmanagement.html" class="text-[10px] text-indigo-400 hover:underline font-bold block">Audit Claim Vouchers →</a>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-lg space-y-2">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Est. Annual Revenue</span>
+      <div class="bg-slate-800/90 p-6 rounded-3xl border border-slate-700 shadow-xl space-y-2 hover-lift">
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Gross Annual Revenue</span>
         <h3 id="admin-total-revenue" class="text-3xl font-black text-emerald-400">$0</h3>
-        <p class="text-[10px] text-slate-400">Based on active subscriptions</p>
+        <p class="text-[10px] text-slate-400">From active insurance subscriptions</p>
       </div>
 
     </div>
 
-    <!-- Recent Activity Stream -->
+    <!-- Recent Activity Streams -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
-      <!-- Pending Applications Quick Box -->
-      <div class="bg-slate-800 rounded-3xl p-6 border border-slate-700 space-y-4">
+      <!-- Pending Applications Box -->
+      <div class="bg-slate-800/90 rounded-3xl p-6 border border-slate-700 shadow-xl space-y-4">
         <div class="flex items-center justify-between">
-          <h3 class="font-bold text-white text-lg">Recent Policy Applications</h3>
-          <a href="approvepolicy.html" class="text-xs text-brand-400 font-bold hover:underline">View All</a>
+          <h3 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-file-signature text-indigo-400"></i> Policy Enrollment Stream
+          </h3>
+          <a href="approvepolicy.html" class="text-xs text-indigo-400 font-bold hover:underline">View All</a>
         </div>
         <div id="admin-recent-policies" class="space-y-3">
           <!-- Injected dynamically -->
         </div>
       </div>
 
-      <!-- Pending Claims Quick Box -->
-      <div class="bg-slate-800 rounded-3xl p-6 border border-slate-700 space-y-4">
+      <!-- Pending Claims Box -->
+      <div class="bg-slate-800/90 rounded-3xl p-6 border border-slate-700 shadow-xl space-y-4">
         <div class="flex items-center justify-between">
-          <h3 class="font-bold text-white text-lg">Recent Filed Claims</h3>
-          <a href="claimmanagement.html" class="text-xs text-brand-400 font-bold hover:underline">View All</a>
+          <h3 class="font-bold text-white text-base flex items-center gap-2">
+            <i class="fa-solid fa-hand-holding-dollar text-rose-400"></i> Claim Submissions Stream
+          </h3>
+          <a href="claimmanagement.html" class="text-xs text-indigo-400 font-bold hover:underline">View All</a>
         </div>
         <div id="admin-recent-claims" class="space-y-3">
           <!-- Injected dynamically -->
@@ -130,6 +136,10 @@
       const admin = requireAdmin();
       if (!admin) return;
 
+      renderAdminDashboard();
+    });
+
+    function renderAdminDashboard() {
       const users = getItem(DB_KEYS.USERS).filter(u => u.role === 'user');
       const userPolicies = getItem(DB_KEYS.USER_POLICIES);
       const claims = getItem(DB_KEYS.CLAIMS);
@@ -143,42 +153,48 @@
       document.getElementById('admin-pending-claims').textContent = pendingClaims.length;
       document.getElementById('admin-total-revenue').textContent = `$${annualRev.toLocaleString()}`;
 
-      // Render Recent Policies Quick Box
+      // Render Recent Policies Stream
       const polBox = document.getElementById('admin-recent-policies');
       if (polBox) {
         if (userPolicies.length === 0) {
-          polBox.innerHTML = `<p class="text-xs text-slate-400 py-4">No policy applications yet.</p>`;
+          polBox.innerHTML = `<p class="text-xs text-slate-400 py-4">No policy applications submitted.</p>`;
         } else {
-          polBox.innerHTML = userPolicies.slice(0, 4).map(p => `
-            <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 flex items-center justify-between text-xs">
+          polBox.innerHTML = userPolicies.slice(0, 5).map(p => `
+            <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-700/60 flex items-center justify-between text-xs">
               <div>
                 <h5 class="font-bold text-white">${p.userName}</h5>
-                <p class="text-slate-400">${p.policyTitle}</p>
+                <p class="text-slate-400 text-[11px]">${p.policyTitle}</p>
               </div>
-              <span class="px-2.5 py-1 rounded-full font-bold uppercase ${p.status === 'Approved' ? 'bg-emerald-900/60 text-emerald-400' : 'bg-amber-900/60 text-amber-400'}">${p.status}</span>
+              <span class="px-2.5 py-1 rounded-full font-bold uppercase text-[10px] ${
+                p.status === 'Approved' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' :
+                p.status === 'Rejected' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+              }">${p.status}</span>
             </div>
           `).join('');
         }
       }
 
-      // Render Recent Claims Quick Box
+      // Render Recent Claims Stream
       const claimBox = document.getElementById('admin-recent-claims');
       if (claimBox) {
         if (claims.length === 0) {
           claimBox.innerHTML = `<p class="text-xs text-slate-400 py-4">No claim records submitted yet.</p>`;
         } else {
-          claimBox.innerHTML = claims.slice(0, 4).map(c => `
-            <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-700/60 flex items-center justify-between text-xs">
+          claimBox.innerHTML = claims.slice(0, 5).map(c => `
+            <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-700/60 flex items-center justify-between text-xs">
               <div>
                 <h5 class="font-bold text-white">${c.userName}</h5>
-                <p class="text-slate-400">$${c.claimAmount.toLocaleString()} • ${c.policyTitle}</p>
+                <p class="text-slate-400 text-[11px]">$${c.claimAmount.toLocaleString()} • ${c.policyTitle}</p>
               </div>
-              <span class="px-2.5 py-1 rounded-full font-bold uppercase ${c.status === 'Approved' ? 'bg-emerald-900/60 text-emerald-400' : 'bg-amber-900/60 text-amber-400'}">${c.status}</span>
+              <span class="px-2.5 py-1 rounded-full font-bold uppercase text-[10px] ${
+                c.status === 'Approved' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' :
+                c.status === 'Rejected' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+              }">${c.status}</span>
             </div>
           `).join('');
         }
       }
-    });
+    }
   </script>
 </body>
 </html>
