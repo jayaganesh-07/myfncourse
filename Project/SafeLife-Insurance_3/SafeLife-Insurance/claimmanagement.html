@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Claim management — SafeLife Admin</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Console</p>
+    <h1 class="font-display text-3xl text-white mt-2">Claim management</h1>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div id="claim-filters" class="flex flex-wrap gap-2 mb-8"></div>
+  <div class="policy-card overflow-hidden">
+    <div class="table-wrap">
+      <table class="w-full text-sm">
+        <thead class="bg-white text-left text-xs uppercase tracking-widest text-gray-400">
+          <tr>
+            <th class="py-3 px-5">User</th><th class="py-3 px-5">Policy</th><th class="py-3 px-5">Reason</th>
+            <th class="py-3 px-5">Amount</th><th class="py-3 px-5">Filed</th><th class="py-3 px-5">Status</th><th class="py-3 px-5">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="claims-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/claimmanagement.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Create account — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+  <div class="policy-card p-8 w-full max-w-md mx-auto order-2 lg:order-1">
+    <h2 class="font-display text-2xl">Create your account</h2>
+    <p class="text-sm text-gray-500 mt-1">Takes under two minutes — no documents needed to sign up.</p>
+
+    <form id="register-form" class="mt-6 space-y-4" novalidate>
+      <div>
+        <label for="name" class="block text-sm font-medium mb-1">Full name</label>
+        <input type="text" id="name" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="Anjali Raman" />
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Email</label>
+          <input type="email" id="email" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium mb-1">Phone</label>
+          <input type="tel" id="phone" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="98765 43210" />
+        </div>
+      </div>
+      <div>
+        <label for="address" class="block text-sm font-medium mb-1">Address</label>
+        <input type="text" id="address" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="City, State" />
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="password" class="block text-sm font-medium mb-1">Password</label>
+          <input type="password" id="password" required minlength="6" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="Min. 6 characters" />
+        </div>
+        <div>
+          <label for="confirm" class="block text-sm font-medium mb-1">Confirm password</label>
+          <input type="password" id="confirm" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="Repeat password" />
+        </div>
+      </div>
+      <p id="register-error" class="text-sm text-red-600 hidden"></p>
+      <button type="submit" class="w-full bg-[var(--teal)] text-white font-semibold py-2.5 rounded-lg hover:brightness-95">Create account</button>
+    </form>
+
+    <p class="text-sm text-gray-500 mt-6 text-center">Already have an account? <a href="login.html" class="text-[var(--teal)] font-semibold hover:underline">Log in</a></p>
+  </div>
+
+  <div class="hidden lg:block order-1 lg:order-2">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Join SafeLife</p>
+    <h1 class="font-display text-4xl mt-3 leading-tight">One account, every policy you'll ever need.</h1>
+    <p class="text-gray-500 mt-4 max-w-sm">Your details are stored securely in your own browser — you're always in control of your data.</p>
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=900&auto=format&fit=crop" alt="Person signing up on a laptop" class="mt-8 rounded-2xl w-full h-64 object-cover" />
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

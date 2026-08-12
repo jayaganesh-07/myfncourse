@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SafeLife Insurance — Life Cover You Can Actually Understand</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<!-- HERO -->
+<header class="relative bg-[var(--harbor)] overflow-hidden">
+  <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[var(--gold)]/10 blur-3xl"></div>
+  <div class="absolute left-1/3 bottom-0 h-56 w-56 rounded-full bg-[var(--teal)]/20 blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-12 items-center relative">
+    <div>
+      <span class="seal seal-open bg-white/10 text-[var(--gold)] border-[var(--gold)]">Policy No. SL-2026-0001</span>
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-white mt-6 leading-tight">
+        Protection for your people, <span class="text-[var(--gold)]">written in plain language.</span>
+      </h1>
+      <p class="mt-6 text-white/70 text-lg max-w-xl">
+        Apply for life cover in minutes, track every claim, and manage your whole policy — all from one calm, honest dashboard. No agents, no jargon.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="register.html" class="bg-[var(--gold)] text-[var(--harbor)] font-semibold px-6 py-3 rounded-full hover:brightness-95">Get covered today</a>
+        <a href="policies.html" class="border border-white/30 text-white px-6 py-3 rounded-full hover:bg-white/10">Browse policies</a>
+      </div>
+      <div class="mt-10 flex items-center gap-8 font-mono text-xs text-white/50">
+        <div><span class="text-[var(--gold)] text-lg font-semibold block">₹5 Cr+</span>max cover issued</div>
+        <div><span class="text-[var(--gold)] text-lg font-semibold block">24 hrs</span>avg. claim response</div>
+        <div><span class="text-[var(--gold)] text-lg font-semibold block">100%</span>online, paperless</div>
+      </div>
+    </div>
+
+    <!-- signature policy card, live in the hero -->
+    <div class="policy-card mx-auto w-full max-w-sm shadow-2xl">
+      <div class="p-6">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-mono text-[11px] text-gray-400 uppercase tracking-widest">Sample Policy Card</p>
+            <h3 class="font-display text-xl mt-1">SafeLife Term Shield</h3>
+          </div>
+          <span class="seal seal-approved">Active</span>
+        </div>
+        <p class="text-sm text-gray-500 mt-3">Term Life · 20 years</p>
+        <div class="mt-4">
+          <div class="flex justify-between text-xs text-gray-500 mb-1">
+            <span>Coverage utilised</span><span>₹0 of ₹50,00,000</span>
+          </div>
+          <div class="gauge-track"><div class="gauge-fill" style="width:6%"></div></div>
+        </div>
+      </div>
+      <div class="stub-divider"></div>
+      <div class="p-6 flex justify-between items-center">
+        <div>
+          <p class="font-mono text-[11px] text-gray-400 uppercase tracking-widest">Premium</p>
+          <p class="font-display text-lg">₹1,499 <span class="text-xs text-gray-400 font-sans">/ year</span></p>
+        </div>
+        <p class="font-mono text-[11px] text-gray-400">HOLDER<br /><span class="text-[var(--ink)]">A. RAMAN</span></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED POLICIES -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
+    <div>
+      <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Our plans</p>
+      <h2 class="font-display text-3xl mt-2">Six ways to protect what matters</h2>
+    </div>
+    <a href="policies.html" class="text-sm font-semibold text-[var(--teal)] hover:underline">View all policies →</a>
+  </div>
+  <div id="home-policy-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-white border-y border-[var(--hairline)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">The process</p>
+    <h2 class="font-display text-3xl mt-2 mb-12">From application to approval, in four steps</h2>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div><span class="ledger-index">STEP 01</span><h3 class="font-display text-lg mt-2">Create your account</h3><p class="text-sm text-gray-500 mt-2">Register with your details — your profile stays private and stored only on your device.</p></div>
+      <div><span class="ledger-index">STEP 02</span><h3 class="font-display text-lg mt-2">Choose a policy</h3><p class="text-sm text-gray-500 mt-2">Compare term, whole life, child and pension plans side by side.</p></div>
+      <div><span class="ledger-index">STEP 03</span><h3 class="font-display text-lg mt-2">Apply in minutes</h3><p class="text-sm text-gray-500 mt-2">Submit your application; our team reviews and approves it from the admin console.</p></div>
+      <div><span class="ledger-index">STEP 04</span><h3 class="font-display text-lg mt-2">Track & claim</h3><p class="text-sm text-gray-500 mt-2">Monitor your policy status and file claims directly from your dashboard.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Policyholders</p>
+  <h2 class="font-display text-3xl mt-2 mb-10">What our customers say</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="policy-card p-6">
+      <p class="text-sm text-gray-600">"Applying for term cover used to take a week of paperwork. Here I was approved before dinner."</p>
+      <p class="font-mono text-xs text-gray-400 mt-4">— Priya N., Chennai</p>
+    </div>
+    <div class="policy-card p-6">
+      <p class="text-sm text-gray-600">"I filed a claim on my father's policy and could track every status update myself. That transparency mattered."</p>
+      <p class="font-mono text-xs text-gray-400 mt-4">— Arjun K., Coimbatore</p>
+    </div>
+    <div class="policy-card p-6">
+      <p class="text-sm text-gray-600">"The dashboard actually explains what I'm covered for, in words I understand. Refreshing."</p>
+      <p class="font-mono text-xs text-gray-400 mt-4">— Meera S., Bengaluru</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[var(--teal)]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <h2 class="font-display text-3xl text-white">Ready to protect your family's tomorrow?</h2>
+    <p class="text-white/80 mt-3">Registration takes under two minutes.</p>
+    <a href="register.html" class="inline-block mt-6 bg-[var(--gold)] text-[var(--harbor)] font-semibold px-7 py-3 rounded-full hover:brightness-95">Create your free account</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    slInitLayout('index.html');
+    const policies = slGet(DB.POLICIES, []).slice(0, 6);
+    const grid = document.getElementById('home-policy-grid');
+    grid.innerHTML = policies.map(p => `
+      <div class="policy-card overflow-hidden">
+        <img src="${p.image}" alt="${slEscape(p.name)}" class="h-40 w-full object-cover" />
+        <div class="p-5">
+          <p class="font-mono text-[11px] text-[var(--teal)] uppercase tracking-widest">${slEscape(p.category)}</p>
+          <h3 class="font-display text-lg mt-1">${slEscape(p.name)}</h3>
+          <p class="text-sm text-gray-500 mt-2 line-clamp-2">${slEscape(p.description)}</p>
+          <div class="stub-divider my-4"></div>
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-mono text-[11px] text-gray-400">Coverage</p>
+              <p class="font-semibold">${slFormatMoney(p.coverage)}</p>
+            </div>
+            <a href="policies.html" class="text-sm font-semibold text-[var(--teal)] hover:underline">Details →</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Policies — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Plans</p>
+    <h1 class="font-display text-4xl text-white mt-3">Find the cover that fits your life</h1>
+    <p class="text-white/70 mt-4 max-w-xl mx-auto">Compare premiums and coverage side by side, then apply in a couple of clicks.</p>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div id="category-filters" class="flex flex-wrap gap-2 mb-10"></div>
+  <div id="policy-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<div id="site-footer"></div>
+
+<!-- Apply modal -->
+<div id="apply-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="policy-card p-6 w-full max-w-sm">
+    <h3 class="font-display text-xl mb-1">Confirm application</h3>
+    <p id="apply-modal-text" class="text-sm text-gray-500 mb-6"></p>
+    <div class="flex gap-3">
+      <button id="apply-cancel" class="flex-1 border border-[var(--hairline)] rounded-lg py-2.5 font-medium">Cancel</button>
+      <button id="apply-confirm" class="flex-1 bg-[var(--teal)] text-white rounded-lg py-2.5 font-semibold">Apply now</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/policies.js"></script>
+</body>
+</html>

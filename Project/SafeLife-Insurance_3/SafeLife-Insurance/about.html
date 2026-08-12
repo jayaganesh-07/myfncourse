@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About us — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">About SafeLife</p>
+    <h1 class="font-display text-4xl text-white mt-3">Insurance, minus the fine print anxiety</h1>
+    <p class="text-white/70 mt-4 max-w-2xl mx-auto">We built SafeLife because reading a life insurance policy shouldn't require a law degree. Every plan, claim and update lives in one dashboard you actually understand.</p>
+  </div>
+</header>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-12 items-center">
+  <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=900&auto=format&fit=crop" alt="Team discussing plans around a table" class="rounded-2xl w-full h-80 object-cover" />
+  <div>
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Our story</p>
+    <h2 class="font-display text-3xl mt-2">Founded on a simple promise</h2>
+    <p class="text-gray-600 mt-4 leading-relaxed">SafeLife started as a small team frustrated with how opaque life insurance felt for first-time buyers. We rebuilt the experience from scratch: transparent premiums, plain-language policy documents, and a claims process you can track step by step — instead of waiting on hold.</p>
+    <p class="text-gray-600 mt-4 leading-relaxed">Today, every policy on our platform is issued and managed digitally, with an admin team reviewing applications and claims within 24 hours.</p>
+  </div>
+</section>
+
+<section class="bg-white border-y border-[var(--hairline)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase text-center">What we stand for</p>
+    <h2 class="font-display text-3xl mt-2 mb-10 text-center">Our values</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="policy-card p-6">
+        <h3 class="font-display text-lg">Clarity first</h3>
+        <p class="text-sm text-gray-500 mt-2">No hidden clauses. Every premium and payout is stated plainly before you apply.</p>
+      </div>
+      <div class="policy-card p-6">
+        <h3 class="font-display text-lg">Speed with care</h3>
+        <p class="text-sm text-gray-500 mt-2">Applications and claims are reviewed quickly, without cutting corners on diligence.</p>
+      </div>
+      <div class="policy-card p-6">
+        <h3 class="font-display text-lg">You stay in control</h3>
+        <p class="text-sm text-gray-500 mt-2">Track, update, or cancel your policy any time from your own dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+  <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Ready when you are</p>
+  <h2 class="font-display text-3xl mt-2">Join thousands managing their cover online</h2>
+  <a href="register.html" class="inline-block mt-6 bg-[var(--teal)] text-white font-semibold px-7 py-3 rounded-full hover:brightness-95">Create your account</a>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => slInitLayout('about.html'));</script>
+</body>
+</html>

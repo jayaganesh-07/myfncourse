@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin overview — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Console</p>
+    <h1 class="font-display text-3xl text-white mt-2">Admin overview</h1>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div id="admin-stats" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"></div>
+
+  <div class="grid lg:grid-cols-2 gap-8">
+    <div>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display text-xl">Pending policy applications</h2>
+        <a href="approvepolicy.html" class="text-sm font-semibold text-[var(--teal)] hover:underline">Review all →</a>
+      </div>
+      <div id="admin-pending-policies" class="space-y-3"></div>
+    </div>
+    <div>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-display text-xl">Pending claims</h2>
+        <a href="claimmanagement.html" class="text-sm font-semibold text-[var(--teal)] hover:underline">Review all →</a>
+      </div>
+      <div id="admin-pending-claims" class="space-y-3"></div>
+    </div>
+  </div>
+
+  <div class="mt-14">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-display text-xl">Recently registered users</h2>
+      <a href="users.html" class="text-sm font-semibold text-[var(--teal)] hover:underline">Manage users →</a>
+    </div>
+    <div id="admin-recent-users" class="policy-card overflow-hidden">
+      <div class="table-wrap">
+        <table class="w-full text-sm">
+          <thead class="bg-white text-left text-xs uppercase tracking-widest text-gray-400">
+            <tr><th class="py-3 px-5">Name</th><th class="py-3 px-5">Email</th><th class="py-3 px-5">Phone</th><th class="py-3 px-5">Joined</th></tr>
+          </thead>
+          <tbody id="admin-users-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

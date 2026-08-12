@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settings — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-10">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Account</p>
+    <h1 class="font-display text-3xl text-white mt-2">Settings</h1>
+  </div>
+</header>
+
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+
+  <div class="policy-card p-8">
+    <h2 class="font-display text-xl mb-6">Profile details</h2>
+    <form id="profile-form" class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Full name</label>
+        <input id="s-name" type="text" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Email</label>
+        <input id="s-email" type="email" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Phone</label>
+        <input id="s-phone" type="tel" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Address</label>
+        <input id="s-address" type="text" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div class="sm:col-span-2">
+        <button type="submit" class="bg-[var(--teal)] text-white font-semibold px-6 py-2.5 rounded-lg hover:brightness-95">Save changes</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="policy-card p-8">
+    <h2 class="font-display text-xl mb-6">Change password</h2>
+    <form id="password-form" class="grid sm:grid-cols-3 gap-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Current password</label>
+        <input id="s-current-pw" type="password" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">New password</label>
+        <input id="s-new-pw" type="password" required minlength="6" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Confirm new password</label>
+        <input id="s-confirm-pw" type="password" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" />
+      </div>
+      <div class="sm:col-span-3">
+        <button type="submit" class="bg-[var(--teal)] text-white font-semibold px-6 py-2.5 rounded-lg hover:brightness-95">Update password</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="policy-card p-8 border-red-200">
+    <h2 class="font-display text-xl mb-2 text-red-600">Delete account</h2>
+    <p class="text-sm text-gray-500 mb-4">This permanently removes your profile, policies, claims, and notifications from this browser. This cannot be undone.</p>
+    <button id="delete-account" class="text-sm font-semibold text-red-600 border border-red-300 px-5 py-2.5 rounded-lg hover:bg-red-50">Delete my account</button>
+  </div>
+
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

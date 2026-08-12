@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manage users — SafeLife Admin</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap gap-4">
+    <div>
+      <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Console</p>
+      <h1 class="font-display text-3xl text-white mt-2">Registered users</h1>
+    </div>
+    <input id="user-search" type="search" placeholder="Search by name or email…" class="w-64 rounded-full px-4 py-2 text-sm border-0 focus:ring-2 focus:ring-[var(--gold)] outline-none" />
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <p class="text-sm text-gray-500 mb-4"><span id="user-count">0</span> user(s) registered on this platform.</p>
+  <div class="policy-card overflow-hidden">
+    <div class="table-wrap">
+      <table class="w-full text-sm">
+        <thead class="bg-white text-left text-xs uppercase tracking-widest text-gray-400">
+          <tr>
+            <th class="py-3 px-5">Name</th><th class="py-3 px-5">Email</th><th class="py-3 px-5">Phone</th>
+            <th class="py-3 px-5">Address</th><th class="py-3 px-5">Policies</th><th class="py-3 px-5">Joined</th><th class="py-3 px-5">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="users-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Edit user modal -->
+<div id="edit-user-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="policy-card p-6 w-full max-w-md">
+    <h3 class="font-display text-xl mb-4">Edit user</h3>
+    <form id="edit-user-form" class="space-y-4">
+      <input type="hidden" id="eu-id" />
+      <div><label class="block text-sm font-medium mb-1">Name</label><input id="eu-name" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" required /></div>
+      <div><label class="block text-sm font-medium mb-1">Email</label><input id="eu-email" type="email" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" required /></div>
+      <div><label class="block text-sm font-medium mb-1">Phone</label><input id="eu-phone" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" /></div>
+      <div><label class="block text-sm font-medium mb-1">Address</label><input id="eu-address" class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5" /></div>
+      <div class="flex gap-3 pt-2">
+        <button type="button" id="eu-cancel" class="flex-1 border border-[var(--hairline)] rounded-lg py-2.5 font-medium">Cancel</button>
+        <button type="submit" class="flex-1 bg-[var(--teal)] text-white rounded-lg py-2.5 font-semibold">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/users.js"></script>
+</body>
+</html>

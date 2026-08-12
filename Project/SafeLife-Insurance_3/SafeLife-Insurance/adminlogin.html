@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin console — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--harbor)] text-[var(--ink)] min-h-screen flex items-center justify-center px-4">
+
+<div class="w-full max-w-sm">
+  <div class="text-center mb-8">
+    <span class="font-display text-2xl text-white">SafeLife <span class="text-[var(--gold)]">Admin</span></span>
+    <p class="text-white/50 text-sm mt-1 font-mono">Staff console access only</p>
+  </div>
+
+  <div class="policy-card p-8">
+    <h1 class="font-display text-xl mb-1">Sign in</h1>
+    <p class="text-sm text-gray-500 mb-6">Use your administrator credentials.</p>
+    <form id="admin-login-form" class="space-y-4" novalidate>
+      <div>
+        <label class="block text-sm font-medium mb-1">Email</label>
+        <input id="a-email" type="email" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="admin@safelife.com" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Password</label>
+        <input id="a-password" type="password" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="••••••••" />
+      </div>
+      <p id="admin-login-error" class="text-sm text-red-600 hidden"></p>
+      <button type="submit" class="w-full bg-[var(--harbor)] text-white font-semibold py-2.5 rounded-lg hover:brightness-110">Enter console</button>
+    </form>
+    <p class="text-xs text-gray-400 mt-5 text-center font-mono">Demo credentials: admin@safelife.com / admin123</p>
+  </div>
+  <p class="text-center mt-6"><a href="index.html" class="text-white/50 text-sm hover:text-white">← Back to main site</a></p>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/adminauth.js"></script>
+</body>
+</html>

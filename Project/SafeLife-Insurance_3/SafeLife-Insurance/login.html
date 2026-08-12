@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log in — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+  <div class="hidden lg:block">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Welcome back</p>
+    <h1 class="font-display text-4xl mt-3 leading-tight">Your policies,<br />right where you left them.</h1>
+    <p class="text-gray-500 mt-4 max-w-sm">Log in to check your coverage, file a claim, or review your latest notifications.</p>
+    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=900&auto=format&fit=crop" alt="Family reviewing documents together" class="mt-8 rounded-2xl w-full h-64 object-cover" />
+  </div>
+
+  <div class="policy-card p-8 w-full max-w-md mx-auto">
+    <h2 class="font-display text-2xl">Log in to your account</h2>
+    <p class="text-sm text-gray-500 mt-1">Enter the email and password you registered with.</p>
+
+    <form id="login-form" class="mt-6 space-y-4" novalidate>
+      <div>
+        <label for="email" class="block text-sm font-medium mb-1">Email address</label>
+        <input type="email" id="email" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium mb-1">Password</label>
+        <input type="password" id="password" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="••••••••" />
+      </div>
+      <p id="login-error" class="text-sm text-red-600 hidden"></p>
+      <button type="submit" class="w-full bg-[var(--teal)] text-white font-semibold py-2.5 rounded-lg hover:brightness-95">Log in</button>
+    </form>
+
+    <p class="text-sm text-gray-500 mt-6 text-center">New here? <a href="register.html" class="text-[var(--teal)] font-semibold hover:underline">Create an account</a></p>
+    <p class="text-xs text-gray-400 mt-2 text-center">Are you staff? <a href="adminlogin.html" class="hover:underline">Go to admin console</a></p>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

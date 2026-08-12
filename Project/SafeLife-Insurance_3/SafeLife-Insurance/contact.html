@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact us — SafeLife Insurance</title>
+<link rel="icon" href="assets/favicon.ico" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[var(--paper)] text-[var(--ink)]">
+
+<div id="site-navbar"></div>
+
+<header class="bg-[var(--harbor)] py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="font-mono text-xs tracking-widest text-[var(--gold)] uppercase">Get in touch</p>
+    <h1 class="font-display text-4xl text-white mt-3">We read every message</h1>
+    <p class="text-white/70 mt-4 max-w-xl mx-auto">Questions about a policy, a claim, or just getting started — send us a note and our team will follow up.</p>
+  </div>
+</header>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-5 gap-10">
+  <div class="lg:col-span-3 policy-card p-8">
+    <h2 class="font-display text-2xl mb-1">Send us a message</h2>
+    <p class="text-sm text-gray-500 mb-6">We typically respond within one business day.</p>
+    <form id="contact-form" class="space-y-4" novalidate>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label for="c-name" class="block text-sm font-medium mb-1">Your name</label>
+          <input id="c-name" type="text" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" />
+        </div>
+        <div>
+          <label for="c-email" class="block text-sm font-medium mb-1">Email</label>
+          <input id="c-email" type="email" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" />
+        </div>
+      </div>
+      <div>
+        <label for="c-subject" class="block text-sm font-medium mb-1">Subject</label>
+        <input id="c-subject" type="text" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none" placeholder="e.g. Question about Term Shield" />
+      </div>
+      <div>
+        <label for="c-message" class="block text-sm font-medium mb-1">Message</label>
+        <textarea id="c-message" rows="5" required class="w-full border border-[var(--hairline)] rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-[var(--teal)] outline-none"></textarea>
+      </div>
+      <button type="submit" class="bg-[var(--teal)] text-white font-semibold px-6 py-2.5 rounded-lg hover:brightness-95">Send message</button>
+    </form>
+  </div>
+
+  <div class="lg:col-span-2 space-y-6">
+    <div class="policy-card p-6">
+      <h3 class="font-display text-lg">Head office</h3>
+      <p class="text-sm text-gray-500 mt-2">SafeLife Insurance HQ<br />Chennai, Tamil Nadu, India</p>
+    </div>
+    <div class="policy-card p-6">
+      <h3 class="font-display text-lg">Support hours</h3>
+      <p class="text-sm text-gray-500 mt-2">Mon – Sat, 9:00 AM – 7:00 PM IST</p>
+    </div>
+    <div class="policy-card p-6">
+      <h3 class="font-display text-lg">Direct lines</h3>
+      <p class="text-sm text-gray-500 mt-2">support@safelife.example<br />+91 44 4000 1200</p>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/messages.js"></script>
+</body>
+</html>
