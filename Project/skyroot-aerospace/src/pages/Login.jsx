@@ -1,0 +1,93 @@
+import { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { FiMail, FiLock } from 'react-icons/fi'
+import { useAuth } from '../context/AuthContext'
+
+export default function Login() {
+  const { login } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const redirectTo = location.state?.from || '/'
+
+  const [form, setForm] = useState({ email: '', password: '' })
+  const [error, setError] = useState('')
+
+  function handleChange(e) {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const result = login(form)
+    if (!result.ok) {
+      setError(result.error)
+      return
+    }
+    navigate(redirectTo, { replace: true })
+  }
+
+  return (
+    <div className="bg-space relative flex min-h-[calc(100vh-1px)] items-center justify-center px-5 py-16">
+      <div className="starfield" />
+      <div className="relative w-full max-w-md rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/90 p-8 backdrop-blur">
+        <p className="font-mono text-xs uppercase tracking-widest text-[color:var(--muted)]">Mission access · T-minus login</p>
+        <h1 className="mt-2 font-display text-2xl font-semibold">Sign in to Skyroot</h1>
+        <p className="mt-1 text-sm text-[color:var(--muted)]">
+          Sign in to leave mission reviews and save your favorite rocket.
+        </p>
+
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <div>
+            <label className="mb-1 block text-xs font-mono text-[color:var(--muted)]" htmlFor="email">Email</label>
+            <div className="flex items-center gap-2 rounded-lg border border-[color:var(--line)] bg-black/30 px-3 py-2.5">
+              <FiMail className="text-[color:var(--muted)]" />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={form.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                className="w-full bg-transparent text-sm text-white outline-none placeholder:text-[color:var(--muted)]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-mono text-[color:var(--muted)]" htmlFor="password">Password</label>
+            <div className="flex items-center gap-2 rounded-lg border border-[color:var(--line)] bg-black/30 px-3 py-2.5">
+              <FiLock className="text-[color:var(--muted)]" />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                value={form.password}
+                onChange={handleChange}
+                placeholder="••••••••"
+                className="w-full bg-transparent text-sm text-white outline-none placeholder:text-[color:var(--muted)]"
+              />
+            </div>
+          </div>
+
+          {error && <p className="text-sm text-red-400">{error}</p>}
+
+          <button
+            type="submit"
+            className="btn-launch w-full rounded-full bg-gradient-to-r from-[color:var(--blue)] to-[color:var(--purple)] py-2.5 text-sm font-semibold text-white"
+          >
+            Launch sign-in
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-[color:var(--muted)]">
+          New to Skyroot?{' '}
+          <Link to="/signup" className="font-semibold text-[color:var(--blue)] hover:underline">
+            Create an account
+          </Link>
+        </p>
+      </div>
+    </div>
+  )
+}
